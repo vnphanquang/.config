@@ -1,0 +1,4 @@
+[submodule ".tmux"]
+  path = .tmux
+  url = git@github.com:vnphanquang/.tmux.git
+  branch = vnphanquang
