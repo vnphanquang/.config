@@ -1,0 +1,2 @@
+# .config
+All about config
