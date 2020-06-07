@@ -43,3 +43,17 @@ Plugin Manager: `tpm`
 - `tmux-open`
 - `tmux-resurrect`
 - `tmux-sidebar`
+- `tmux-continuum`
+- `tmux-jump`
+
+## [Vimium][vimium]
+
+Copy these settings into `options` tab in vimium extension menu:
+- [Key Mapping][vimium-keymapping]
+- [CSS][vimium-style]
+
+
+
+[vimium]: https://github.com/philc/vimium
+[vimium-keymapping]: ./.vimium/keymapping.conf
+[vimium-style]: ./.vimium/style.css
