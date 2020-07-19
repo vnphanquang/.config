@@ -51,10 +51,9 @@ sh autogen.sh
 ./configure && make
 sudo make install
 # link config
-cd ~/
 export TMUX_PATH=~/dev/.config/.tmux/
-ln -s -f "$TMUX_PATH"
-ln -s -f "$TMUX_PATH.tmux.conf"
+ln -s -f "$TMUX_PATH" ~/
+ln -s -f "$TMUX_PATH.tmux.conf" ~/
 ```
 
 For `tmux-yank` to work:
@@ -80,6 +79,16 @@ Plugin Manager: `tpm`
 2. Copy these settings into `options` tab in vimium extension menu:
 - [Key Mapping][vimium-keymapping]
 - [CSS][vimium-style]
+
+## vim
+
+```bash
+export VIM_PATH=~/dev/.config/.vim
+ln -s -f "$VIM_PATH/.vimrc" ~/
+ln -s -f "$VIM_PATH/.keymapping.vim" ~/.vim
+ln -s -f "$VIM_PATH/.theme.vim" ~/.vim
+ln -s -f "$VIM_PATH/.vim-plug.vim" ~/.vim
+```
 
 [bash-it]: https://github.com/Bash-it/bash-it
 [tmux]: https://github.com/tmux/tmux

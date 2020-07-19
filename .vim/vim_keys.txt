@@ -1,0 +1,61 @@
+
+
+
+v  ["          *@:<C-U>exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")<CR>
+	Last set from /usr/share/vim/vim81/ftplugin/vim.vim line 79
+n  ["          *@:call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")<CR>
+	Last set from /usr/share/vim/vim81/ftplugin/vim.vim line 78
+v  []          *@m':<C-U>exe "normal! gv"|call search('^\s*endf\%[unction]\>', "bW")<CR>
+	Last set from /usr/share/vim/vim81/ftplugin/vim.vim line 71
+n  []          *@m':call search('^\s*endf\%[unction]\>', "bW")<CR>
+	Last set from /usr/share/vim/vim81/ftplugin/vim.vim line 70
+v  [[          *@m':<C-U>exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")<CR>
+	Last set from /usr/share/vim/vim81/ftplugin/vim.vim line 67
+n  [[          *@m':call search('^\s*fu\%[nction]\>', "bW")<CR>
+	Last set from /usr/share/vim/vim81/ftplugin/vim.vim line 66
+v  ]"          *@:<C-U>exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")<CR>
+	Last set from /usr/share/vim/vim81/ftplugin/vim.vim line 77
+n  ]"          *@:call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")<CR>
+	Last set from /usr/share/vim/vim81/ftplugin/vim.vim line 76
+v  ][          *@m':<C-U>exe "normal! gv"|call search('^\s*endf\%[unction]\>', "W")<CR>
+	Last set from /usr/share/vim/vim81/ftplugin/vim.vim line 73
+n  ][          *@m':call search('^\s*endf\%[unction]\>', "W")<CR>
+	Last set from /usr/share/vim/vim81/ftplugin/vim.vim line 72
+v  ]]          *@m':<C-U>exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")<CR>
+	Last set from /usr/share/vim/vim81/ftplugin/vim.vim line 69
+n  ]]          *@m':call search('^\s*fu\%[nction]\>', "W")<CR>
+	Last set from /usr/share/vim/vim81/ftplugin/vim.vim line 68
+v  gx            <Plug>NetrwBrowseXVis
+	Last set from /usr/share/vim/vim81/plugin/netrwPlugin.vim line 88
+n  gx            <Plug>NetrwBrowseX
+	Last set from /usr/share/vim/vim81/plugin/netrwPlugin.vim line 82
+n  y<C-G>      & :<C-U>call setreg(v:register, fugitive#Object(@%))<CR>
+	Last set from ~/.vim/plugged/vim-fugitive/plugin/fugitive.vim line 519
+n  <SNR>67_:   * :<C-U><C-R>=v:count ? v:count : ''<CR>
+	Last set from ~/.vim/plugged/vim-fugitive/autoload/fugitive.vim line 5888
+   <Plug>AirlineSelectNextTab * :<C-U>call <SNR>56_jump_to_tab(v:count1)<CR>
+	Last set from ~/.vim/plugged/vim-airline/autoload/airline/extensions/tabline/buffers.vim line 212
+   <Plug>AirlineSelectPrevTab * :<C-U>call <SNR>56_jump_to_tab(-v:count1)<CR>
+	Last set from ~/.vim/plugged/vim-airline/autoload/airline/extensions/tabline/buffers.vim line 211
+   <Plug>AirlineSelectTab9 * :call <SNR>56_select_tab(8)<CR>
+	Last set from ~/.vim/plugged/vim-airline/autoload/airline/extensions/tabline/buffers.vim line 203
+   <Plug>AirlineSelectTab8 * :call <SNR>56_select_tab(7)<CR>
+	Last set from ~/.vim/plugged/vim-airline/autoload/airline/extensions/tabline/buffers.vim line 203
+   <Plug>AirlineSelectTab7 * :call <SNR>56_select_tab(6)<CR>
+	Last set from ~/.vim/plugged/vim-airline/autoload/airline/extensions/tabline/buffers.vim line 203
+   <Plug>AirlineSelectTab6 * :call <SNR>56_select_tab(5)<CR>
+	Last set from ~/.vim/plugged/vim-airline/autoload/airline/extensions/tabline/buffers.vim line 203
+   <Plug>AirlineSelectTab5 * :call <SNR>56_select_tab(4)<CR>
+	Last set from ~/.vim/plugged/vim-airline/autoload/airline/extensions/tabline/buffers.vim line 203
+   <Plug>AirlineSelectTab4 * :call <SNR>56_select_tab(3)<CR>
+	Last set from ~/.vim/plugged/vim-airline/autoload/airline/extensions/tabline/buffers.vim line 203
+   <Plug>AirlineSelectTab3 * :call <SNR>56_select_tab(2)<CR>
+	Last set from ~/.vim/plugged/vim-airline/autoload/airline/extensions/tabline/buffers.vim line 203
+   <Plug>AirlineSelectTab2 * :call <SNR>56_select_tab(1)<CR>
+	Last set from ~/.vim/plugged/vim-airline/autoload/airline/extensions/tabline/buffers.vim line 203
+   <Plug>AirlineSelectTab1 * :call <SNR>56_select_tab(0)<CR>
+	Last set from ~/.vim/plugged/vim-airline/autoload/airline/extensions/tabline/buffers.vim line 203
+v  <Plug>NetrwBrowseXVis * :<C-U>call netrw#BrowseXVis()<CR>
+	Last set from /usr/share/vim/vim81/plugin/netrwPlugin.vim line 90
+n  <Plug>NetrwBrowseX * :call netrw#BrowseX(expand((exists("g:netrw_gx")? g:netrw_gx : '<cfile>')),netrw#CheckIfRemote())<CR>
+	Last set from /usr/share/vim/vim81/plugin/netrwPlugin.vim line 84
