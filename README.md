@@ -51,7 +51,7 @@ sh autogen.sh
 ./configure && make
 sudo make install
 # link config
-export TMUX_PATH=~/dev/.config/.tmux/
+export TMUX_PATH="~/dev/.config/.tmux/"
 ln -s -f "$TMUX_PATH" ~/
 ln -s -f "$TMUX_PATH.tmux.conf" ~/
 ```
@@ -83,7 +83,16 @@ Plugin Manager: `tpm`
 ## vim
 
 ```bash
-export VIM_PATH=~/dev/.config/.vim
+# install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# create necessary directories
+mkdir ~/.vim
+mkdir ~/.vim/undodir
+
+# link vim configs
+export VIM_PATH="~/dev/.config/.vim"
 ln -s -f "$VIM_PATH/.vimrc" ~/
 ln -s -f "$VIM_PATH/.keymapping.vim" ~/.vim
 ln -s -f "$VIM_PATH/.theme.vim" ~/.vim
