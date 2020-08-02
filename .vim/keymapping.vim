@@ -15,21 +15,20 @@ vnoremap j <Left>
 vnoremap l <Right>
 
 " ---------------------
-
 " Normal Mode
 
-nnoremap h :startinsert<CR>
 nnoremap <SPACE> <Nop>
 let mapleader=" "
- 
-" Horizontal skipping
-nnoremap J <S-Left>
-nnoremap L <S-Right> 
-nnoremap I <C-U>
-nnoremap K <C-E>
+nnoremap <C-i> :startinsert<CR>
+
+" Moving line
+" nnoremap <A-i> :m .-2<CR>==
+" nnoremap <A-k> :m .+1<CR>==
 
 " Insert Mode
-inoremap <C-i> <Esc>
+"inoremap kk <Esc>l
+"nnoremap ii :startinsert<CR>
+nnoremap <C-i> :startinsert<CR>
 
 " All
 map <C-b> :NERDTreeToggle<CR>
