@@ -9,11 +9,18 @@ cd .bash-it && git remote add upstream https://github.com/Bash-it/bash-it.git
 cd .vimium && git remote add upstream https://github.com/philc/vimium
 ```
 
+## [Powerline Font][powerline-fonts]
+```bash
+sudo apt-get install fonts-powerline
+```
 
 ## [bash-it][]
 
 ### Installation
 ```bash
+# fetch alacritty completion
+wget https://raw.githubusercontent.com/alacritty/alacritty/4cb5566a9c2d68006ffa97e2f8082ae3ef6c8de4/extra/completions/alacritty.bash -O completion/available/alacritty.bash
+
 # cd to bash-it repo
 ./install.sh
 # edit in .bashrc or .bash_profile
@@ -21,7 +28,7 @@ export BASH_IT_THEME='farius'
 # enable alias
 bash-it enable alias clipboard
 # enable completions
-bash-it enable completion docker export git npm nvm ssh system tmux
+bash-it enable completion docker export git npm nvm ssh system tmux alacritty
 # enable plugins
 bash-it enable plugin tmux autojump
 ```
@@ -93,10 +100,8 @@ mkdir ~/.vim/undodir
 
 # link vim configs
 export VIM_PATH="~/dev/.config/.vim"
-ln -s -f "$VIM_PATH/.vimrc" ~/
-ln -s -f "$VIM_PATH/.keymapping.vim" ~/.vim
-ln -s -f "$VIM_PATH/.theme.vim" ~/.vim
-ln -s -f "$VIM_PATH/.vim-plug.vim" ~/.vim
+ln -sf "$VIM_PATH/.vimrc" ~/
+ln -sf "$VIM_PATH/*" ~/.vim
 ```
 
 [bash-it]: https://github.com/Bash-it/bash-it
@@ -105,3 +110,4 @@ ln -s -f "$VIM_PATH/.vim-plug.vim" ~/.vim
 [vimium]: https://github.com/philc/vimium
 [vimium-keymapping]: ./.vimium/keymapping.conf
 [vimium-style]: ./.vimium/style.css
+[powerline-fonts]: https://github.com/powerline/fonts
