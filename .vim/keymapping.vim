@@ -22,8 +22,10 @@ let mapleader=" "
 nnoremap <C-i> :startinsert<CR>
 
 " Moving line
-" nnoremap <A-i> :m .-2<CR>==
-" nnoremap <A-k> :m .+1<CR>==
+execute "set <M-k>=\ek"
+nnoremap <M-k> :m .+1<CR>==
+execute "set <M-i>=\ei"
+nnoremap <M-i> :m .-2<CR>==
 
 " Insert Mode
 "inoremap kk <Esc>l
