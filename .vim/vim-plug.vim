@@ -15,6 +15,14 @@ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
+" Auto open nerdtree if no file was specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" If more than one window and previous buffer was NERDTree, go back to it.
+autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+let NERDTreeShowHidden=1
+let g:plug_window = 'noautocmd vertical topleft new'
+
 let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Modified'  :'M',
                 \ 'Staged'    :'S',

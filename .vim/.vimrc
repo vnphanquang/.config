@@ -28,11 +28,3 @@ source ~/.vim/keymapping.vim
 source ~/.vim/functions.vim
 source ~/.vim/coc.vim
 
-" Auto open nerdtree if no file was specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" If more than one window and previous buffer was NERDTree, go back to it.
-autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
-let NERDTreeShowHidden=1
-let g:plug_window = 'noautocmd vertical topleft new'
