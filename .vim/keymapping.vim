@@ -27,6 +27,10 @@ nnoremap <M-k> :m .+1<CR>==
 execute "set <M-i>=\ei"
 nnoremap <M-i> :m .-2<CR>==
 
+" Tab switching
+"nnoremap <C-1> :tabn 1<CR>
+"nnoremap <C-2> :tabn 2<CR>
+
 " Insert Mode
 "inoremap kk <Esc>l
 "nnoremap ii :startinsert<CR>
@@ -34,4 +38,3 @@ nnoremap <C-i> :startinsert<CR>
 
 " All
 map <C-b> :NERDTreeToggle<CR>
-

@@ -10,3 +10,4 @@ function! ToggleBgOpacity()
     endif
 endfunction
 nnoremap <leader>t :call ToggleBgOpacity()<CR>
+

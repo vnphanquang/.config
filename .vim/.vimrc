@@ -25,6 +25,6 @@ set encoding=UTF-8
 source ~/.vim/vim-plug.vim
 source ~/.vim/theme.vim
 source ~/.vim/keymapping.vim
-source ~/.vim/functions.vim
 source ~/.vim/coc.vim
+source ~/.vim/functions.vim
 

@@ -20,9 +20,12 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " If more than one window and previous buffer was NERDTree, go back to it.
 autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 let g:plug_window = 'noautocmd vertical topleft new'
-
+let g:NERDTreeMenuUp = 'i'
+let g:NERDTreeMenuDown = 'k'
+let g:NERDTreeMapOpenSplit = 'sh'
+let g:NERDTreeMapOpenVSplit = 'sv'
 let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Modified'  :'M',
                 \ 'Staged'    :'S',
