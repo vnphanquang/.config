@@ -9,6 +9,11 @@ cd .bash-it && git remote add upstream https://github.com/Bash-it/bash-it.git
 cd .vimium && git remote add upstream https://github.com/philc/vimium
 ```
 
+## Miscellaneous useful tools
+
+- [bat][bat]: `cat` clone written with `rust`
+
+
 ## [Powerline Font][powerline-fonts]
 ```bash
 sudo apt-get install fonts-powerline
@@ -111,3 +116,4 @@ ln -sf "$VIM_PATH/*" ~/.vim
 [vimium-keymapping]: ./.vimium/keymapping.conf
 [vimium-style]: ./.vimium/style.css
 [powerline-fonts]: https://github.com/powerline/fonts
+[bat]: https://github.com/sharkdp/bat
