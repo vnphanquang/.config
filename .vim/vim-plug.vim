@@ -23,8 +23,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 let NERDTreeShowHidden = 1
 let g:plug_window = 'noautocmd vertical topleft new'
-let g:NERDTreeMenuUp = 'i'
-let g:NERDTreeMenuDown = 'k'
 let g:NERDTreeMapOpenSplit = 'sh'
 let g:NERDTreeMapOpenVSplit = 'sv'
 let g:NERDTreeGitStatusIndicatorMapCustom = {
