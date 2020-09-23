@@ -41,6 +41,15 @@ font:
     style: Italic
 selection:
   save_to_clipboard: true
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 20000
+
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  multiplier: 3
+
 key_bindings:
   - { key: K,        mods: Alt,     chars: "\x1bk"                       }
   - { key: J,        mods: Alt,     chars: "\x1bj"                       }
