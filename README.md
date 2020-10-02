@@ -7,6 +7,16 @@ git clone --recurse-submodules git@github.com:vnphanquang/.config.git
 cd .tmux && git remote add upstream https://github.com/gpakosz/.tmux.git
 cd .bash-it && git remote add upstream https://github.com/Bash-it/bash-it.git
 cd .vimium && git remote add upstream https://github.com/philc/vimium
+
+# sync to upstream repo
+git checkout master
+git fetch upstream
+git merge upstream/master
+git push
+
+git checkout <vnphanquang>
+git rebase master
+git push --force-with-lease
 ```
 
 ## Miscellaneous useful tools
@@ -16,6 +26,7 @@ cd .vimium && git remote add upstream https://github.com/philc/vimium
 
 ## [Powerline Font][powerline-fonts]
 ```bash
+# ubuntu
 sudo apt-get install fonts-powerline
 ```
 
@@ -50,13 +61,13 @@ sudo apt install autojump
 ```bash
 # install tmux
 sudo apt install bison \
-				autotools-dev \
+                autotools-dev \
                 automake \
-				libncurses5-dev \
-				libevent-dev \
-				pkg-config \
-				libutempter-dev \
-				build-essential
+                libncurses5-dev \
+                libevent-dev \
+                pkg-config \
+                libutempter-dev \
+                build-essential
 git clone git@github.com:tmux/tmux.git --branch <version_tag>
 cd tmux
 sh autogen.sh
