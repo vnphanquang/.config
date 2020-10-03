@@ -30,7 +30,7 @@ git push --force-with-lease
 sudo apt-get install fonts-powerline
 ```
 
-## [bash-it][]
+## [bash-it][]re
 
 ### Installation
 ```bash
@@ -74,9 +74,9 @@ sh autogen.sh
 ./configure && make
 sudo make install
 # link config
-export TMUX_PATH="~/dev/.config/.tmux/"
-ln -s -f "$TMUX_PATH" ~/
-ln -s -f "$TMUX_PATH.tmux.conf" ~/
+export TMUX_PATH="$HOME/dev/.config/.tmux/"
+ln -s -f "$TMUX_PATH" $HOME/
+ln -s -f "$TMUX_PATH.tmux.conf" $HOME/
 ```
 
 For `tmux-yank` to work:
@@ -115,9 +115,20 @@ mkdir ~/.vim
 mkdir ~/.vim/undodir
 
 # link vim configs
-export VIM_PATH="~/dev/.config/.vim"
-ln -sf "$VIM_PATH/.vimrc" ~/
-ln -sf "$VIM_PATH/*" ~/.vim
+export VIM_PATH="$HOME/dev/.config/.vim"
+ln -sf "$VIM_PATH/.vimrc" $HOME/
+ln -sf "$VIM_PATH/*" $HOME/.vim
+```
+
+## [Fish Shell][fish]
+
+Fish Plugin Manager: [Fisher][fisher]
+
+```bash
+# Linking fish config (fisher)
+rm -rf $HOME/.config/fish
+export FISH_PATH="$HOME/dev/.config/.fish"
+ln -sf $FISH_PATh $HOME/.config/fish
 ```
 
 [bash-it]: https://github.com/Bash-it/bash-it
@@ -128,3 +139,5 @@ ln -sf "$VIM_PATH/*" ~/.vim
 [vimium-style]: ./.vimium/style.css
 [powerline-fonts]: https://github.com/powerline/fonts
 [bat]: https://github.com/sharkdp/bat
+[fish]: https://github.com/fish-shell/fish-shell
+[fisher]: https://github.com/jorgebucaran/fisher
