@@ -74,7 +74,7 @@ SETUVAR tide_context_bg_color:303030
 SETUVAR tide_context_default_color:D7AF87
 SETUVAR tide_context_root_color:D7AF00
 SETUVAR tide_context_ssh_color:D7AF87
-SETUVAR tide_git_prompt_bg_color:303030
+SETUVAR tide_git_prompt_bg_color:1e4659
 SETUVAR tide_jobs_bg_color:303030
 SETUVAR tide_jobs_color:5FAF00
 SETUVAR tide_jobs_icon:\uf013
@@ -83,12 +83,11 @@ SETUVAR tide_left_prompt_frame_enabled:false
 SETUVAR tide_left_prompt_item_separator_diff_color:\ue0b0
 SETUVAR tide_left_prompt_item_separator_same_color:\ue0b1
 SETUVAR tide_left_prompt_item_separator_same_color_color:949494
-SETUVAR tide_left_prompt_items:pwd\x1egit_prompt\x1enewline\x1eprompt_char
+SETUVAR tide_left_prompt_items:context\x1epwd\x1egit_prompt\x1enewline\x1eprompt_char
 SETUVAR tide_left_prompt_pad_items:true
-SETUVAR tide_left_prompt_prefix:\ue0b6
 SETUVAR tide_left_prompt_suffix:\ue0b0
-SETUVAR tide_nvm_bg_color:303030
-SETUVAR tide_nvm_color:00AFAF
+SETUVAR tide_nvm_bg_color:2a5e53
+SETUVAR tide_nvm_color:32CD32
 SETUVAR tide_nvm_default_node:\x1d
 SETUVAR tide_nvm_icon:\u2b22
 SETUVAR tide_os_bg_color:303030
@@ -118,7 +117,7 @@ SETUVAR tide_right_prompt_frame_enabled:false
 SETUVAR tide_right_prompt_item_separator_diff_color:\ue0b2
 SETUVAR tide_right_prompt_item_separator_same_color:\ue0b3
 SETUVAR tide_right_prompt_item_separator_same_color_color:949494
-SETUVAR tide_right_prompt_items:status\x1ecmd_duration\x1econtext\x1ejobs\x1envm\x1evirtual_env\x1etime
+SETUVAR tide_right_prompt_items:status\x1ecmd_duration\x1ejobs\x1envm\x1erust\x1etime
 SETUVAR tide_right_prompt_pad_items:true
 SETUVAR tide_right_prompt_prefix:\ue0b2
 SETUVAR tide_right_prompt_suffix:\ue0b4
