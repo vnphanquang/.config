@@ -120,7 +120,6 @@ SETUVAR tide_right_prompt_item_separator_same_color_color:949494
 SETUVAR tide_right_prompt_items:status\x1ecmd_duration\x1ejobs\x1envm\x1erust\x1etime
 SETUVAR tide_right_prompt_pad_items:true
 SETUVAR tide_right_prompt_prefix:\ue0b2
-SETUVAR tide_right_prompt_suffix:\ue0b4
 SETUVAR tide_rust_bg_color:303030
 SETUVAR tide_rust_color:00AFAF
 SETUVAR tide_rust_icon:\ue7a8
