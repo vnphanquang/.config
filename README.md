@@ -122,7 +122,8 @@ ln -sf "$VIM_PATH/*" $HOME/.vim
 
 ## [Fish Shell][fish]
 
-Fish Plugin Manager: [Fisher][fisher]
+- Fish Plugin Manager: [Fisher][fisher]
+- Prompt Manager: [Tide][tide]
 
 ```bash
 # Linking fish config (fisher)
@@ -141,3 +142,4 @@ ln -sf $FISH_PATh $HOME/.config/fish
 [bat]: https://github.com/sharkdp/bat
 [fish]: https://github.com/fish-shell/fish-shell
 [fisher]: https://github.com/jorgebucaran/fisher
+[tide]: https://github.com/IlanCosman/tide
