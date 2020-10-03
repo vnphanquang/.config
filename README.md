@@ -126,6 +126,10 @@ ln -sf "$VIM_PATH/*" $HOME/.vim
 - Prompt Manager: [Tide][tide]
 
 ```bash
+# set as default
+echo `which fish` | sudo tee -a /etc/shells
+chsh -s `which fish`
+
 # Linking fish config (fisher)
 rm -rf $HOME/.config/fish
 export FISH_PATH="$HOME/dev/.config/.fish"
