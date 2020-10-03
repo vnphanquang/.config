@@ -6,7 +6,3 @@
 	path = .bash-it
 	url = git@github.com:vnphanquang/bash-it.git
 	branch = vnphanquang
-[submodule ".vimium"]
-	path = .vimium
-	url = git@github.com:vnphanquang/vimium.git
-	branch = vnphanquang
