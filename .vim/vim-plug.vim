@@ -13,6 +13,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
