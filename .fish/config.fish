@@ -11,3 +11,5 @@ set -U tide_prompt_char_bg_color ''
 set -U tide_left_prompt_prefix ''
 
 set -U EDITOR vim
+
+fish_vi_key_bindings
