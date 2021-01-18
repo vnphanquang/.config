@@ -24,5 +24,7 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " Insert Mode
 
+inoremap jj <Esc>
+
 " All
 map <C-b> :NERDTreeToggle<CR>
