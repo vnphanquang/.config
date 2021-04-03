@@ -1,5 +1,22 @@
-# .config
+# Dotfiles & Config Goodies
 All about config
+
+## Table of Contents
+
+- [Dotfiles & Config Goodies](#dotfiles--config-goodies)
+  - [Table of Contents](#table-of-contents)
+  - [Miscellaneous useful tools](#miscellaneous-useful-tools)
+  - [Powerline Font](#powerline-font)
+  - [bash-it](#bash-it)
+    - [Installation](#installation)
+    - [autojump](#autojump)
+  - [tmux](#tmux)
+    - [Install](#install)
+    - [Plugins](#plugins)
+  - [vimium](#vimium)
+  - [vim](#vim)
+  - [Fish Shell](#fish-shell)
+  - [Karabiner-Elements (MacOS)](#karabiner-elements-macos)
 
 ```bash
 git clone --recurse-submodules git@github.com:vnphanquang/.config.git
@@ -30,7 +47,7 @@ git push --force-with-lease
 sudo apt-get install fonts-powerline
 ```
 
-## [bash-it][]re
+## [bash-it][]
 
 ### Installation
 ```bash
@@ -133,7 +150,16 @@ chsh -s `which fish`
 # Linking fish config (fisher)
 rm -rf $HOME/.config/fish
 export FISH_PATH="$HOME/dev/.config/.fish"
-ln -sf $FISH_PATh $HOME/.config/fish
+ln -sf $FISH_PATH $HOME/.config/fish
+```
+
+## [Karabiner-Elements][karabinder] (MacOS)
+
+Keyboard Binding Software for MacOS
+
+```bash
+ln -sf $HOME/.config/.karabiner/karabiner.json $HOME/.config/karabiner/
+ln -sf $HOME/.config/.karabiner/assets/complex_modifications/1583596416.json $HOME/.config/assets/complex_modifications/
 ```
 
 [bash-it]: https://github.com/Bash-it/bash-it
@@ -147,3 +173,4 @@ ln -sf $FISH_PATh $HOME/.config/fish
 [fish]: https://github.com/fish-shell/fish-shell
 [fisher]: https://github.com/jorgebucaran/fisher
 [tide]: https://github.com/IlanCosman/tide
+[karabinder]: https://karabiner-elements.pqrs.org/
