@@ -101,7 +101,7 @@ For `tmux-yank` to work:
 sudo apt install xclip
 ```
 
-### Plugins 
+### Plugins
 
 Plugin Manager: `tpm`
 
@@ -112,6 +112,8 @@ Plugin Manager: `tpm`
 - `tmux-sidebar`
 - `tmux-continuum`
 - `tmux-jump`
+
+### [Save Session to Bash File][tmux.save-sessions]
 
 ## [vimium][]
 
@@ -164,6 +166,7 @@ ln -sf $HOME/.config/.karabiner/assets/complex_modifications/1583596416.json $HO
 
 [bash-it]: https://github.com/Bash-it/bash-it
 [tmux]: https://github.com/tmux/tmux
+[tmux.save-sessions]: https://github.com/zsoltf/tmux-save-sessions
 [autojump]: https://github.com/wting/autojump
 [vimium]: https://github.com/philc/vimium
 [vimium-keymapping]: ./.vimium/keymapping.conf
