@@ -18,6 +18,9 @@ set fish_key_bindings fish_user_key_bindings
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [ -f /Users/vnphanquang/dev/dsv/odc/apps/compagnon/uninstaller/node_modules/tabtab/.completions/electron-forge.fish ]; and . /Users/vnphanquang/dev/dsv/odc/apps/compagnon/uninstaller/node_modules/tabtab/.completions/electron-forge.fish
 
+# direnv hook
+direnv hook fish | source
+
 # OS specific settings
 
 switch (uname)
