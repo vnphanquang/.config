@@ -20,6 +20,7 @@ set fish_key_bindings fish_user_key_bindings
 
 # direnv hook
 direnv hook fish | source
+set -g direnv_fish_mode eval_after_arrow
 
 # OS specific settings
 
