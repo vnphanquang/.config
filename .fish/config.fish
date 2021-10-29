@@ -20,11 +20,14 @@ set fish_key_bindings fish_user_key_bindings
 
 # direnv hook
 direnv hook fish | source
-set -g direnv_fish_mode eval_after_arrow
+set -g direnv_fish_mode eval_on_arrow
 
 # OS specific settings
 
 switch (uname)
   case Darwin
     set -gx PATH "$HOME/.cargo/bin" (go env GOPATH)/bin $PATH;
+    set -gx PNPM_HOME "/Users/vnphanquang/Library/pnpm"
+    set -gx PATH "$PNPM_HOME" $PATH
 end
+
