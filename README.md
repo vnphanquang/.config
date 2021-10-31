@@ -164,6 +164,15 @@ ln -sf $HOME/.config/.karabiner/karabiner.json $HOME/.config/karabiner/
 ln -sf $HOME/.config/.karabiner/assets/complex_modifications/1583596416.json $HOME/.config/assets/complex_modifications/
 ```
 
+## [i3]
+
+Install [picom] to support custom terminal opacity
+
+```bash
+ln -sf $HOME/dev/.config/.i3/config $HOME/.config/i3
+ln -sf $HOME/dev/.config/.i3/picom.conf $HOME/.config/picom
+```
+
 [bash-it]: https://github.com/Bash-it/bash-it
 [tmux]: https://github.com/tmux/tmux
 [tmux.save-sessions]: https://github.com/zsoltf/tmux-save-sessions
@@ -177,3 +186,5 @@ ln -sf $HOME/.config/.karabiner/assets/complex_modifications/1583596416.json $HO
 [fisher]: https://github.com/jorgebucaran/fisher
 [tide]: https://github.com/IlanCosman/tide
 [karabinder]: https://karabiner-elements.pqrs.org/
+[i3]: https://i3wm.org/
+[picom]: https://github.com/yshui/picom
