@@ -1,63 +1,48 @@
-function _tide_pwd --on-variable PWD --on-signal WINCH
-    set -l preMaxDirsSplitPwd (string replace $HOME '~' $PWD | string split '/')
-    set -l splitPwd $preMaxDirsSplitPwd[(math --scale=0 -$tide_pwd_max_dirs)..-1]
-    set -l pwd (string join '/' $splitPwd)
+function _tide_pwd
+    set -l color_anchors (set_color -o $tide_pwd_color_anchors)
+    set -l color_truncated_dirs (set_color $tide_pwd_color_truncated_dirs || echo)
+    set -l reset_to_color_dirs (set_color normal -b $tide_pwd_bg_color; set_color $tide_pwd_color_dirs)
 
-    set -g _tide_git_dir (git rev-parse --show-toplevel 2>/dev/null) # Used for git_prompt item
+    set -l split_pwd (string replace -- $HOME '~' $PWD | string split /)
+    set -l split_pwd_for_length $split_pwd
 
-    # Compute anchors
-    if contains 'first' $tide_pwd_anchors
-        if test -n "$splitPwd[1]"
-            set -a tidePwdAnchors $splitPwd[1]
-        else
-            set -a tidePwdAnchors $splitPwd[2]
-        end
+    # Anchor first and last directories (which may be the same)
+    if test -n "$split_pwd[1]" # ~/foo/bar, hightlight ~
+        set split_pwd_for_output $color_anchors$split_pwd[1]$reset_to_color_dirs $split_pwd[2..]
+    else # /foo/bar, hightlight foo not empty string
+        set split_pwd_for_output '' $color_anchors$split_pwd[2]$reset_to_color_dirs $split_pwd[3..]
     end
-    if contains 'last' $tide_pwd_anchors
-        set -a tidePwdAnchors $splitPwd[-1]
-    end
-    if contains 'git' $tide_pwd_anchors
-        set -a tidePwdAnchors (string split -r -m1 '/' "$_tide_git_dir")[2]
-    end
+    set split_pwd_for_output[-1] $color_anchors$split_pwd[-1]$reset_to_color_dirs
 
-    set -l colorDirs (set_color $tide_pwd_color_dirs; or echo)
-    set -l colorAnchors (set_color -o $tide_pwd_color_anchors; or echo)
-    set -l keepBackgroundColor (set_color normal -b $tide_pwd_bg_color; or echo)
-    set -l colorTruncatedDirs (set_color $tide_pwd_color_truncated_dirs; or echo)
-
-    set -g _tide_pwd_output $colorDirs$pwd
-
-    # Prepend icons
     if not test -w $PWD
-        set -p _tide_pwd_output $colorDirs$tide_pwd_unwritable_icon' '
+        set -g tide_pwd_icon $tide_pwd_icon_unwritable' '
     else if test $PWD = $HOME
-        set -p _tide_pwd_output $colorDirs$tide_pwd_home_icon' '
+        set -g tide_pwd_icon $tide_pwd_icon_home' '
     else
-        set -p _tide_pwd_output $colorDirs$tide_pwd_dir_icon' '
+        set -g tide_pwd_icon $tide_pwd_icon' '
     end
 
-    set -l truncatedList $splitPwd '.'
-    if test -z "$splitPwd[1]" # Empty string will cause an issue for the while loop
-        set -e truncatedList[1]
-    end
-    set -l pwdMaxLength (math $COLUMNS -$tide_pwd_truncate_margin)
+    set -g pwd_length (string length "$tide_pwd_icon"(string join / $split_pwd_for_length))
 
-    for dir in $splitPwd
-        if contains $dir $tidePwdAnchors
-            set _tide_pwd_output (string replace $dir $colorAnchors$dir$keepBackgroundColor $_tide_pwd_output)
-        else if test (string length $pwd) -gt $pwdMaxLength
-            set -l dirTruncated $dir
-            set -l truncationLength 1
-            while contains $dirTruncated $truncatedList
-                set dirTruncated (string sub -l $truncationLength $dir)
-                set truncationLength (math $truncationLength+1)
+    i=1 for dir_section in $split_pwd[2..-2]
+        set -l parent_dir (string join -- / $split_pwd[..$i] | string replace '~' $HOME) # Uses i before increment
+
+        set i (math $i + 1)
+
+        # Returns true if any markers exist in dir_section
+        if test -z false (string split --max 2 " " -- "-o -e "$parent_dir/$dir_section/$tide_pwd_markers)
+            set split_pwd_for_output[$i] $color_anchors$dir_section$reset_to_color_dirs
+        else if test $pwd_length -gt $dist_btwn_sides
+            while set -l truncation_length (math $truncation_length + 1) &&
+                    set -l truncated (string sub --length $truncation_length -- $dir_section) &&
+                    test $truncated != $dir_section -a (count $parent_dir/$truncated*/) -gt 1
             end
-            set -a truncatedList $dirTruncated
-
-            set pwd (string replace $dir $dirTruncated $pwd)
-            set _tide_pwd_output (string replace $dir $colorTruncatedDirs$dirTruncated $_tide_pwd_output)
+            set split_pwd_for_length[$i] $truncated
+            set split_pwd_for_output[$i] $color_truncated_dirs$truncated$reset_to_color_dirs
+            set pwd_length (string length "$tide_pwd_icon"(string join / $split_pwd_for_length)) # Update length
         end
     end
 
-    set _tide_pwd_output (string replace --all '/' $colorDirs'/' $_tide_pwd_output)
+    printf '%s' $reset_to_color_dirs $tide_pwd_icon
+    string join -- / $split_pwd_for_output
 end

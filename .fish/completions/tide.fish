@@ -1,9 +1,9 @@
-set -l subcommands (basename -s '.fish' $__fish_config_dir/functions/_tide_sub_* | string replace '_tide_sub_' '')
-set -l uninstallIndex (contains --index uninstall $subcommands)
-set -l subcommandsWithoutUninstall (printf '%s ' $subcommands[1..(math $uninstallIndex-1)] $subcommands[(math $uninstallIndex+1)..-1])
+complete tide --no-files
 
-# Disable file completions for the entire command
-complete --command tide --no-files
+complete tide -x -n __fish_use_subcommand -a --help -d "Print help message"
+complete tide -x -n __fish_use_subcommand -a --version -d "Print tide version"
+complete tide -x -n __fish_use_subcommand -a bug-report -d "Print info for use in bug reports"
+complete tide -x -n __fish_use_subcommand -a configure -d "Run the configuration wizard"
 
-# Offer subcommands (without uninstall) if no subcommand has been given so far
-complete --command tide --condition "not __fish_seen_subcommand_from $subcommands" --arguments=$subcommandsWithoutUninstall
+complete tide -x -n '__fish_seen_subcommand_from bug-report' -a --clean -d "Run clean Fish instance and install Tide"
+complete tide -x -n '__fish_seen_subcommand_from bug-report' -a --verbose -d "Print full Tide configuration"
