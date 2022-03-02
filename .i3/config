@@ -182,3 +182,6 @@ bar {
 
 # start picom
 exec_always --no-startup-id picom -bCG --config ~/.config/picom/picom.conf --experimental-backends
+
+# restart the ibus engine
+exec_always --no-startup-id ~/dev/.config/startup/ibus.sh
