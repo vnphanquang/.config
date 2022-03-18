@@ -205,3 +205,13 @@ exec_always --no-startup-id picom -bCG --config ~/.config/picom/picom.conf --exp
 
 # restart the ibus engine
 exec_always --no-startup-id ~/dev/.config/startup/ibus.sh
+
+# https://gist.github.com/dianjuar/ee774561a8bc02b077989bc17424a19f
+# Screenshots
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+## Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
