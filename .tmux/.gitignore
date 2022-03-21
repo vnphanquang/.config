@@ -1,0 +1,4 @@
+resurrect/
+sidebar/
+plugins/*
+!plugins/.gitkeep
