@@ -161,6 +161,8 @@ sudo make install
 Configuration:
 
 ```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 export TMUX_PATH="$HOME/dev/.config/.tmux/"
 ln -s -f "$TMUX_PATH" $HOME/
 ln -s -f "$TMUX_PATH.tmux.conf" $HOME/
