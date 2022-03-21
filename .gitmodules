@@ -2,7 +2,3 @@
 	path = .tmux
 	url = git@github.com:vnphanquang/.tmux.git
 	branch = vnphanquang
-[submodule ".bash-it"]
-	path = .bash-it
-	url = git@github.com:vnphanquang/bash-it.git
-	branch = vnphanquang
