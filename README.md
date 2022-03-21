@@ -18,24 +18,6 @@ All about config
     - [Save Session to Bash File](#save-session-to-bash-file)
   - [Karabiner-Elements (MacOS)](#karabiner-elements-macos)
 
-<details>
-  <summary>Upstream Syncing: show / hide</summary>
-
-```bash
-git clone --recurse-submodules git@github.com:vnphanquang/.config.git
-# or https://github.com/vnphanquang/.config.git
-cd .tmux && git remote add upstream https://github.com/gpakosz/.tmux.git
-
-# sync to upstream repo
-git checkout master
-git fetch upstream
-git checkout <vnphanquang>
-git rebase upstream/master
-git push --force-with-lease
-```
-
-</details>
-
 ## Fonts
 
 | Font | Installation | Usage |
@@ -141,31 +123,14 @@ ln -sf $HOME/dev/.config/.polybar $HOME/.config/polybar
 
 ### Install
 
-```bash
-# install tmux
-sudo apt install bison \
-                autotools-dev \
-                automake \
-                libncurses5-dev \
-                libevent-dev \
-                pkg-config \
-                libutempter-dev \
-                build-essential
-git clone git@github.com:tmux/tmux.git --branch <version_tag>
-cd tmux
-sh autogen.sh
-./configure && make
-sudo make install
-```
-
 Configuration:
 
 ```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
 export TMUX_PATH="$HOME/dev/.config/.tmux/"
 ln -s -f "$TMUX_PATH" $HOME/
 ln -s -f "$TMUX_PATH.tmux.conf" $HOME/
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
 For `tmux-yank` to work:
