@@ -18,6 +18,9 @@ set fish_key_bindings fish_user_key_bindings
 direnv hook fish | source
 set -g direnv_fish_mode eval_on_arrow
 
+# thefuck configuration
+thefuck --alias | source
+
 # OS specific settings
 switch (uname)
   case Darwin
