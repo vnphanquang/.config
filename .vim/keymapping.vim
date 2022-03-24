@@ -1,9 +1,3 @@
-" Cursor movement
-
-
-" ---------------------
-" Normal Mode
-
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
