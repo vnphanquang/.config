@@ -121,10 +121,16 @@ set $ws9 "9:discord"
 set $ws10 "10"
 
 # Workspace Client Preset
-assign [class="Google-chrome"] → $ws1
+exec --no-startup-id "i3-msg 'workspace 1:browsers; append_layout ~/.config/i3/browsers.workspace.json'"
+
 exec --no-startup-id google-chrome
-assign [class="firefox"] → $ws1
+assign [class="Google-chrome"] → $ws1
+
 exec --no-startup-id firefox
+assign [class="firefox"] → $ws1
+
+exec --no-startup-id alacritty -t General
+assign [class="Alacritty" title="General"] → $ws1
 
 for_window [class="Spotify"] move to workspace $ws8
 exec --no-startup-id spotify
@@ -218,3 +224,4 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection c
 
 # Polybar launch script
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+bindsym $mod+Shift+P exec --no-startup-id polybar-msg cmd restart

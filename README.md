@@ -93,7 +93,7 @@ Configuration:
 
 
 ```bash
-ln -sf $HOME/dev/.config/.i3/config $HOME/.config/i3
+ln -sf $HOME/dev/.config/.i3 $HOME/.config/i3
 ln -sf $HOME/dev/.config/.i3/picom.conf $HOME/.config/picom
 
 ln -sf $HOME/dev/.config/.polybar $HOME/.config/polybar
