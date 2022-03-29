@@ -18,14 +18,18 @@ set fish_key_bindings fish_user_key_bindings
 direnv hook fish | source
 set -g direnv_fish_mode eval_on_arrow
 
-# thefuck configuration
-thefuck --alias | source
+# fish-fzf: include hidden files but now .gitignore
+set fzf_fd_opts --hidden --exclude=.git
 
 # OS specific settings
-switch (uname)
-  case Darwin
-    set -gx PATH "$HOME/.cargo/bin" (go env GOPATH)/bin $PATH;
-    set -gx PNPM_HOME "/Users/vnphanquang/Library/pnpm"
-    set -gx PATH "$PNPM_HOME" $PATH
+function source_env
+  switch (uname)
+    case Linux
+      set -gx PATH "$HOME/.cargo/bin" $PATH;
+    case Darwin
+      set -gx PATH "$HOME/.cargo/bin" (go env GOPATH)/bin $PATH;
+      set -gx PNPM_HOME "/Users/vnphanquang/Library/pnpm"
+      set -gx PATH "$PNPM_HOME" $PATH
+  end
 end
-
+source_env
