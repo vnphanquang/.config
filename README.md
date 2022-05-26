@@ -52,7 +52,6 @@ IlanCosman/tide@v5
 edc/bass
 jethrokuan/z
 franciscolourenco/done
-FabioAntunes/fish-nvm
 danhper/fish-ssh-agent
 PatrickF1/fzf.fish
 andreiborisov/sponge
@@ -96,8 +95,8 @@ mkdir ~/.vim/undodir
 
 # link vim configs
 export VIM_PATH="$HOME/dev/.config/.vim"
-ln -sf "$VIM_PATH/.vimrc" $HOME/
-ln -sf "$VIM_PATH/*" $HOME/.vim
+ln -sf $VIM_PATH/.vimrc $HOME/
+ln -sf $VIM_PATH/* $HOME/.vim
 ```
 
 </details>

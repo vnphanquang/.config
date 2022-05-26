@@ -30,10 +30,13 @@ function source_env
   switch (uname)
     case Linux
       set -gx PATH "$HOME/.cargo/bin" $PATH;
+
+      set -gx PNPM_HOME "$HOME/.local/share/pnpm";
+      set -gx PATH $PNPM_HOME $PATH;
     case Darwin
       set -gx PATH "$HOME/.cargo/bin" (go env GOPATH)/bin $PATH;
-      set -gx PNPM_HOME "/Users/vnphanquang/Library/pnpm"
-      set -gx PATH "$PNPM_HOME" $PATH
+      set -gx PNPM_HOME "/Users/vnphanquang/Library/pnpm";
+      set -gx PATH "$PNPM_HOME" $PATH;
   end
 end
 source_env
