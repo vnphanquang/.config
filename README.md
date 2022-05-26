@@ -31,6 +31,12 @@ All about config
 ln -sf $HOME/dev/.config/.fonts $HOME/.fonts
 ```
 
+## [alacritty]
+
+```bash
+ln -sf ~/dev/.config/.alacritty/.alacritty.yml $HOME
+```
+
 ## [fish]
 
 Dependencies:
@@ -200,6 +206,7 @@ ln -sf $HOME/.config/.karabiner/assets/complex_modifications/1583596416.json $HO
 [Qalculate!]: https://qalculate.github.io/
 [bat]: https://github.com/sharkdp/bat
 [exa]: https://github.com/ogham/exa
+[alacritty]: https://github.com/alacritty/alacritty
 
 [polybar]: https://polybar.github.io/
 [polybar.gmail]: https://github.com/crabvk/polybar-gmail
