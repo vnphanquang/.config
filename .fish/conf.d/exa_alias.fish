@@ -1,7 +1,0 @@
-alias l 'exa'
-alias ll 'exa --long --all --group --header --icons'
-alias la 'exa --long --all --group --header --binary --links --inode --blocks --icons'
-alias ld 'exa --long --all --group --header --list-dirs --icons'
-alias lg 'exa --long --all --group --header --git --icons'
-alias le 'exa --long --all --group --header --extended --icons'
-alias lt 'exa --long --all --group --header --tree --icons --level'

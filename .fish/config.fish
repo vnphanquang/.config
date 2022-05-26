@@ -1,3 +1,7 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
 # Tide config
 set -U tide_git_bg_color 1e4659
 set -U tide_node_bg_color 2a5e53

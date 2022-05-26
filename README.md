@@ -46,10 +46,29 @@ Dependencies:
 echo `which fish` | sudo tee -a /etc/shells
 chsh -s `which fish`
 
-# Linking fish config (fisher)
-rm -rf $HOME/.config/fish
+# install or add to fish_plugins file
+jorgebucaran/fisher
+IlanCosman/tide@v5
+edc/bass
+jethrokuan/z
+franciscolourenco/done
+FabioAntunes/fish-nvm
+danhper/fish-ssh-agent
+PatrickF1/fzf.fish
+andreiborisov/sponge
+jorgebucaran/autopair.fish
+
+
+# link fish config (fisher)
 export FISH_PATH="$HOME/dev/.config/.fish"
-ln -sf $FISH_PATH $HOME/.config/fish
+rm $HOME/.config/fish/config.fish
+ln -sf $FISH_PATH/config.fish $HOME/.config/fish/config.fish
+
+ln -sf $FISH_PATH/completions/alacritty.fish $HOME/.config/fish/completions/alacritty.fish
+
+ln -sf $FISH_PATH/completions/exa.fish $HOME/.config/fish/completions/exa.fish
+
+ln -sf $FISH_PATH/functions/fish_user_key_bindings.fish $HOME/.config/fish/functions/fish_user_key_bindings.fish
 ```
 
 </details>
