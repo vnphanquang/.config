@@ -4,3 +4,4 @@
 .gitsecret/keys/random_seed
 !*.secret
 .polybar/.env
+.fonts/.uuid

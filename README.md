@@ -134,6 +134,7 @@ ln -sf $HOME/dev/.config/.polybar $HOME/.config/polybar
 | --- | --- |
 | [bat] | `cat` clone written with `rust`
 | [Qalculate!] | desktop calculator |
+| [exa] | replacement for ls |
 
 ## [tmux]
 
@@ -198,6 +199,7 @@ ln -sf $HOME/.config/.karabiner/assets/complex_modifications/1583596416.json $HO
 
 [Qalculate!]: https://qalculate.github.io/
 [bat]: https://github.com/sharkdp/bat
+[exa]: https://github.com/ogham/exa
 
 [polybar]: https://polybar.github.io/
 [polybar.gmail]: https://github.com/crabvk/polybar-gmail
