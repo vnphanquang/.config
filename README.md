@@ -63,11 +63,9 @@ export FISH_PATH="$HOME/dev/.config/.fish"
 rm $HOME/.config/fish/config.fish
 ln -sf $FISH_PATH/config.fish $HOME/.config/fish/config.fish
 
-ln -sf $FISH_PATH/completions/alacritty.fish $HOME/.config/fish/completions/alacritty.fish
-
-ln -sf $FISH_PATH/completions/exa.fish $HOME/.config/fish/completions/exa.fish
-
-ln -sf $FISH_PATH/functions/fish_user_key_bindings.fish $HOME/.config/fish/functions/fish_user_key_bindings.fish
+ln -sf $FISH_PATH/completions/* $HOME/.config/fish/completions
+ln -sf $FISH_PATH/functions/* $HOME/.config/fish/functions
+ln -sf $FISH_PATH/conf.d/* $HOME/.config/fish/conf.d
 ```
 
 </details>
