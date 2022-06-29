@@ -141,6 +141,8 @@ ln -sf $HOME/dev/.config/.polybar $HOME/.config/polybar
 | [bat] | `cat` clone written with `rust`
 | [Qalculate!] | desktop calculator |
 | [exa] | replacement for ls |
+| [maim] | make image (screenshots) |
+| [peek] | make gif |
 
 ## [tmux]
 
@@ -212,3 +214,7 @@ ln -sf $HOME/.config/.karabiner/assets/complex_modifications/1583596416.json $HO
 [polybar.gmail]: https://github.com/crabvk/polybar-gmail
 
 [rofi]: https://github.com/davatorium/rofi
+
+[maim]: https://github.com/naelstrof/maim
+
+[peek]: https://github.com/phw/peek
