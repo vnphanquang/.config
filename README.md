@@ -60,7 +60,6 @@ jethrokuan/z
 franciscolourenco/done
 danhper/fish-ssh-agent
 PatrickF1/fzf.fish
-andreiborisov/sponge
 jorgebucaran/autopair.fish
 
 
