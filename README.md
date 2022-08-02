@@ -6,17 +6,19 @@ All about config
 - [Dotfiles & Config Goodies](#dotfiles--config-goodies)
   - [Table of Contents](#table-of-contents)
   - [Fonts](#fonts)
-  - [fish](#fish)
-  - [vimium](#vimium)
-  - [vim](#vim)
-  - [i3](#i3)
-  - [polybar](#polybar)
+  - [[alacritty]](#alacritty)
+  - [[fish]](#fish)
+  - [[vimium]](#vimium)
+  - [[vim]](#vim)
+  - [[i3]](#i3)
+  - [[polybar]](#polybar)
   - [Miscellaneous Toolings](#miscellaneous-toolings)
-  - [tmux](#tmux)
+  - [[tmux]](#tmux)
     - [Install](#install)
     - [Plugins](#plugins)
     - [Save Session to Bash File](#save-session-to-bash-file)
   - [Karabiner-Elements (MacOS)](#karabiner-elements-macos)
+  - [VS Code Extensions](#vs-code-extensions)
 
 ## Fonts
 
@@ -182,9 +184,27 @@ Plugin Manager: `tpm`
 Keyboard Binding Software for MacOS
 
 ```bash
-ln -sf $HOME/.config/.karabiner/karabiner.json $HOME/.config/karabiner/
-ln -sf $HOME/.config/.karabiner/assets/complex_modifications/1583596416.json $HOME/.config/assets/complex_modifications/
+ln -sf $HOME/dev/.config/.karabiner/karabiner.json $HOME/.config/karabiner/
+ln -sf $HOME/dev/.config/.karabiner/assets/complex_modifications/1583596416.json $HOME/.config/karabiner/assets/complex_modifications/
 ```
+
+## VS Code Extensions
+
+| Extension | Usage
+| --- | --- |
+| [EditorConfig][vscode.editorconfig] | override workspace format settings with `.editorconfig` file |
+| [Eslint][vscode.eslint] | eslint integration |
+| [Git Graph][vscode.gitgraph] | Git graph representation |
+| [Turbo Console Log][vscode.turboconsolelog] | Quick logging |
+| [Todo][vscode.todo] | Todo Tree / List |
+| [Stylelint][vscode.stylelint] | Stylelint integration |
+| [Live share][vscode.liveshare] | Pair programming session |
+| [Markdown All in One][vscode.markdownallinone] | Markdown Table of Contents & Preview |
+| [Path Intellisense][vscode.pathintellisense] | Path Intellisense |
+| [SVG Preview][vscode.svgpreview] | Preview SVG |
+| [Auto Rename Tag][vscode.autorenametag] | Quick renaming html tag |
+| [Tailwind][vscode.tailwind] | Tailwind integration |
+| [Vim][vscode.vim] | Vim keybinding |
 
 [bash-it]: https://github.com/Bash-it/bash-it
 [tmux]: https://github.com/tmux/tmux
@@ -202,11 +222,10 @@ ln -sf $HOME/.config/.karabiner/assets/complex_modifications/1583596416.json $HO
 [vim]: https://www.vim.org/
 
 [fonts.firacode.nerd]: https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
-[fonts.powerline]: https://github.com/powerline/fonts
 
 [Qalculate!]: https://qalculate.github.io/
-[bat]: https://github.com/sharkdp/bat
 [exa]: https://github.com/ogham/exa
+[bat]: https://github.com/sharkdp/bat
 [alacritty]: https://github.com/alacritty/alacritty
 
 [polybar]: https://polybar.github.io/
@@ -217,3 +236,17 @@ ln -sf $HOME/.config/.karabiner/assets/complex_modifications/1583596416.json $HO
 [maim]: https://github.com/naelstrof/maim
 
 [peek]: https://github.com/phw/peek
+
+[vscode.editorconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+[vscode.eslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+[vscode.liveshare]: https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare
+[vscode.gitgraph]: https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph
+[vscode.pathintellisense]: https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense
+[vscode.turboconsolelog]: https://marketplace.visualstudio.com/items?itemName=ChakrounAnas.turbo-console-log
+[vscode.vim]: https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
+[vscode.stylelint]: https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint
+[vscode.tailwind]: https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
+[vscode.todo]: https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
+[vscode.svgpreview]: https://marketplace.visualstudio.com/items?itemName=SimonSiefke.svg-preview
+[vscode.markdownallinone]: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
+[vscode.autorenametag]: https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag
