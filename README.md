@@ -17,8 +17,11 @@ All about config
     - [Install](#install)
     - [Plugins](#plugins)
     - [Save Session to Bash File](#save-session-to-bash-file)
-  - [Karabiner-Elements (MacOS)](#karabiner-elements-macos)
   - [VS Code Extensions](#vs-code-extensions)
+  - [Multiple SSH for Different Github Usernames](#multiple-ssh-for-different-github-usernames)
+  - [MacOS Specifics](#macos-specifics)
+    - [Karabiner-Elements (MacOS)](#karabiner-elements-macos)
+    - [[Yabai]](#yabai)
 
 ## Fonts
 
@@ -179,15 +182,6 @@ Plugin Manager: `tpm`
 
 ### [Save Session to Bash File][tmux.save-sessions]
 
-## [Karabiner-Elements][karabinder] (MacOS)
-
-Keyboard Binding Software for MacOS
-
-```bash
-ln -sf $HOME/dev/.config/.karabiner/karabiner.json $HOME/.config/karabiner/
-ln -sf $HOME/dev/.config/.karabiner/assets/complex_modifications/* $HOME/.config/karabiner/assets/complex_modifications/
-```
-
 ## VS Code Extensions
 
 | Extension | Usage
@@ -222,6 +216,40 @@ Host github.com-vnphanquang
 # File: <git_root>/.git/config
 [remote "origin"]
   url = git@github.com-username:domain
+```
+
+## MacOS Specifics
+
+### [Karabiner-Elements][karabinder] (MacOS)
+
+Keyboard Binding Software for MacOS
+
+```bash
+ln -sf $HOME/dev/.config/.karabiner/karabiner.json $HOME/.config/karabiner/
+ln -sf $HOME/dev/.config/.karabiner/assets/complex_modifications/* $HOME/.config/karabiner/assets/complex_modifications/
+```
+
+### [yabai] & [skhd]
+
+```bash
+mkdir $HOME/.config/yabai
+chmod +x $HOME/dev/.config/.yabai/yabairc
+ln -sf $HOME/dev/.config/.yabai/yabairc $HOME/.config/yabai/yabairc
+```
+
+```bash
+mkdir $HOME/.config/skhd
+chmod +x $HOME/dev/.config/.skhd/skhdrc
+ln -sf $HOME/dev/.config/.skhd/skhdrc $HOME/.config/skhd/skhdrc
+ln -sf $HOME/dev/.config/.yabai/yabairc $HOME/.config/yabai/yabairc
+```
+
+### [spacebar]
+
+```bash
+mkdir $HOME/.config/spacebar
+chmod +x $HOME/dev/.config/.spacebar/spacebarrc
+ln -sf $HOME/dev/.config/.spacebar/spacebarrc $HOME/.config/spacebar/spacebarrc
 ```
 
 [bash-it]: https://github.com/Bash-it/bash-it
@@ -268,3 +296,7 @@ Host github.com-vnphanquang
 [vscode.svgpreview]: https://marketplace.visualstudio.com/items?itemName=SimonSiefke.svg-preview
 [vscode.markdownallinone]: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
 [vscode.autorenametag]: https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag
+
+[yabai]: https://github.com/koekeishiya/yabai
+[skhd]: https://github.com/koekeishiya/skhd
+[spacebar]: https://github.com/cmacrae/spacebar
