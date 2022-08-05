@@ -185,7 +185,7 @@ Keyboard Binding Software for MacOS
 
 ```bash
 ln -sf $HOME/dev/.config/.karabiner/karabiner.json $HOME/.config/karabiner/
-ln -sf $HOME/dev/.config/.karabiner/assets/complex_modifications/1583596416.json $HOME/.config/karabiner/assets/complex_modifications/
+ln -sf $HOME/dev/.config/.karabiner/assets/complex_modifications/* $HOME/.config/karabiner/assets/complex_modifications/
 ```
 
 ## VS Code Extensions
@@ -205,6 +205,24 @@ ln -sf $HOME/dev/.config/.karabiner/assets/complex_modifications/1583596416.json
 | [Auto Rename Tag][vscode.autorenametag] | Quick renaming html tag |
 | [Tailwind][vscode.tailwind] | Tailwind integration |
 | [Vim][vscode.vim] | Vim keybinding |
+
+## Multiple SSH for Different Github Usernames
+
+```ini
+# File ~/.ssh/config
+
+# for github.com/vnphanquang
+Host github.com-vnphanquang
+  HostName github.com
+  IdentityFile ~/.ssh/vnphanquang_rsa
+  IdentitiesOnly yes
+```
+
+```ini
+# File: <git_root>/.git/config
+[remote "origin"]
+  url = git@github.com-username:domain
+```
 
 [bash-it]: https://github.com/Bash-it/bash-it
 [tmux]: https://github.com/tmux/tmux
