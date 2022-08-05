@@ -101,14 +101,14 @@
                         ]
                     },
                     {
-                        "description": "Change left_shift to cmd+k if pressed alone in VSCode",
+                        "description": "Change command+tab to ctrl+tab in VSCode",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "com\\.microsoft\\.VSCode",
-                                            "com\\.microsoft\\.VSCodeInsiders"
+                                            "^com\\.microsoft\\.VSCode",
+                                            "^com\\.microsoft\\.VSCodeInsiders"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -117,14 +117,14 @@
                                     "key_code": "tab",
                                     "modifiers": {
                                         "mandatory": [
-                                            "command"
+                                            "left_command"
                                         ]
                                     }
                                 },
                                 "to": {
                                     "key_code": "tab",
                                     "modifiers": [
-                                        "control"
+                                        "left_control"
                                     ],
                                     "lazy": true,
                                     "repeat": true
