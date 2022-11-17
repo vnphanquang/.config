@@ -138,6 +138,13 @@ Configuration:
 ln -sf $HOME/dev/.config/.polybar $HOME/.config/polybar
 ```
 
+## [rofi]
+
+```bash
+chmod -R +x $HOME/dev/.config/.rofi
+ln -sf $HOME/dev/.config/.rofi $HOME/.config/rofi
+```
+
 ## Miscellaneous Toolings
 
 | Tool | Description |
@@ -250,6 +257,15 @@ ln -sf $HOME/dev/.config/.yabai/yabairc $HOME/.config/yabai/yabairc
 mkdir $HOME/.config/spacebar
 chmod +x $HOME/dev/.config/.spacebar/spacebarrc
 ln -sf $HOME/dev/.config/.spacebar/spacebarrc $HOME/.config/spacebar/spacebarrc
+```
+
+### [dunst]
+
+> Shouldn't be using this,
+
+```bash
+chmod +x $HOME/dev/.config/.dunst/dunstrc
+ln -sf $HOME/dev/.config/.dunst/dunstrc $HOME/.config/dunst/dunstrc
 ```
 
 [bash-it]: https://github.com/Bash-it/bash-it
