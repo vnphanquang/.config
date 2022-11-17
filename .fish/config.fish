@@ -40,3 +40,4 @@ function source_env
   end
 end
 source_env
+alias python="python3"
