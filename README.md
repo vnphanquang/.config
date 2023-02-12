@@ -54,8 +54,9 @@ Dependencies:
 
 ```bash
 # set fish as default
-echo `which fish` | sudo tee -a /etc/shells
-chsh -s `which fish`
+fish
+echo $(which fish) | sudo tee -a /etc/shells
+chsh -s $(which fish)
 
 # install or add to fish_plugins file
 jorgebucaran/fisher
@@ -284,6 +285,7 @@ ln -sf $HOME/dev/.config/.dunst/dunstrc $HOME/.config/dunst/dunstrc
 [vim]: https://www.vim.org/
 
 [fonts.firacode.nerd]: https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode
+[fonts.powerline]: https://github.com/powerline/fonts
 
 [Qalculate!]: https://qalculate.github.io/
 [exa]: https://github.com/ogham/exa
