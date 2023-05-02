@@ -3,17 +3,19 @@ All about config
 
 ## Table of Contents
 
-- [Dotfiles & Config Goodies](#dotfiles--config-goodies)
+- [Dotfiles \& Config Goodies](#dotfiles--config-goodies)
   - [Table of Contents](#table-of-contents)
   - [Fonts](#fonts)
-  - [[alacritty]](#alacritty)
-  - [[fish]](#fish)
-  - [[vimium]](#vimium)
-  - [[vim]](#vim)
-  - [[i3]](#i3)
-  - [[polybar]](#polybar)
+  - [Linux Natural Scrolling](#linux-natural-scrolling)
+  - [alacritty](#alacritty)
+  - [fish](#fish)
+  - [vimium](#vimium)
+  - [vim](#vim)
+  - [i3](#i3)
+  - [polybar](#polybar)
+  - [rofi](#rofi)
   - [Miscellaneous Toolings](#miscellaneous-toolings)
-  - [[tmux]](#tmux)
+  - [tmux](#tmux)
     - [Install](#install)
     - [Plugins](#plugins)
     - [Save Session to Bash File](#save-session-to-bash-file)
@@ -21,7 +23,9 @@ All about config
   - [Multiple SSH for Different Github Usernames](#multiple-ssh-for-different-github-usernames)
   - [MacOS Specifics](#macos-specifics)
     - [Karabiner-Elements (MacOS)](#karabiner-elements-macos)
-    - [[Yabai]](#yabai)
+    - [yabai \& skhd](#yabai--skhd)
+    - [spacebar](#spacebar)
+    - [\[dunst\]](#dunst)
 
 ## Fonts
 
@@ -34,6 +38,26 @@ All about config
 ```bash
 # link all user fonts
 ln -sf $HOME/dev/.config/.fonts $HOME/.fonts
+```
+
+## Linux Natural Scrolling
+
+```conf
+Section "InputClass"
+        Identifier "libinput pointer catchall"
+        MatchIsPointer "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+        Option "NaturalScrolling" "False"
+EndSection
+
+Section "InputClass"
+        Identifier "libinput touchpad catchall"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+        Option "NaturalScrolling" "True"
+EndSection
 ```
 
 ## [alacritty]
@@ -62,7 +86,6 @@ chsh -s $(which fish)
 jorgebucaran/fisher
 IlanCosman/tide@v5
 edc/bass
-jethrokuan/z
 franciscolourenco/done
 danhper/fish-ssh-agent
 PatrickF1/fzf.fish
