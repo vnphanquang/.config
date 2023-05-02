@@ -229,3 +229,7 @@ exec --no-startup-id firefox
 exec --no-startup-id alacritty -t General
 exec --no-startup-id spotify
 exec --no-startup-id discord
+
+# switch caps to esc
+exec --no-startup-id setxkbmap -option caps:escape
+exec --no-startup-id gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
