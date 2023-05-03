@@ -41,3 +41,8 @@ function source_env
 end
 source_env
 alias python="python3"
+
+# setup zoxide (z & zi commands)
+if type -q zoxide
+  zoxide init fish | source
+end
