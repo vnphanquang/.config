@@ -1,0 +1,21 @@
+[user]
+	email = vnphanquang@gmail.com
+	name = Quang Phan
+	signingkey = 71D634FC950BAF89
+[core]
+	editor = vim
+	pager = delta
+[pull]
+	rebase = true
+[commit]
+	gpgSign = true
+[gpg]
+	program = gpg
+
+[interactive]
+	diffFilter = delta --color-only --features=interactive
+[delta]
+	line-numbers = true
+	side-by-side = true
+[merge]
+	conflictstyle = diff3

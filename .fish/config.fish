@@ -39,10 +39,28 @@ function source_env
       set -gx PATH "$PNPM_HOME" $PATH;
   end
 end
-source_env
+
 alias python="python3"
 
 # setup zoxide (z & zi commands)
 if type -q zoxide
   zoxide init fish | source
 end
+
+# volta
+set -gx VOLTA_HOME "$HOME/.volta"
+set -gx PATH "$VOLTA_HOME/bin" $PATH
+
+# pnpm
+set -gx PNPM_HOME "/home/quang/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# fly.io
+set -gx FLYCTL_INSTALL "$HOME/.fly"
+set -gx PATH "$FLYCTL_INSTALL/bin" $PATH
+alias fly=flyctl
+
+source_env
