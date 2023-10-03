@@ -25,6 +25,8 @@ set -g direnv_fish_mode eval_on_arrow
 # fish-fzf: include hidden files but now .gitignore
 set fzf_fd_opts --hidden --exclude=.git
 
+set GPG_TTY $(tty)
+
 # OS specific settings
 function source_env
   switch (uname)

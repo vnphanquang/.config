@@ -42,7 +42,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
@@ -204,7 +204,7 @@ bindsym $mod+r mode "resize"
 # }
 
 # start picom
-exec_always --no-startup-id picom -bCG --config ~/.config/picom/picom.conf --experimental-backends
+exec_always --no-startup-id picom -bCG --config ~/.config/picom.conf
 
 # restart the ibus engine
 exec_always --no-startup-id ~/dev/.config/startup/ibus.sh
@@ -224,7 +224,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 bindsym $mod+Shift+P exec --no-startup-id polybar-msg cmd restart
 
 # Startup Apps
-exec --no-startup-id google-chrome
+exec --no-startup-id google-chrome-stable
 exec --no-startup-id firefox
 exec --no-startup-id alacritty -t General
 exec --no-startup-id spotify
@@ -233,3 +233,14 @@ exec --no-startup-id discord
 # switch caps to esc
 exec --no-startup-id setxkbmap -option caps:escape
 exec --no-startup-id gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
+
+# block paste from middle mouse click
+exec --no-startup-id xmousepasteblock
+
+# Screen brightness (require `light` package`)
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 # decrease screen brightness
+
+# Set wallpaper background (require `feh` package)
+exec --no-startup-id feh --bg-fill --randomize $HOME/.config/i3/wallpapers/*
+bindsym $mod+Shift+w exec --no-startup-id feh --bg-fill --randomize $HOME/.config/i3/wallpapers/*

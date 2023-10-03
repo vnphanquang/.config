@@ -1,32 +1,6 @@
 # Dotfiles & Config Goodies
 All about config
 
-## Table of Contents
-
-- [Dotfiles \& Config Goodies](#dotfiles--config-goodies)
-  - [Table of Contents](#table-of-contents)
-  - [Fonts](#fonts)
-  - [Linux Natural Scrolling](#linux-natural-scrolling)
-  - [alacritty](#alacritty)
-  - [fish](#fish)
-  - [vimium](#vimium)
-  - [vim](#vim)
-  - [i3](#i3)
-  - [polybar](#polybar)
-  - [rofi](#rofi)
-  - [Miscellaneous Toolings](#miscellaneous-toolings)
-  - [tmux](#tmux)
-    - [Install](#install)
-    - [Plugins](#plugins)
-    - [Save Session to Bash File](#save-session-to-bash-file)
-  - [VS Code Extensions](#vs-code-extensions)
-  - [Multiple SSH for Different Github Usernames](#multiple-ssh-for-different-github-usernames)
-  - [MacOS Specifics](#macos-specifics)
-    - [Karabiner-Elements (MacOS)](#karabiner-elements-macos)
-    - [yabai \& skhd](#yabai--skhd)
-    - [spacebar](#spacebar)
-    - [\[dunst\]](#dunst)
-
 ## Fonts
 
 | Font | Installation | Usage |
@@ -41,6 +15,8 @@ ln -sf $HOME/dev/.config/.fonts $HOME/.fonts
 ```
 
 ## Linux Natural Scrolling
+
+> /usr/share/X11/xorg.conf.d/40-libinput.conf
 
 ```conf
 Section "InputClass"
@@ -59,6 +35,10 @@ Section "InputClass"
         Option "NaturalScrolling" "True"
 EndSection
 ```
+
+## Blocking Middle Click Paste
+
+https://github.com/milaq/XMousePasteBlock
 
 ## [alacritty]
 
@@ -138,13 +118,15 @@ ln -sf $VIM_PATH/* $HOME/.vim
 Dependencies:
 
 - [picom]: support for custom terminal opacity
+- [light](http://haikarainen.github.io/light/): backlight control
+- [feh](https://wiki.archlinux.org/title/Feh): set background image
 
 Configuration:
 
 
 ```bash
 ln -sf $HOME/dev/.config/.i3 $HOME/.config/i3
-ln -sf $HOME/dev/.config/.i3/picom.conf $HOME/.config/picom
+ln -sf $HOME/dev/.config/.i3/picom.conf $HOME/.config/picom.conf
 
 ln -sf $HOME/dev/.config/.polybar $HOME/.config/polybar
 ```
