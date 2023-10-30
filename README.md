@@ -151,6 +151,16 @@ chmod -R +x $HOME/dev/.config/.rofi
 ln -sf $HOME/dev/.config/.rofi $HOME/.config/rofi
 ```
 
+## DPI Adjustment for Rectina Display
+
+For high-resolution monitor, change system DPI to scale up appropriately. 96 is 1x, 192 is 2x.
+
+```bash
+ln -sf $HOME/dev/.config/.Xresources $HOME/.Xresources
+```
+
+To reload, run `xrdb ~/.Xresources`
+
 ## Miscellaneous Toolings
 
 | Tool | Description |
