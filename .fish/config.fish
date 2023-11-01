@@ -8,7 +8,7 @@ set -U tide_node_bg_color 2a5e53
 set -U tide_node_color 32CD32
 
 set -U tide_left_prompt_items os\x1epwd\x1egit\x1enewline\x1echaracter
-set -U tide_right_prompt_items status\x1ecmd_duration\x1econtext\x1ejobs\x1enode\x1evirtual_env\x1erustc\x1ekubectl\x1etime
+set -U tide_right_prompt_items status\x1ecmd_duration\x1econtext\x1ejobs\x1enode\x1epython\x1erustc\x1ekubectl\x1etime
 
 # set -U tide_right_prompt_suffix ''
 # set -U tide_prompt_char_bg_color ''
@@ -25,16 +25,43 @@ set -g direnv_fish_mode eval_on_arrow
 # fish-fzf: include hidden files but now .gitignore
 set fzf_fd_opts --hidden --exclude=.git
 
-set GPG_TTY $(tty)
+alias python=python3
+
+# setup zoxide (z & zi commands)
+if type -q zoxide
+  zoxide init fish | source
+end
+
+
+# fly.io
+set -gx FLYCTL_INSTALL "$HOME/.fly"
+set -gx PATH "$FLYCTL_INSTALL/bin" $PATH
+alias fly=flyctl
+
+# enhance git diff with bat
+alias batdiff='git diff --name-only --relative --diff-filter=d | xargs bat --diff'
 
 # OS specific settings
 function source_env
   switch (uname)
     case Linux
+      # for gpg signing
+      set -gx GPG_TTY $(tty)
+
       set -gx PATH "$HOME/.cargo/bin" $PATH;
 
+      # pnpm
       set -gx PNPM_HOME "$HOME/.local/share/pnpm";
-      set -gx PATH $PNPM_HOME $PATH;
+      if not string match -q -- $PNPM_HOME $PATH
+        set -gx PATH "$PNPM_HOME" $PATH
+      end
+
+      # start i3 automatically after login (tested in Arch Linux)
+      if type -q i3
+      and test -z $DISPLAY
+      and test $(tty) = '/dev/tty1'
+        startx
+      end
     case Darwin
       set -gx PATH "$HOME/.cargo/bin" (go env GOPATH)/bin $PATH;
       set -gx PNPM_HOME "/Users/vnphanquang/Library/pnpm";
@@ -42,27 +69,8 @@ function source_env
   end
 end
 
-alias python="python3"
-
-# setup zoxide (z & zi commands)
-if type -q zoxide
-  zoxide init fish | source
-end
-
 # volta
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
-
-# pnpm
-set -gx PNPM_HOME "/home/quang/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
-
-# fly.io
-set -gx FLYCTL_INSTALL "$HOME/.fly"
-set -gx PATH "$FLYCTL_INSTALL/bin" $PATH
-alias fly=flyctl
 
 source_env

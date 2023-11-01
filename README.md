@@ -40,10 +40,27 @@ EndSection
 
 https://github.com/milaq/XMousePasteBlock
 
-## [alacritty]
+## Miscellaneous Toolings
 
-```bash
-ln -sf ~/dev/.config/.alacritty/.alacritty.yml $HOME
+| Tool | Description |
+| --- | --- |
+| [bat] | `cat` clone written with `rust`
+| [Qalculate!] | desktop calculator |
+| [exa] | replacement for ls |
+| [maim] | make image (screenshots) |
+| [peek] | make gif |
+
+## Arch Linux
+
+### AutoLogin with Getty
+
+Credit: https://jackcuthbert.dev/blog/automated-login-in-arch-linux
+
+```conf
+# /etc/systemd/system/getty@tty1.service.d/override.conf
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin USERNAME_HERE --noclear %I $TERM
 ```
 
 ## [fish]
@@ -53,24 +70,11 @@ Dependencies:
 - Fish Plugin Manager: [Fisher][fisher]
 - Prompt Manager: [Tide][tide]
 
-<details open>
-  <summary>Configuration</summary>
-
 ```bash
 # set fish as default
 fish
 echo $(which fish) | sudo tee -a /etc/shells
 chsh -s $(which fish)
-
-# install or add to fish_plugins file
-jorgebucaran/fisher
-IlanCosman/tide@v5
-edc/bass
-franciscolourenco/done
-danhper/fish-ssh-agent
-PatrickF1/fzf.fish
-jorgebucaran/autopair.fish
-
 
 # link fish config (fisher)
 export FISH_PATH="$HOME/dev/.config/.fish"
@@ -80,21 +84,24 @@ ln -sf $FISH_PATH/config.fish $HOME/.config/fish/config.fish
 ln -sf $FISH_PATH/completions/* $HOME/.config/fish/completions
 ln -sf $FISH_PATH/functions/* $HOME/.config/fish/functions
 ln -sf $FISH_PATH/conf.d/* $HOME/.config/fish/conf.d
+
+# install or add to fish_plugins file
+jorgebucaran/fisher
+IlanCosman/tide
+edc/bass
+franciscolourenco/done
+danhper/fish-ssh-agent
+PatrickF1/fzf.fish
+jorgebucaran/autopair.fish
 ```
 
-</details>
+## [alacritty]
 
-## [vimium]
-
-1. Open Chrome extension and load `.vimium` repo to install extension
-2. Copy these settings into `options` tab in vimium extension menu:
-   1. [Key Mapping][vimium-keymapping]
-   2. [CSS][vimium-style]
+```bash
+ln -sf ~/dev/.config/.alacritty/.alacritty.yml $HOME
+```
 
 ## [vim]
-
-<details open>
-  <summary>Configuration: show / hide</summary>
 
 ```bash
 # install vim-plug
@@ -110,66 +117,6 @@ export VIM_PATH="$HOME/dev/.config/.vim"
 ln -sf $VIM_PATH/.vimrc $HOME/
 ln -sf $VIM_PATH/* $HOME/.vim
 ```
-
-</details>
-
-## [i3]
-
-Dependencies:
-
-- [picom]: support for custom terminal opacity
-- [light](http://haikarainen.github.io/light/): backlight control
-- [feh](https://wiki.archlinux.org/title/Feh): set background image
-
-Configuration:
-
-
-```bash
-ln -sf $HOME/dev/.config/.i3 $HOME/.config/i3
-ln -sf $HOME/dev/.config/.i3/picom.conf $HOME/.config/picom.conf
-
-ln -sf $HOME/dev/.config/.polybar $HOME/.config/polybar
-```
-
-## [polybar]
-
-Dependencies:
-
-- [rofi]: window launcher
-- [polybar gmail][polybar.gmail]: unread gmail notification (some python packages to install, see repo readme)
-
-Configuration:
-
-```bash
-ln -sf $HOME/dev/.config/.polybar $HOME/.config/polybar
-```
-
-## [rofi]
-
-```bash
-chmod -R +x $HOME/dev/.config/.rofi
-ln -sf $HOME/dev/.config/.rofi $HOME/.config/rofi
-```
-
-## DPI Adjustment for Rectina Display
-
-For high-resolution monitor, change system DPI to scale up appropriately. 96 is 1x, 192 is 2x.
-
-```bash
-ln -sf $HOME/dev/.config/.Xresources $HOME/.Xresources
-```
-
-To reload, run `xrdb ~/.Xresources`
-
-## Miscellaneous Toolings
-
-| Tool | Description |
-| --- | --- |
-| [bat] | `cat` clone written with `rust`
-| [Qalculate!] | desktop calculator |
-| [exa] | replacement for ls |
-| [maim] | make image (screenshots) |
-| [peek] | make gif |
 
 ## [tmux]
 
@@ -205,23 +152,66 @@ Plugin Manager: `tpm`
 
 ### [Save Session to Bash File][tmux.save-sessions]
 
-## VS Code Extensions
+## [polybar]
 
-| Extension | Usage
-| --- | --- |
-| [EditorConfig][vscode.editorconfig] | override workspace format settings with `.editorconfig` file |
-| [Eslint][vscode.eslint] | eslint integration |
-| [Git Graph][vscode.gitgraph] | Git graph representation |
-| [Turbo Console Log][vscode.turboconsolelog] | Quick logging |
-| [Todo][vscode.todo] | Todo Tree / List |
-| [Stylelint][vscode.stylelint] | Stylelint integration |
-| [Live share][vscode.liveshare] | Pair programming session |
-| [Markdown All in One][vscode.markdownallinone] | Markdown Table of Contents & Preview |
-| [Path Intellisense][vscode.pathintellisense] | Path Intellisense |
-| [SVG Preview][vscode.svgpreview] | Preview SVG |
-| [Auto Rename Tag][vscode.autorenametag] | Quick renaming html tag |
-| [Tailwind][vscode.tailwind] | Tailwind integration |
-| [Vim][vscode.vim] | Vim keybinding |
+Dependencies:
+
+- [rofi]: window launcher
+- [polybar gmail][polybar.gmail]: unread gmail notification (some python packages to install, see repo readme)
+
+Configuration:
+
+```bash
+ln -sf $HOME/dev/.config/.polybar $HOME/.config/polybar
+```
+
+## [rofi]
+
+```bash
+chmod -R +x $HOME/dev/.config/.rofi
+ln -sf $HOME/dev/.config/.rofi $HOME/.config/rofi
+```
+
+## [dunst]
+
+```bash
+chmod +x $HOME/dev/.config/.dunst/dunstrc
+ln -sf $HOME/dev/.config/.dunst/dunstrc $HOME/.config/dunst/dunstrc
+```
+
+## [i3]
+
+> [!NOTE]
+> - requires `playerctl` for media control
+
+Dependencies:
+
+- [picom]: support for custom terminal opacity
+- [light](http://haikarainen.github.io/light/): backlight control
+- [feh](https://wiki.archlinux.org/title/Feh): set background image
+
+Configuration:
+
+```bash
+ln -sf $HOME/dev/.config/.i3 $HOME/.config/i3
+# picom no longer used because of performance issues
+# ln -sf $HOME/dev/.config/.i3/picom.conf $HOME/.config/picom.conf
+```
+
+For high-resolution monitor, change system DPI to scale up appropriately. 96 is 1x, 192 is 2x.
+
+```bash
+ln -sf $HOME/dev/.config/.Xresources $HOME/.Xresources
+ln -sf $HOME/dev/.config/.xinitrc $HOME/.xinitrc
+```
+
+To reload `.Xresources`, run `xrdb ~/.Xresources`
+
+To figure out the key ID for binding, run:
+
+```bash
+xev -event keyboard | egrep -o 'keycode.*\)'
+```
 
 ## Multiple SSH for Different Github Usernames
 
@@ -240,6 +230,13 @@ Host github.com-vnphanquang
 [remote "origin"]
   url = git@github.com-username:domain
 ```
+
+## [vimium]
+
+1. Open Chrome extension and load `.vimium` repo to install extension
+2. Copy these settings into `options` tab in vimium extension menu:
+   1. [Key Mapping][vimium-keymapping]
+   2. [CSS][vimium-style]
 
 ## MacOS Specifics
 
@@ -275,14 +272,6 @@ chmod +x $HOME/dev/.config/.spacebar/spacebarrc
 ln -sf $HOME/dev/.config/.spacebar/spacebarrc $HOME/.config/spacebar/spacebarrc
 ```
 
-### [dunst]
-
-> Shouldn't be using this,
-
-```bash
-chmod +x $HOME/dev/.config/.dunst/dunstrc
-ln -sf $HOME/dev/.config/.dunst/dunstrc $HOME/.config/dunst/dunstrc
-```
 
 [bash-it]: https://github.com/Bash-it/bash-it
 [tmux]: https://github.com/tmux/tmux
