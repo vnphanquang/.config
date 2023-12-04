@@ -30,6 +30,9 @@ exec --no-startup-id nm-applet
 # load dunst
 exec --no-startup-id dunst
 
+# start picom
+exec_always --no-startup-id picom -bCG --config ~/.config/picom.conf
+
 # start a terminal
 bindsym $mod+Return exec alacritty
 
