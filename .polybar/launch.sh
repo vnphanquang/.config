@@ -10,8 +10,9 @@ export $(cat $HOME/dev/.config/.polybar/.env | xargs)
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 if type "xrandr"; then
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+  for m in $(polybar --list-monitors | cut -d":" -f1); do
     MONITOR=$m polybar --reload --config="~/.config/polybar/config.ini" main &
+    sleep 1
   done
 else
   polybar --reload --config="~/.config/polybar/config.ini" main &
