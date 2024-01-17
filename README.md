@@ -1,4 +1,5 @@
 # Dotfiles & Config Goodies
+
 All about config
 
 ## Fonts
@@ -176,7 +177,7 @@ ln -sf $HOME/dev/.config/.rofi $HOME/.config/rofi
 
 ```bash
 chmod +x $HOME/dev/.config/.dunst/dunstrc
-ln -sf $HOME/dev/.config/.dunst/dunstrc $HOME/.config/dunst/dunstrc
+ln -sf $HOME/dev/.config/.dunst $HOME/.config/dunst
 ```
 
 ## [i3]
@@ -272,11 +273,8 @@ chmod +x $HOME/dev/.config/.spacebar/spacebarrc
 ln -sf $HOME/dev/.config/.spacebar/spacebarrc $HOME/.config/spacebar/spacebarrc
 ```
 
-
-[bash-it]: https://github.com/Bash-it/bash-it
 [tmux]: https://github.com/tmux/tmux
 [tmux.save-sessions]: https://github.com/zsoltf/tmux-save-sessions
-[autojump]: https://github.com/wting/autojump
 [vimium]: https://github.com/philc/vimium
 [vimium-keymapping]: ./.vimium/keymapping.conf
 [vimium-style]: ./.vimium/style.css
@@ -305,20 +303,7 @@ ln -sf $HOME/dev/.config/.spacebar/spacebarrc $HOME/.config/spacebar/spacebarrc
 
 [peek]: https://github.com/phw/peek
 
-[vscode.editorconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
-[vscode.eslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
-[vscode.liveshare]: https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare
-[vscode.gitgraph]: https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph
-[vscode.pathintellisense]: https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense
-[vscode.turboconsolelog]: https://marketplace.visualstudio.com/items?itemName=ChakrounAnas.turbo-console-log
-[vscode.vim]: https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
-[vscode.stylelint]: https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint
-[vscode.tailwind]: https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
-[vscode.todo]: https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
-[vscode.svgpreview]: https://marketplace.visualstudio.com/items?itemName=SimonSiefke.svg-preview
-[vscode.markdownallinone]: https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one
-[vscode.autorenametag]: https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag
-
 [yabai]: https://github.com/koekeishiya/yabai
 [skhd]: https://github.com/koekeishiya/skhd
 [spacebar]: https://github.com/cmacrae/spacebar
+[dunst]: https://github.com/dunst-project/dunst
