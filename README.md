@@ -43,9 +43,13 @@ https://github.com/milaq/XMousePasteBlock
 
 ## Miscellaneous Toolings
 
+```bash
+sudo pacman -S xdotool kruler
+```
+
 | Tool | Description |
 | --- | --- |
-| [bat] | `cat` clone written with `rust`
+| [bat] | `cat` clone written with `rust` |
 | [Qalculate!] | desktop calculator |
 | [exa] | replacement for ls |
 | [maim] | make image (screenshots) |
