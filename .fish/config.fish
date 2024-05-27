@@ -63,7 +63,7 @@ function source_env
         startx
       end
     case Darwin
-      set -gx PATH "$HOME/.cargo/bin" (go env GOPATH)/bin $PATH;
+      # set -gx PATH "$HOME/.cargo/bin" (go env GOPATH)/bin $PATH;
       set -gx PNPM_HOME "/Users/vnphanquang/Library/pnpm";
       set -gx PATH "$PNPM_HOME" $PATH;
   end
@@ -74,3 +74,4 @@ set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
 
 source_env
+source ~/.asdf/asdf.fish

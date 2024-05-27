@@ -51,9 +51,10 @@ sudo pacman -S xdotool kruler
 | --- | --- |
 | [bat] | `cat` clone written with `rust` |
 | [Qalculate!] | desktop calculator |
-| [exa] | replacement for ls |
+| [eza] | replacement for ls |
 | [maim] | make image (screenshots) |
 | [peek] | make gif |
+| [zoxide] | smarter `cd` |
 
 ## Arch Linux
 
@@ -103,7 +104,7 @@ jorgebucaran/autopair.fish
 ## [alacritty]
 
 ```bash
-ln -sf ~/dev/.config/.alacritty/.alacritty.yml $HOME
+ln -sf ~/dev/.config/.alacritty/.alacritty.toml $HOME
 ```
 
 ## [vim]
@@ -218,6 +219,15 @@ To figure out the key ID for binding, run:
 xev -event keyboard | egrep -o 'keycode.*\)'
 ```
 
+### Visual Studio Code
+
+```bash
+ln -sf $HOME/dev/.config/vscode/argv.json $HOME/.vscode/argv.json
+ln -sf $HOME/dev/.config/vscode/extensions/extensions.json $HOME/.vscode/extensions/extensions.json
+ln -sf $HOME/dev/.config/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+ln -sf $HOME/dev/.config/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+```
+
 ## Multiple SSH for Different Github Usernames
 
 ```ini
@@ -277,6 +287,18 @@ chmod +x $HOME/dev/.config/.spacebar/spacebarrc
 ln -sf $HOME/dev/.config/.spacebar/spacebarrc $HOME/.config/spacebar/spacebarrc
 ```
 
+### [aerospace]
+
+i3-alternative window tile manager for MacOS.
+
+- Use [BetterDisplay] to better control displays, especially when using multiple monitors.
+
+```bash
+ln -sf $HOME/dev/.config/.aerospace/.aerospace.toml $HOME/.aerospace.toml
+```
+
+[betterdisplay]: https://github.com/waydabber/BetterDisplay
+[aerospace]: https://github.com/nikitabobko/AeroSpace
 [tmux]: https://github.com/tmux/tmux
 [tmux.save-sessions]: https://github.com/zsoltf/tmux-save-sessions
 [vimium]: https://github.com/philc/vimium
@@ -294,7 +316,7 @@ ln -sf $HOME/dev/.config/.spacebar/spacebarrc $HOME/.config/spacebar/spacebarrc
 [fonts.powerline]: https://github.com/powerline/fonts
 
 [Qalculate!]: https://qalculate.github.io/
-[exa]: https://github.com/ogham/exa
+[eza]: https://github.com/eza-community/eza
 [bat]: https://github.com/sharkdp/bat
 [alacritty]: https://github.com/alacritty/alacritty
 
@@ -311,3 +333,4 @@ ln -sf $HOME/dev/.config/.spacebar/spacebarrc $HOME/.config/spacebar/spacebarrc
 [skhd]: https://github.com/koekeishiya/skhd
 [spacebar]: https://github.com/cmacrae/spacebar
 [dunst]: https://github.com/dunst-project/dunst
+[zoxide]: https://github.com/ajeetdsouza/zoxide

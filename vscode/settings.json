@@ -1,0 +1,402 @@
+{
+  // explorer
+  "explorer.compactFolders": true,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "tsconfig.json": "tsconfig.*.json,jsconfig.*json",
+    "postcss.config.*js": "tailwind.config.*js",
+    "package.json": "package-lock.json,yarn.lock,pnpm-lock.yaml,pnpm-workspace.yaml,.npmrc,.nvmrc",
+    ".editorconfig": ".eslintrc.*,prettier.config.*,stylelint.config.*,.lintstagedrc.*,.simple-git-hooks.*,.prettierrc*",
+    ".gitignore": ".prettierignore,.eslintignore",
+    "+layout.svelte": "+layout.svelte,+layout.js,+layout.ts,+layout.server.js,+layout.server.ts",
+    "+error.svelte": "+error.js,+error.ts,+error.server.js,+error.server.ts",
+    "+page.svelte": "+page.js,+page.ts,+page.server.js,+page.server.ts",
+    "README.md": "CONTRIBUTING.md,CODE_OF_CONDUCT.md,LICENSE,README.md,CHANGELOG.md,SECURITY.md,SUPPORT.md,GOVERNANCE.md",
+    "svelte.config.*": "vite.config.js,vite.config.ts,tsconfig.json,jsconfig.json",
+    ".env": "*.env, *.env.sample"
+  },
+  // terminal
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "'FiraCode Nerd Font', monosapce",
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "terminal.integrated.profiles.osx": {
+    "fish": {
+      "path": "/opt/homebrew/bin/fish"
+    }
+  },
+  "terminal.integrated.env.linux": {},
+  "terminal.integrated.env.osx": {},
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.tree.indent": 16,
+  "workbench.editor.labelFormat": "short",
+  "workbench.editor.empty.hint": "hidden",
+  // editor
+  "editor.fontSize": 16,
+  "editor.tabSize": 2,
+  "editor.fontFamily": "Fira Code, Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.cursorStyle": "line",
+  "editor.cursorBlinking": "smooth",
+  "editor.minimap.enabled": false,
+  "editor.cursorSurroundingLines": 3,
+  "editor.renderWhitespace": "boundary",
+  "editor.rulers": [{}, 80],
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.suggestSelection": "first",
+  "editor.unicodeHighlight.includeComments": false,
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "editor.inlineSuggest.enabled": true,
+  "editor.stickyScroll.enabled": true,
+  // files
+  "files.associations": {
+    "*.jsx": "javascript",
+    "*.sveltex": "svelte",
+    "*.svelte.md": "svelte",
+    "*.json": "jsonc"
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true
+  },
+  "files.exclude": {
+    "**/.git": false,
+    "**/.git/refs": true,
+    "**/.git/info": true,
+    "**/.git/logs": true,
+    "**/.git/objects": true,
+    "**/.git/index": true,
+    "**/.git/packed-refs": true,
+    "**/.git/COMMIT_EDITMSG": true
+  },
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  // javascript
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  // python
+  "python.formatting.provider": "black",
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.formatOnType": true
+  },
+  "python.linting.pylintArgs": ["--extension-pkg-whitelist=cv2"],
+  // typescript
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[rust]": {
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true
+  },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  // svelte
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "svelte.enable-ts-plugin": true,
+  "cSpell.userWords": [
+    "Archiveable",
+    "autofocus",
+    "clickoutside",
+    "compagnon",
+    "ctype",
+    "daisyui",
+    "deselectable",
+    "deserialization",
+    "Editability",
+    "embla",
+    "Fastify",
+    "grecaptcha",
+    "gsap",
+    "inspectable",
+    "matplotlib",
+    "ordoclic",
+    "pcss",
+    "postcss",
+    "privileage",
+    "pyplot",
+    "seaborn",
+    "serde",
+    "supabase",
+    "sveltevietnam",
+    "tailwindcss",
+    "tauri",
+    "unsign",
+    "uuid",
+    "vercel",
+    "vnphanquang",
+    "Wireframe"
+  ],
+  "cSpell.enabledLanguageIds": [
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "git-commit",
+    "go",
+    "handlebars",
+    "haskell",
+    "html",
+    "jade",
+    "java",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "latex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "pug",
+    "python",
+    "restructuredtext",
+    "rust",
+    "scala",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+    "yml"
+  ],
+  // git
+  "git-graph.repository.commits.fetchAvatars": true,
+  "git.openRepositoryInParentFolders": "always",
+  "git.autofetch": true,
+  "git.mergeEditor": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "eslint.validate": ["javascript", "svelte", "javascriptreact"],
+  "markdown.extension.print.theme": "dark",
+  "markdown.extension.toc.updateOnSave": false,
+  "gruvboxMaterial.darkCursor": "orange",
+  "cSpell.enableFiletypes": ["svelte"],
+  "settingsSync.ignoredExtensions": [
+    "angular.ng-template",
+    "mrmlnc.vscode-scss",
+    "golang.go"
+  ],
+  "turboConsoleLog.addSemicolonInTheEnd": true,
+  "turboConsoleLog.quote": "`",
+  "turboConsoleLog.logMessagePrefix": "Turbo",
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": [","],
+      "after": [",", "<C-g>", "u"]
+    },
+    {
+      "before": ["."],
+      "after": [".", "<C-g>", "u"]
+    },
+    {
+      "before": ["!"],
+      "after": ["!", "<C-g>", "u"]
+    },
+    {
+      "before": ["?,"],
+      "after": ["?", "<C-g>", "u"]
+    },
+    {
+      "before": ["<C-j>"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    {
+      "before": ["<C-k>"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    }
+  ],
+  "vim.operatorPendingModeKeyBindingsNonRecursive": [
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    {
+      "before": ["H"],
+      "after": ["^"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-w>", "H"],
+      "commands": ["workbench.action.moveEditorToLeftGroup"]
+    },
+    {
+      "before": ["<C-w>", "J"],
+      "commands": ["workbench.action.moveEditorToBelowGroup"]
+    },
+    {
+      "before": ["<C-w>", "K"],
+      "commands": ["workbench.action.moveEditorToAboveGroup"]
+    },
+    {
+      "before": ["<C-w>", "L"],
+      "commands": ["workbench.action.moveEditorToRightGroup"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["leader", "y"],
+      "after": ["\"", "*", "y"]
+    },
+    {
+      "before": ["leader", "y", "y"],
+      "after": ["\"", "*", "y", "y"]
+    },
+    {
+      "before": ["leader", "p"],
+      "after": ["\"", "*", "p"]
+    },
+    {
+      "before": ["leader", "P"],
+      "after": ["\"", "*", "P"]
+    },
+    {
+      "before": ["Y"],
+      "after": ["y", "$"]
+    },
+    {
+      "before": ["J"],
+      "after": ["m", "z", "J", "`", "z"]
+    },
+    {
+      "before": ["n"],
+      "after": ["n", "z", "z", "z", "v"]
+    },
+    {
+      "before": ["N"],
+      "after": ["N", "z", "z", "z", "v"]
+    },
+    {
+      "before": [">"],
+      "after": ["V", ">", "<Esc>"]
+    },
+    {
+      "before": ["<"],
+      "after": ["V", "<", "<Esc>"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["leader", "y"],
+      "after": ["\"", "*", "y"]
+    },
+    {
+      "before": ["leader", "y", "y"],
+      "after": ["\"", "*", "y", "y"]
+    },
+    {
+      "before": ["leader", "p"],
+      "after": ["\"", "*", "p"]
+    },
+    {
+      "before": ["leader", "P"],
+      "after": ["\"", "*", "P"]
+    },
+    {
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    }
+  ],
+  "vim.easymotion": true,
+  "vim.highlightedyank.enable": true,
+  "vim.cursorStylePerMode.insert": "block",
+  "vim.cursorStylePerMode.normal": "block",
+  "vim.cursorStylePerMode.replace": "block",
+  "vim.cursorStylePerMode.visual": "block",
+  "vim.cursorStylePerMode.visualblock": "block",
+  "vim.cursorStylePerMode.visualline": "block",
+  "vim.leader": "<space>",
+  "vim.smartRelativeLine": true,
+  "vim.replaceWithRegister": true,
+  "vim.sneak": true,
+  "vim.camelCaseMotion.enable": true,
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+  "search.exclude": {
+    "**/.git": true,
+    "**/.vercel": true,
+    "**/.svelte-kit": true,
+    "**/*.code-search": true,
+    "**/bower_components": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/node_modules": true
+  },
+  "redhat.telemetry.enabled": false,
+  "vs-kubernetes": {
+    "vscode-kubernetes.minikube-path.linux": "/home/quang/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
+    "vscode-kubernetes.helm-path.linux": "/home/quang/.vs-kubernetes/tools/helm/linux-amd64/helm"
+  },
+  "npm.keybindingsChangedWarningShown": true,
+  "svg.preview.mode": "svg",
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "classes",
+    "class:list"
+  ],
+  "tailwindCSS.emmetCompletions": true,
+  "stylelint.validate": ["css", "less", "postcss", "svelte", "astro", "html"],
+  "liveServer.settings.donotShowInfoMsg": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[mjml]": {
+    "editor.defaultFormatter": "mjmlio.vscode-mjml"
+  },
+  "githubPullRequests.fileListLayout": "tree",
+  "githubPullRequests.pullBranch": "never",
+  "codesnap.boxShadow": "none",
+  "codesnap.containerPadding": "0",
+  "prisma.showPrismaDataPlatformNotification": false,
+  "github.copilot.editor.enableAutoCompletions": true
+}
