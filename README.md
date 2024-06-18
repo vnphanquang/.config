@@ -51,9 +51,10 @@ sudo pacman -S xdotool kruler
 | --- | --- |
 | [bat] | `cat` clone written with `rust` |
 | [Qalculate!] | desktop calculator |
-| [exa] | replacement for ls |
+| [eza] | replacement for ls |
 | [maim] | make image (screenshots) |
 | [peek] | make gif |
+| [zoxide] | smarter `cd` |
 
 ## Arch Linux
 
@@ -103,7 +104,7 @@ jorgebucaran/autopair.fish
 ## [alacritty]
 
 ```bash
-ln -sf ~/dev/.config/.alacritty/.alacritty.yml $HOME
+ln -sf ~/dev/.config/.alacritty/.alacritty.toml $HOME
 ```
 
 ## [vim]
@@ -250,33 +251,22 @@ Host github.com-vnphanquang
 Keyboard Binding Software for MacOS
 
 ```bash
-ln -sf $HOME/dev/.config/.karabiner/karabiner.json $HOME/.config/karabiner/
-ln -sf $HOME/dev/.config/.karabiner/assets/complex_modifications/* $HOME/.config/karabiner/assets/complex_modifications/
+ln -sf $HOME/dev/.config/osx/.karabiner/karabiner.json $HOME/.config/karabiner/
+ln -sf $HOME/dev/.config/osx/.karabiner/assets/complex_modifications/* $HOME/.config/karabiner/assets/complex_modifications/
 ```
 
-### [yabai] & [skhd]
+### [aerospace]
+
+i3-alternative window tile manager for MacOS.
+
+- Use [BetterDisplay] to better control displays, especially when using multiple monitors.
 
 ```bash
-mkdir $HOME/.config/yabai
-chmod +x $HOME/dev/.config/.yabai/yabairc
-ln -sf $HOME/dev/.config/.yabai/yabairc $HOME/.config/yabai/yabairc
+ln -sf $HOME/dev/.config/osx/.aerospace/.aerospace.toml $HOME/.aerospace.toml
 ```
 
-```bash
-mkdir $HOME/.config/skhd
-chmod +x $HOME/dev/.config/.skhd/skhdrc
-ln -sf $HOME/dev/.config/.skhd/skhdrc $HOME/.config/skhd/skhdrc
-ln -sf $HOME/dev/.config/.yabai/yabairc $HOME/.config/yabai/yabairc
-```
-
-### [spacebar]
-
-```bash
-mkdir $HOME/.config/spacebar
-chmod +x $HOME/dev/.config/.spacebar/spacebarrc
-ln -sf $HOME/dev/.config/.spacebar/spacebarrc $HOME/.config/spacebar/spacebarrc
-```
-
+[betterdisplay]: https://github.com/waydabber/BetterDisplay
+[aerospace]: https://github.com/nikitabobko/AeroSpace
 [tmux]: https://github.com/tmux/tmux
 [tmux.save-sessions]: https://github.com/zsoltf/tmux-save-sessions
 [vimium]: https://github.com/philc/vimium
@@ -294,7 +284,7 @@ ln -sf $HOME/dev/.config/.spacebar/spacebarrc $HOME/.config/spacebar/spacebarrc
 [fonts.powerline]: https://github.com/powerline/fonts
 
 [Qalculate!]: https://qalculate.github.io/
-[exa]: https://github.com/ogham/exa
+[eza]: https://github.com/eza-community/eza
 [bat]: https://github.com/sharkdp/bat
 [alacritty]: https://github.com/alacritty/alacritty
 
@@ -307,7 +297,5 @@ ln -sf $HOME/dev/.config/.spacebar/spacebarrc $HOME/.config/spacebar/spacebarrc
 
 [peek]: https://github.com/phw/peek
 
-[yabai]: https://github.com/koekeishiya/yabai
-[skhd]: https://github.com/koekeishiya/skhd
-[spacebar]: https://github.com/cmacrae/spacebar
 [dunst]: https://github.com/dunst-project/dunst
+[zoxide]: https://github.com/ajeetdsouza/zoxide
