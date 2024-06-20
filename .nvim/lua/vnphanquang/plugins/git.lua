@@ -25,7 +25,7 @@ return {
 					end
 
 					-- Navigation
-					map("n", "]h", function()
+					map("n", "<leader>hw", function()
 						if vim.wo.diff then
 							vim.cmd.normal({ "]c", bang = true })
 						else
@@ -33,7 +33,7 @@ return {
 						end
 					end, { desc = "GitSigns: go to next hunk" })
 
-					map("n", "[h", function()
+					map("n", "<leader>hb", function()
 						if vim.wo.diff then
 							vim.cmd.normal({ "[c", bang = true })
 						else

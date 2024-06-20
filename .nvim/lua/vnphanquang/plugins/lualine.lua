@@ -5,11 +5,7 @@ return {
 		{ 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
 	},
 	config = function()
-		require('lualine').setup({
-			sections = {
-				lualine_b = { 'branch', 'b:gitsigns_status', 'diff', 'diagnostics' }
-			}
-		})
+		require('lualine').setup({})
 		vim.opt.showmode = false
 	end,
 }
