@@ -31,6 +31,7 @@ require("lazy").setup({
 	require("vnphanquang.plugins.treesitter"),
 	require("vnphanquang.plugins.telescope"),
 	require("vnphanquang.plugins.todo"),
+	require("vnphanquang.plugins.undotree"),
 
 	-- essential development plugins
 	require("vnphanquang.plugins.git"),
