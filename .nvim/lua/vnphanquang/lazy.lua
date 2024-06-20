@@ -30,6 +30,7 @@ require("lazy").setup({
 	require("vnphanquang.plugins.markdown-preview"),
 	require("vnphanquang.plugins.treesitter"),
 	require("vnphanquang.plugins.telescope"),
+	require("vnphanquang.plugins.todo"),
 
 	-- essential development plugins
 	require("vnphanquang.plugins.git"),

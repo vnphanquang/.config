@@ -102,22 +102,6 @@ return {
 		vim.keymap.set("n", "<leader>sn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "Telescope: [s]earch [N]eovim files" })
-
-		-- Shortuct for git
-		vim.keymap.set(
-			"n",
-			"<leader>sgb",
-			"<cmd>Telescope git_branches<cr>",
-			{ desc = "Telescope: [s]earch [g]it [b]ranches" }
-		)
-		vim.keymap.set("n", "<leader>sgs", "<cmd>Telescope git_status<cr>", { desc = "Telescope: [s]earch [g]it [s]tatus" })
-		vim.keymap.set("n", "<leader>sgt", "<cmd>Telescope git_stash<cr>", { desc = "Telescope: [s]earch [g]it [t]ash" })
-		vim.keymap.set(
-			"n",
-			"<leader>sgc",
-			"<cmd>Telescope git_commits<cr>",
-			{ desc = "Telescope: [s]earch [g]it [c]ommits" }
-		)
 	end,
 }
 
