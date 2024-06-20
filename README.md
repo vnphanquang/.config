@@ -113,6 +113,15 @@ ln -sf ~/dev/.config/.alacritty/.alacritty.toml $HOME
 ln -sf ~/dev/.config/.nvim $HOME/.config/nvim
 ```
 
+For GPG passphrase, do:
+
+```bash
+ln -sf ~/dev/.config/.gnupg/gpg-agent.conf $HOME/.gnupg/gpg-agent.conf
+ln -sf ~/dev/.config/.gnupg/gpg.conf $HOME/.gnupg/gpg.conf
+```
+
+Mmight need to restart agent `echo RELOADAGENT | gpg-connect-agent`
+
 ## [vim]
 
 ```bash
