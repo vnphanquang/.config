@@ -3,8 +3,8 @@ vim.g.have_nerd_font = true
 vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = 'yes'
-vim.opt.colorcolumn = '80'
+vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = "80"
 vim.opt.fixendofline = true
 vim.opt.swapfile = false
 vim.opt.wrap = false
@@ -19,17 +19,17 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 
 -- line number
 vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- search
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- cursor
-vim.opt.guicursor = ''
+vim.opt.guicursor = ""
 vim.opt.cursorline = true
 
 -- indent

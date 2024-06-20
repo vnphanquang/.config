@@ -130,6 +130,8 @@ return {
 			marksman = {},
 			['eslint-lsp'] = {},
 			prettierd = {},
+			prettier = {},
+			['tailwindcss-language-server'] = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},

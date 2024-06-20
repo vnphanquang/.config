@@ -33,6 +33,13 @@ require("lazy").setup({
 	require("vnphanquang.plugins.todo"),
 	require("vnphanquang.plugins.undotree"),
 	require("vnphanquang.plugins.spider"),
+	 -- https://github.com/andrewferrier/wrapping.nvim
+	{
+		"andrewferrier/wrapping.nvim",
+		config = function()
+			require("wrapping").setup({})
+		end,
+	},
 
 	-- essential development plugins
 	require("vnphanquang.plugins.git"),
