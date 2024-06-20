@@ -56,6 +56,12 @@ function source_env
         set -gx PATH "$PNPM_HOME" $PATH
       end
 
+			# deno
+			set -gx DENO_INSTALL "$HOME/.deno"
+			if not string match -q -- $DENO_INSTALL $PATH
+				set -gx PATH "$DENO_INSTALL/bin" $PATH
+			end
+
       # start i3 automatically after login (tested in Arch Linux)
       if type -q i3
       and test -z $DISPLAY
