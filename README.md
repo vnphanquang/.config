@@ -107,6 +107,12 @@ jorgebucaran/autopair.fish
 ln -sf ~/dev/.config/.alacritty/.alacritty.toml $HOME
 ```
 
+## [neovim]
+
+```bash
+ln -sf ~/dev/.config/.nvim $HOME/.config/nvim
+```
+
 ## [vim]
 
 ```bash
@@ -299,3 +305,4 @@ ln -sf $HOME/dev/.config/osx/.aerospace/.aerospace.toml $HOME/.aerospace.toml
 
 [dunst]: https://github.com/dunst-project/dunst
 [zoxide]: https://github.com/ajeetdsouza/zoxide
+
