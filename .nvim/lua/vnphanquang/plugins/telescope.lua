@@ -26,7 +26,6 @@ return {
 		-- enhance command line
 		pcall(telescope.load_extension, "cmdline")
 		vim.keymap.set({ "n", "v" }, ":", "<cmd>Telescope cmdline<cr>", { desc = "Telescope: Cmdline" })
-		vim.keymap.del("", "<leader>w")
 
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
