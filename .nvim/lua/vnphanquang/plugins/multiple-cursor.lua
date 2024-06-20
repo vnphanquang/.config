@@ -9,6 +9,7 @@ return {
 
 		{'<C-LeftMouse>', '<Cmd>MultipleCursorsMouseAddDelete<CR>', mode = {'n', 'i'}, desc = 'Add or remove cursor'},
 
-		{'<C-k>', "<Cmd>MultipleCursorsAddJumpNextMatch<CR>", mode = {"n", "x"}, desc = "Add cursor and jump to next cword"},
+		{'<C-;>', "<Cmd>MultipleCursorsAddJumpNextMatch<CR>", mode = {"n", "x"}, desc = "Add cursor and jump to next cword"},
 	},
 }
+

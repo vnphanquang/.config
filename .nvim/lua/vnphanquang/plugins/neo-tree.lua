@@ -11,10 +11,10 @@ return {
 	config = function()
 		require('neo-tree').setup({
 			filesystem = {
-				filtered_items = {
-					hide_dotfiles = false,
-					hide_gitignored = false,
-				},
+				-- filtered_items = {
+				-- 	hide_dotfiles = false,
+				-- 	hide_gitignored = false,
+				-- },
 				window = {
 					mappings = {
 						['\\'] = 'close_window',
@@ -44,3 +44,4 @@ return {
 		vim.keymap.set('n', '\\', ':Neotree reveal<CR>', { desc = 'Toggle NeoTree' })
 	end
 }
+

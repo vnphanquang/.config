@@ -11,8 +11,8 @@ vim.g.maplocalleader = ' '
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'go to previous [d]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'go to next [d]iagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'show diagnostic [e]rror messages' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'open diagnostic [q]uickfix list' })
+vim.keymap.set('n', '<leader>te', vim.diagnostic.open_float, { desc = 'show diagnostic [e]rror messages' })
+vim.keymap.set('n', '<leader>tq', vim.diagnostic.setloclist, { desc = 'open diagnostic [q]uickfix list' })
 
 -- Map jj to Esc
 vim.keymap.set('i', 'jj', '<Esc>', { desc = 'jj as Esc alias'})
@@ -56,5 +56,5 @@ vim.keymap.set('n', '<leader>j', "<cmd>lprev<CR>zz", { desc = 'go to previous lo
 -- Miscellaneous
 vim.keymap.set('n', '<leader>x', "<cmd>!chmod +x %<CR>", { silent = true, desc = 'make the file e[x]ecutable' })
 vim.keymap.set('n', '<leader>mr', '<cmd>CellularAutomaton make_it_rain<CR>', { desc = '[m]ake it [r]ain with CellularAutomaton' })
-vim.keymap.set('n', '<leader>gs', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[go] prompt to replace the word under the cur[s]or' })
+vim.keymap.set('n', '<leader><leader>gs', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[g]o prompt to replace the word under the cur[s]or' })
 

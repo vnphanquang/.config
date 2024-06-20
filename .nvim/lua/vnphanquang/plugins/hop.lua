@@ -15,7 +15,7 @@ return {
 			})
 		end, {
 			remap = true,
-			desc = 'Hop onto character [f]ound after cursor on current line'
+			desc = 'Hop: onto character [f]ound after cursor on current line'
 		})
 		vim.keymap.set('', 'F', function()
 			hop.hint_char1({
@@ -24,7 +24,7 @@ return {
 			})
 		end, {
 			remap = true,
-			desc = 'Hop onto character [F]ound before cursor on current line'
+			desc = 'Hop: onto character [F]ound before cursor on current line'
 		})
 		vim.keymap.set('', 't', function()
 			hop.hint_char1({
@@ -34,7 +34,7 @@ return {
 			})
 		end, {
 			remap = true,
-			desc = 'Hop [t]ill character after cursor on current line'
+			desc = 'Hop: [t]ill character after cursor on current line'
 		})
 		vim.keymap.set('', 'T', function()
 			hop.hint_char1({
@@ -44,7 +44,7 @@ return {
 			})
 		end, {
 			remap = true,
-			desc = 'Hop [T]ill character before cursor on current line'
+			desc = 'Ho [T]ill character before cursor on current line'
 		})
 
 		-- word
@@ -55,7 +55,7 @@ return {
 			})
 		end, {
 			remap = true,
-			desc = 'Hop to [w]ord after cursor'
+			desc = 'Hop: to [w]ord after cursor'
 		})
 		vim.keymap.set('', '<leader><leader>b', function()
 			hop.hint_words({
@@ -64,7 +64,7 @@ return {
 			})
 		end, {
 			remap = true,
-			desc = 'Hop to word [b]efore cursor'
+			desc = 'Hop: to word [b]efore cursor'
 		})
 
 		-- search
@@ -72,7 +72,8 @@ return {
 			hop.hint_char2({})
 		end, {
 			remap = true,
-			desc = '[s]earch and hop to pattern by 2 characters'
+			desc = 'Hop:earch and hop to pattern by 2 characters'
 		})
 	end
 }
+

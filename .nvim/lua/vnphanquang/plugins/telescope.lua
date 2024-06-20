@@ -3,7 +3,7 @@ return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 		-- Useful for getting pretty icons, but requires a Nerd Font.
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
@@ -26,6 +26,7 @@ return {
 		-- enhance command line
 		pcall(telescope.load_extension, "cmdline")
 		vim.keymap.set({ "n", "v" }, ":", "<cmd>Telescope cmdline<cr>", { desc = "Telescope: Cmdline" })
+		vim.keymap.del("", "<leader>w")
 
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
