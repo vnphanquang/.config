@@ -11,7 +11,24 @@ return {
 	},
 	config = function()
 		local telescope = require("telescope")
+		local actions = require('telescope.actions')
 		telescope.setup({
+			defaults = {
+				file_ignore_patterns = {
+					".vscode/.*",
+					"yarn.lock",
+					"package%-lock.json",
+					"pnpm%-lock.yaml",
+					"lazy%-lock.json",
+					".git/.*",
+				},
+				mappings = {
+					i = {
+						["<C-h>"] = "which_key",
+						["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+					},
+				}
+			},
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
@@ -30,6 +47,8 @@ return {
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
 
+		vim.keymap.set("n", "<leader>sq", builtin.quickfix, { desc = "Telescope: [s]earch [q]uickfix" })
+		vim.keymap.set("n", "<leader>sc", builtin.commands, { desc = "Telescope: [s]earch [c]ommands" })
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Telescope: [s]earch [h]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "Telescope: [s]earch [k]eymaps" })
 		vim.keymap.set("n", "<leader>sf", function()
@@ -99,9 +118,9 @@ return {
 		end, { desc = "Telescope: [/] fuzzily search in current buffer" })
 
 		-- Shortcut for searching Neovim configuration files
-		vim.keymap.set("n", "<leader>sn", function()
+		vim.keymap.set("n", "<leader>sv", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
-		end, { desc = "Telescope: [s]earch [N]eovim files" })
+		end, { desc = "Telescope: [s]earch neo[v]im files" })
 	end,
 }
 

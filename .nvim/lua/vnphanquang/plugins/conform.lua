@@ -11,6 +11,8 @@ return {
 				javascript = { { "prettierd", "prettier" } },
 				typescript = { { "prettierd", "prettier" } },
 				svelte = { { "prettierd", "prettier" } },
+				markdown = { { "prettierd", "prettier" } },
+				css = { "stylelint", { "prettierd", "prettier" } },
 			},
 		})
 
@@ -18,17 +20,21 @@ return {
 			local formatters = conform.list_formatters()
 			conform.format({
 				async = true,
-				lsp_fallback = 'fallback',
+				lsp_fallback = "fallback",
 				formatters,
 			}, function(_, did_edit)
 				if did_edit then
-					vim.notify('[Conform] Formatted using "' .. formatters[1].name .. '"')
+					local formatter_names = {}
+					for _, formatter in ipairs(formatters) do
+						formatter_names[#formatter_names + 1] = formatter.name
+					end
+					vim.notify("[Conform] Formatted using " .. table.concat(formatter_names, ", "))
 				end
 			end)
 		end
 
-		vim.keymap.set('n', '<leader>ff', formatBufferOrSelection, { desc = 'Conform: [f]ormat whole [f]ile' })
-		vim.keymap.set('v', '<leader>f', formatBufferOrSelection, { desc = 'Conform: [f]ormat selection' })
+		vim.keymap.set("n", "<leader>ff", formatBufferOrSelection, { desc = "Conform: [f]ormat whole [f]ile" })
+		vim.keymap.set("v", "<leader>f", formatBufferOrSelection, { desc = "Conform: [f]ormat selection" })
 	end,
 }
 

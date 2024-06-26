@@ -11,14 +11,17 @@ return {
 	config = function()
 		require('neo-tree').setup({
 			filesystem = {
-				-- filtered_items = {
-				-- 	hide_dotfiles = false,
-				-- 	hide_gitignored = false,
-				-- },
 				window = {
 					mappings = {
 						['\\'] = 'close_window',
 					},
+				},
+			},
+			git_status = {
+				window = {
+					mappings = {
+						["gg"] = "none",
+					}
 				},
 			},
 			event_handlers = {
@@ -29,15 +32,15 @@ return {
 						vim.opt_local.relativenumber = true
 					end
 				},
-				{
-					event = 'file_opened',
-					handler = function(file_path)
-						-- auto close
-						-- vimc.cmd('Neotree close')
-						-- OR
-						require('neo-tree.command').execute({ action = 'close' })
-					end
-				},
+				-- {
+				-- 	event = 'file_opened',
+				-- 	handler = function(file_path)
+				-- 		-- auto close
+				-- 		-- vimc.cmd('Neotree close')
+				-- 		-- OR
+				-- 		require('neo-tree.command').execute({ action = 'close' })
+				-- 	end
+				-- },
 			},
 		})
 

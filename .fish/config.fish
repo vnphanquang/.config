@@ -15,7 +15,7 @@ set -U tide_right_prompt_items status\x1ecmd_duration\x1econtext\x1ejobs\x1enode
 # set -U tide_left_prompt_prefix ''
 
 # Keybinding
-set -U EDITOR vim
+set -U EDITOR nvim
 set fish_key_bindings fish_user_key_bindings
 
 # direnv hook
@@ -80,3 +80,4 @@ set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
 
 source_env
+

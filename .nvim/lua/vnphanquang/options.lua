@@ -1,3 +1,4 @@
+vim.g.editorconfig = true
 vim.g.have_nerd_font = true
 
 vim.opt.termguicolors = true
@@ -5,9 +6,10 @@ vim.opt.updatetime = 50
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
-vim.opt.fixendofline = true
 vim.opt.swapfile = false
 vim.opt.wrap = false
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -40,7 +42,6 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 -- vim.opt.expandtab = true
 
--- whitespace rendering (use indent-blank-link.nvim instead)
 -- vim.opt.list = true
 -- vim.opt.listchars = { tab = '→ ', trail = '·', nbsp = '␣' }
 

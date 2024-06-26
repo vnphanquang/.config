@@ -16,6 +16,7 @@ require("lazy").setup({
 	-- base helpers
 	require("vnphanquang.plugins.which-key"),
 	require("vnphanquang.plugins.notify"),
+	{ "tpope/vim-sleuth" }, -- https://github.com/tpope/vim-sleuth
 
 	-- UI enhancement
 	require("vnphanquang.plugins.gruvbox-material"),
@@ -33,11 +34,17 @@ require("lazy").setup({
 	require("vnphanquang.plugins.todo"),
 	require("vnphanquang.plugins.undotree"),
 	require("vnphanquang.plugins.spider"),
-	 -- https://github.com/andrewferrier/wrapping.nvim
+	-- https://github.com/andrewferrier/wrapping.nvim
 	{
 		"andrewferrier/wrapping.nvim",
 		config = function()
-			require("wrapping").setup({})
+			require("wrapping").setup({
+				notify_on_switch = false,
+			})
+			vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNewFile' }, {
+				pattern = '*',
+				command = 'SoftWrapMode',
+			})
 		end,
 	},
 
@@ -57,7 +64,6 @@ require("lazy").setup({
 	require("vnphanquang.plugins.illuminate"),
 	require("vnphanquang.plugins.substitue"),
 	require("vnphanquang.plugins.multiple-cursor"),
-	{ "tpope/vim-sleuth" }, -- https://github.com/tpope/vim-sleuth
 	{ "numToStr/Comment.nvim", opts = {} }, -- https://github.com/numToStr/Comment.nvim
 
 	-- fun stuff
