@@ -128,6 +128,7 @@ return {
 			tsserver = {},
 			svelte = {},
 			marksman = {},
+			eslint_d = {},
 			["eslint-lsp"] = {},
 			prettierd = {},
 			prettier = {},

@@ -71,32 +71,65 @@ return {
 					map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 				end,
 			})
-
-			-- Shortuct for git
-			vim.keymap.set(
-				"n",
-				"<leader>sgb",
-				"<cmd>Telescope git_branches<cr>",
-				{ desc = "Telescope: [s]earch [g]it [b]ranches" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>sgs",
-				"<cmd>Telescope git_status<cr>",
-				{ desc = "Telescope: [s]earch [g]it [s]tatus" }
-			)
-			vim.keymap.set("n", "<leader>sgt", "<cmd>Telescope git_stash<cr>", { desc = "Telescope: [s]earch [g]it [t]ash" })
-			vim.keymap.set(
-				"n",
-				"<leader>sgc",
-				"<cmd>Telescope git_commits<cr>",
-				{ desc = "Telescope: [s]earch [g]it [c]ommits" }
-			)
 		end,
 	},
-	-- https://github.com/tpope/vim-fugitive
+	-- https://github.com/aaronhallaert/advanced-git-search.nvim
 	{
-		"tpope/vim-fugitive",
+		"aaronhallaert/advanced-git-search.nvim",
+		lazy = false,
+		cmd = { "AdvancedGitSearch" },
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			-- to show diff splits and open commits in browser
+			"tpope/vim-fugitive",
+			-- to open commits in browser with fugitive
+			"tpope/vim-rhubarb",
+		},
+		config = function()
+			-- Shortcuts for git
+			local builtin = require("telescope.builtin")
+			vim.keymap.set("n", "<leader>sgb", builtin.git_branches, { desc = "Telescope: [s]earch [g]it [b]ranches" })
+			vim.keymap.set("n", "<leader>sgs", builtin.git_status, { desc = "Telescope: [s]earch [g]it [s]tatus" })
+			vim.keymap.set("n", "<leader>sgc", builtin.git_commits, { desc = "Telescope: [s]earch [g]it [c]ommits" })
+
+			require("telescope").load_extension("advanced_git_search")
+			vim.keymap.set(
+				"n",
+				"<leader>sgl",
+				"<cmd>AdvancedGitSearch search_log_content<CR>",
+				{ desc = "Telescope: [s]earch [g]it log content" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>sgL",
+				"<cmd>AdvancedGitSearch search_log_content_file<CR>",
+				{ desc = "Telescope: [s]earch [g]it log with current [F]ile" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>sgdf",
+				"<cmd>AdvancedGitSearch diff_commit_file<CR>",
+				{ desc = "Telescope: [s]earch [g]it diff with current [f]ile" }
+			)
+			vim.keymap.set(
+				{ "n", "v" },
+				"<leader>sgdl",
+				"<cmd>AdvancedGitSearch diff_commit_line<CR>",
+				{ desc = "Telescope: [s]earch [g]it diff with current [l]ine" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>sgdb",
+				"<cmd>AdvancedGitSearch changed_on_branch<CR>",
+				{ desc = "Telescope: [s]earch [g]it diff with current [b]ranch" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>sgr",
+				"<cmd>AdvancedGitSearch checkout_reflog<CR>",
+				{ desc = "Telescope: [s]earch and checkout from [g]it [r]eflog" }
+			)
+		end,
 	},
 }
 

@@ -8,10 +8,11 @@ return {
 		-- Useful for getting pretty icons, but requires a Nerd Font.
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		"jonarrien/telescope-cmdline.nvim",
+		"debugloop/telescope-undo.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
-		local actions = require('telescope.actions')
+		local actions = require("telescope.actions")
 		telescope.setup({
 			defaults = {
 				file_ignore_patterns = {
@@ -27,7 +28,7 @@ return {
 						["<C-h>"] = "which_key",
 						["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 					},
-				}
+				},
 			},
 			extensions = {
 				["ui-select"] = {
@@ -51,12 +52,27 @@ return {
 		vim.keymap.set("n", "<leader>sc", builtin.commands, { desc = "Telescope: [s]earch [c]ommands" })
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Telescope: [s]earch [h]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "Telescope: [s]earch [k]eymaps" })
+
+		-- We cache the results of "git rev-parse"
+		-- Process creation is expensive in Windows, so this reduces latency
+		local is_inside_work_tree = {}
 		vim.keymap.set("n", "<leader>sf", function()
-			-- builtin.find_files({ hidden = true })
-			builtin.git_files({
+			local opts = {
 				show_untracked = true,
 				use_git_root = true,
-			})
+			}
+
+			local cwd = vim.fn.getcwd()
+			if is_inside_work_tree[cwd] == nil then
+				vim.fn.system("git rev-parse --is-inside-work-tree")
+				is_inside_work_tree[cwd] = vim.v.shell_error == 0
+			end
+
+			if is_inside_work_tree[cwd] then
+				builtin.git_files(opts)
+			else
+				builtin.find_files(opts)
+			end
 		end, { desc = "Telescope: [s]earch [F]iles" })
 
 		vim.keymap.set("n", "<leader>sw", function()
@@ -121,6 +137,9 @@ return {
 		vim.keymap.set("n", "<leader>sv", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "Telescope: [s]earch neo[v]im files" })
+
+		telescope.load_extension("undo")
+		vim.keymap.set("n", "<leader>su", telescope.extensions.undo.undo, { desc = "Telescope: [s]earch [u]ndos" })
 	end,
-}
+};
 

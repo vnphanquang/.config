@@ -11,6 +11,9 @@ vim.opt.wrap = false
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
 
+vim.opt.undolevels = 100
+vim.opt.undofile = true
+
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`

@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
+		{ "tpope/vim-sleuth" },
 		require("vnphanquang.plugins.which-key"),
 		require("vnphanquang.plugins.notify"),
 
@@ -31,7 +32,6 @@ require("lazy").setup({
 		require("vnphanquang.plugins.treesitter"),
 		require("vnphanquang.plugins.telescope"),
 		require("vnphanquang.plugins.todo"),
-		require("vnphanquang.plugins.undotree"),
 		require("vnphanquang.plugins.spider"),
 		-- https://github.com/andrewferrier/wrapping.nvim
 		{

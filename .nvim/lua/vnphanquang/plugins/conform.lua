@@ -8,9 +8,9 @@ return {
 			format_on_save = nil,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				javascript = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
-				svelte = { { "prettierd", "prettier" } },
+				javascript = { { "prettierd", "prettier" }, "eslint_d" },
+				typescript = { { "prettierd", "prettier" }, "eslint_d" },
+				svelte = { { "prettierd", "prettier" }, "eslint_d" },
 				markdown = { { "prettierd", "prettier" } },
 				css = { "stylelint", { "prettierd", "prettier" } },
 			},
