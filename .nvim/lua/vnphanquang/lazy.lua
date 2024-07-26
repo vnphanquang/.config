@@ -16,7 +16,7 @@ require("lazy").setup({
 	spec = {
 		{ "tpope/vim-sleuth" },
 		require("vnphanquang.plugins.which-key"),
-		require("vnphanquang.plugins.notify"),
+		require("vnphanquang.plugins.noice"),
 
 		-- UI enhancement
 		require("vnphanquang.plugins.gruvbox-material"),
@@ -64,9 +64,37 @@ require("lazy").setup({
 		require("vnphanquang.plugins.substitue"),
 		require("vnphanquang.plugins.multiple-cursor"),
 		{ "numToStr/Comment.nvim", opts = {} }, -- https://github.com/numToStr/Comment.nvim
+		{ "wakatime/vim-wakatime", lazy = false }, -- https://wakatime.com/neovim
+		-- { -- https://github.com/mistricky/codesnap.nvim
+		-- 	"mistricky/codesnap.nvim",
+		-- 	build = "make",
+		-- 	keys = {
+		-- 		-- FIXME: keep track of this bug https://github.com/mistricky/codesnap.nvim/issues/103
+		-- 		{ "<leader>cc", "<Esc><cmd>CodeSnap<cr>", mode = { "x", "v" }, desc = "Codesnap: save selected code snapshot into clipboard" },
+		-- 		{ "<leader>cs", "<Esc><cmd>CodeSnapSave<cr>", mode = { "x", "v" }, desc = "Codesnap: save selected code snapshot in ~/Pictures" },
+		-- 	},
+		-- 	opts = {
+		-- 		save_path = "~/Pictures",
+		-- 		has_breadcrumbs = true,
+		-- 		watermark = "",
+		-- 		bg_padding = 0,
+		-- 		code_font_family = "FiraCode Nerd Font",
+		-- 		has_line_number = true,
+		-- 		show_workspace = true,
+		-- 	},
+		-- },
 
 		-- fun stuff
 		{ "eandrju/cellular-automaton.nvim" }, -- https://github.com/Eandrju/cellular-automaton.nvim
+		{ -- https://github.com/s1n7ax/nvim-window-picker
+			"s1n7ax/nvim-window-picker",
+			name = "window-picker",
+			event = "VeryLazy",
+			version = "2.*",
+			config = function()
+				require("window-picker").setup()
+			end,
+		},
 	},
 })
 

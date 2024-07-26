@@ -7,7 +7,7 @@ return {
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 		-- Useful for getting pretty icons, but requires a Nerd Font.
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
-		"jonarrien/telescope-cmdline.nvim",
+		-- "jonarrien/telescope-cmdline.nvim",
 		"debugloop/telescope-undo.nvim",
 	},
 	config = function()
@@ -42,8 +42,8 @@ return {
 		pcall(telescope.load_extension, "ui-select")
 
 		-- enhance command line
-		pcall(telescope.load_extension, "cmdline")
-		vim.keymap.set({ "n", "v" }, ":", "<cmd>Telescope cmdline<cr>", { desc = "Telescope: Cmdline" })
+		-- pcall(telescope.load_extension, "cmdline")
+		-- vim.keymap.set({ "n", "v" }, ":", "<cmd>Telescope cmdline<cr>", { desc = "Telescope: Cmdline" })
 
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
