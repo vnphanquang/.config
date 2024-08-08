@@ -7,7 +7,7 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
 vim.opt.swapfile = false
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
 

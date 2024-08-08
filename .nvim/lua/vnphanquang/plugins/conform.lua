@@ -9,6 +9,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				javascript = { { "prettierd", "prettier" }, "eslint_d" },
+				html = { { "prettierd", "prettier" }, "eslint_d", "stylelint" },
 				typescript = { { "prettierd", "prettier" }, "eslint_d" },
 				svelte = { { "prettierd", "prettier" }, "eslint_d" },
 				markdown = { { "prettierd", "prettier" } },

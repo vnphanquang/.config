@@ -33,19 +33,6 @@ require("lazy").setup({
 		require("vnphanquang.plugins.telescope"),
 		require("vnphanquang.plugins.todo"),
 		require("vnphanquang.plugins.spider"),
-		-- https://github.com/andrewferrier/wrapping.nvim
-		{
-			"andrewferrier/wrapping.nvim",
-			config = function()
-				require("wrapping").setup({
-					notify_on_switch = false,
-				})
-				vim.api.nvim_create_autocmd({ "BufEnter", "BufNewFile" }, {
-					pattern = "*",
-					command = "SoftWrapMode",
-				})
-			end,
-		},
 
 		-- essential development plugins
 		require("vnphanquang.plugins.git"),
