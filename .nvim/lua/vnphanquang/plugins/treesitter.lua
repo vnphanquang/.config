@@ -33,6 +33,9 @@ return {
 					"markdown_inline",
 					"bash",
 					"dockerfile",
+					"python",
+					"yaml",
+					"toml"
 				},
 
 				-- Install parsers synchronously (only applied to `ensure_installed`)

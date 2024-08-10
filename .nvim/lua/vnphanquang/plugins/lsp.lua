@@ -133,6 +133,8 @@ return {
 			prettierd = {},
 			prettier = {},
 			stylelint = {},
+			['ruff-lsp'] = {},
+			ruff = {},
 			stylelint_lsp = {
 				filetypes = { "css", "scss", "svelte", "postcss" },
 				root_dir = require("lspconfig").util.root_pattern("package.json", ".git"),

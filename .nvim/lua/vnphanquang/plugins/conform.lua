@@ -14,6 +14,7 @@ return {
 				svelte = { { "prettierd", "prettier" }, "eslint_d" },
 				markdown = { { "prettierd", "prettier" } },
 				css = { "stylelint", { "prettierd", "prettier" } },
+				python = { "ruff" },
 			},
 		})
 
