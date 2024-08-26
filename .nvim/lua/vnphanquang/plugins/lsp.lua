@@ -128,12 +128,26 @@ return {
 			tsserver = {},
 			svelte = {},
 			marksman = {},
-			eslint_d = {},
-			["eslint-lsp"] = {},
+			eslint_d = {
+				settings = {
+					useFlatConfig = true,
+					experimental = {
+						useFlatConfig = true,
+					},
+				},
+			},
+			["eslint-lsp"] = {
+				settings = {
+					useFlatConfig = true,
+					experimental = {
+						useFlatConfig = true,
+					},
+				},
+			},
 			prettierd = {},
 			prettier = {},
 			stylelint = {},
-			['ruff-lsp'] = {},
+			["ruff-lsp"] = {},
 			ruff = {},
 			stylelint_lsp = {
 				filetypes = { "css", "scss", "svelte", "postcss" },
