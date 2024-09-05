@@ -32,15 +32,15 @@ return {
 						vim.opt_local.relativenumber = true
 					end
 				},
-				-- {
-				-- 	event = 'file_opened',
-				-- 	handler = function(file_path)
-				-- 		-- auto close
-				-- 		-- vimc.cmd('Neotree close')
-				-- 		-- OR
-				-- 		require('neo-tree.command').execute({ action = 'close' })
-				-- 	end
-				-- },
+				{
+					event = 'file_opened',
+					handler = function(file_path)
+						-- auto close
+						-- vimc.cmd('Neotree close')
+						-- OR
+						require('neo-tree.command').execute({ action = 'close' })
+					end
+				},
 			},
 		})
 
