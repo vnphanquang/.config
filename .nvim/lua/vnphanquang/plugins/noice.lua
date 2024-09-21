@@ -7,7 +7,11 @@ return {
 		"rcarriga/nvim-notify",
 	},
 	config = function()
-		require("noice").setup({})
+		---@diagnostic disable-next-line: missing-fields
+		require("notify").setup({
+			top_down = false,
+		})
+		require("noice").setup()
 		vim.keymap.set("n", "<leader>sn", "<cmd>Telescope notify<cr>", { desc = "Telescope: [s]search [n]otifications" })
 	end,
 }
