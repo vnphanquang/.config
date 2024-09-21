@@ -14,6 +14,13 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
+		{
+			"vhyrro/luarocks.nvim",
+			priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+			opts = {
+				rocks = { "magick" }, -- specifies a list of rocks to install
+			},
+		},
 		{ "tpope/vim-sleuth" },
 		require("vnphanquang.plugins.which-key"),
 		require("vnphanquang.plugins.noice"),
