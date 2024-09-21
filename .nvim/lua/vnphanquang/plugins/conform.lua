@@ -9,12 +9,19 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				javascript = { "prettierd", "eslint_d" },
-				html = { 'prettierd', "eslint_d", "stylelint" },
-				typescript = { 'prettierd', "eslint_d" },
-				svelte = { 'prettierd', "eslint_d" },
-				markdown = { 'prettierd' },
-				css = { "stylelint", 'prettierd' },
-				python = { "ruff" },
+				html = { "prettierd", "eslint_d", "stylelint" },
+				typescript = { "prettierd", "eslint_d" },
+				svelte = { "prettierd", "eslint_d" },
+				markdown = { "prettierd" },
+				css = { "stylelint", "prettierd" },
+				python = {
+					-- To fix auto-fixable lint errors.
+					"ruff_fix",
+					-- To run the Ruff formatter.
+					"ruff_format",
+					-- To organize the imports.
+					"ruff_organize_imports",
+				},
 			},
 		})
 

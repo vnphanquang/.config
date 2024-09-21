@@ -108,6 +108,22 @@ return {
 			end,
 		})
 
+		-- see https://docs.astral.sh/ruff/editors/setup/#neovim
+		vim.api.nvim_create_autocmd("LspAttach", {
+			group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
+			callback = function(args)
+				local client = vim.lsp.get_client_by_id(args.data.client_id)
+				if client == nil then
+					return
+				end
+				if client.name == "ruff" then
+					-- Disable hover in favor of Pyright
+					client.server_capabilities.hoverProvider = false
+				end
+			end,
+			desc = "LSP: Disable hover capability from Ruff",
+		})
+
 		-- LSP servers and clients are able to communicate to each other what features they support.
 		--  By default, Neovim doesn't support everything that is in the LSP specification.
 		--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
@@ -147,8 +163,6 @@ return {
 			prettierd = {},
 			prettier = {},
 			stylelint = {},
-			["ruff-lsp"] = {},
-			ruff = {},
 			stylelint_lsp = {
 				filetypes = { "css", "scss", "svelte", "postcss" },
 				root_dir = require("lspconfig").util.root_pattern("package.json", ".git"),
@@ -173,6 +187,25 @@ return {
 						},
 						-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
 						-- diagnostics = { disable = { 'missing-fields' } },
+					},
+				},
+			},
+
+			-- python specifics
+			-- see https://docs.astral.sh/ruff/editors/setup/#neovim
+			["ruff-lsp"] = {},
+			ruff = {},
+			pyright = {
+				settings = {
+					pyright = {
+						-- Using Ruff's import organizer
+						disableOrganizeImports = true,
+					},
+					python = {
+						analysis = {
+							-- Ignore all files for analysis to exclusively use Ruff for linting
+							ignore = { "*" },
+						},
 					},
 				},
 			},
