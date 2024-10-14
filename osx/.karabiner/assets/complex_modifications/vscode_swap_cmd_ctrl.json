@@ -1,0 +1,50 @@
+{
+  "title": "Swap cmd -> ctrl in vscode",
+  "rules": [
+    {
+      "description": "Swap left-ctrl to left_command in vscode",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "left_command"
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode",
+                "^com\\.microsoft\\.VSCodeInsiders"
+              ]
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.VSCode",
+                "^com\\.microsoft\\.VSCodeInsiders"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
