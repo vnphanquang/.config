@@ -4,8 +4,9 @@
 
 | Dependency | Description |
 | --- | --- |
-| [Fisher][fisher] | Fish Plugin Manager |
-| [Tide][tide] | Prompt Manager |
+| [Fisher][fisher] | fish plugin manager |
+| [Tide][tide] | prompt manager |
+| [bat] | `cat` alternative (used for git-diff) |
 
 Install manually each of the following (recommended) or add them directly to `~/.config/fish/fish_plugins` file.
 
@@ -44,4 +45,5 @@ chsh -s $(which fish)
 [fish]: https://github.com/fish-shell/fish-shell
 [fisher]: https://github.com/jorgebucaran/fisher
 [tide]: https://github.com/IlanCosman/tide
+[bat]: https://github.com/sharkdp/bat
 
