@@ -1,9 +1,9 @@
-# .fish
-.fish/fish_variables
+fish/fish_variables
 *.tmp.*
 .gitsecret/keys/random_seed
 !*.secret
-.polybar/.env
-.fonts/.uuid
+.env
+*.env
+fonts/.uuid
 .gitconfig
 
