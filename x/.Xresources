@@ -1,0 +1,4 @@
+# For high-resolution monitor, change system DPI to scale up appropriately. 96 is 1x, 192 is 2x.
+Xft.dpi: 144
+rofi.dpi: 144
+
