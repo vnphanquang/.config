@@ -1,1 +1,2 @@
-alias tmux-ss="bash $HOME/dev/.config/tmux-save-session.sh"
+alias tmux-ss="bash $HOME/dev/.config/tmux/tmux-save-session.sh"
+
