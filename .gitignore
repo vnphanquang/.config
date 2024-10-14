@@ -5,3 +5,5 @@
 !*.secret
 .polybar/.env
 .fonts/.uuid
+.gitconfig
+
