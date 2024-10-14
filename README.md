@@ -22,3 +22,7 @@ sudo pacman -S xdotool kruler
 [xdotool]: https://github.com/jordansissel/xdotool
 [kruler]: https://github.com/KDE/kruler
 
+## Miscellaneous Resources
+
+- [Backup & Restore GPG](https://www.jwillikers.com/backup-and-restore-a-gpg-key)
+
