@@ -4,7 +4,7 @@
 polybar-msg cmd quit
 # alternative nuclear option: killall -q polybar
 
-export $(cat $HOME/dev/.config/.polybar/.env | xargs)
+export $(cat $HOME/dev/.config/polybar/.env | xargs)
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
@@ -22,3 +22,4 @@ fi
 # MONITOR=$MONITORS polybar bottom;
 
 echo "Bars launched..."
+

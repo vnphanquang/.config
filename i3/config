@@ -75,3 +75,4 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 # decrease screen 
 # Set wallpaper background (require `feh` package)
 exec --no-startup-id feh --bg-fill --randomize $HOME/.config/i3/wallpapers/*
 bindsym $mod+Shift+w exec --no-startup-id feh --bg-fill --randomize $HOME/.config/i3/wallpapers/*
+
