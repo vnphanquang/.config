@@ -2,19 +2,76 @@
 
 return {
 	"stevearc/conform.nvim",
+	dependencies = {
+		"neovim/nvim-lspconfig",
+	},
+	-- event = { "BufWritePre" },
+	-- cmd = { "ConformInfo" },
 	config = function()
 		local conform = require("conform")
+		local lspconfig = require("lspconfig")
+
+		---@param bufnr integer
+		---@param ... string
+		---@return string
+		local function first(bufnr, ...)
+			for i = 1, select("#", ...) do
+				local formatter = select(i, ...)
+				if conform.get_formatter_info(formatter, bufnr).available then
+					return formatter
+				end
+			end
+			return select(1, ...)
+		end
+
+		local function is_deno_project(bufnr)
+			return lspconfig.util.root_pattern("deno.json", "deno.jsonc")(vim.api.nvim_buf_get_name(bufnr))
+		end
+
+		local function first_prettier_fmt(bufnr)
+			return { first(bufnr, "prettierd", "prettier") }
+		end
+
+		local function html_css(bufnr)
+			if is_deno_project(bufnr) then
+				return { "deno_fmt", "stylelint" }
+			end
+
+			return { table.unpack(first_prettier_fmt(bufnr)), "stylelint" }
+		end
+
+		local function js_fmts(bufnr)
+			if is_deno_project(bufnr) then
+				return { "deno_fmt" }
+			end
+
+			return { table.unpack(first_prettier_fmt(bufnr)), first(bufnr, "eslint_d", "eslint") }
+		end
+
+		local function yaml_fmts(bufnr)
+			if is_deno_project(bufnr) then
+				return { "deno_fmt" }
+			end
+
+			return { "yamlfix", "yamlfmt" }
+		end
+
 		conform.setup({
 			format_on_save = nil,
 			formatters_by_ft = {
 				lua = { "stylua" },
-				javascript = { "prettierd", "eslint_d" },
-				json = { "prettierd", "eslint_d" },
-				html = { "prettierd", "eslint_d", "stylelint" },
-				typescript = { "prettierd", "eslint_d" },
-				svelte = { "prettierd", "eslint_d" },
-				markdown = { "prettierd" },
-				css = { "stylelint", "prettierd" },
+				javascript = js_fmts,
+				typescript = js_fmts,
+				json = js_fmts,
+				svelte = js_fmts,
+				html = html_css,
+				css = html_css,
+				markdown = function(bufnr)
+					if is_deno_project(bufnr) then
+						return { "deno_fmt" }
+					end
+					return first_prettier_fmt(bufnr)
+				end,
 				python = {
 					-- To fix auto-fixable lint errors.
 					"ruff_fix",
@@ -23,6 +80,11 @@ return {
 					-- To organize the imports.
 					"ruff_organize_imports",
 				},
+				yaml = yaml_fmts,
+				rust = { "rustfmt" },
+			},
+			default_format_opts = {
+				lsp_format = "fallback",
 			},
 		})
 
@@ -47,4 +109,3 @@ return {
 		vim.keymap.set("v", "<leader>f", formatBufferOrSelection, { desc = "Conform: [f]ormat selection" })
 	end,
 }
-

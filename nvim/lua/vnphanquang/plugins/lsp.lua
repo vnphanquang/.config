@@ -21,6 +21,8 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
+		local lspconfig = require("lspconfig")
+		local telescopeBuiltin = require("telescope.builtin")
 		--  This function gets run when an LSP attaches to a particular buffer.
 		--    That is to say, every time a new file is opened that is associated with
 		--    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
@@ -36,28 +38,29 @@ return {
 				-- Jump to the definition of the word under your cursor.
 				--  This is where a variable was first declared, or where a function is defined, etc.
 				--  To jump back, press <C-t>.
-				map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+				map("gd", telescopeBuiltin.lsp_definitions, "[G]oto [D]efinition")
+
 				-- WARN: This is not Goto Definition, this is Goto Declaration.
 				--  For example, in C this would take you to the header.
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 				-- Find references for the word under your cursor.
-				map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+				map("gr", telescopeBuiltin.lsp_references, "[G]oto [R]eferences")
 				-- Jump to the implementation of the word under your cursor.
 				--  Useful when your language has ways of declaring types without an actual implementation.
-				map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+				map("gI", telescopeBuiltin.lsp_implementations, "[G]oto [I]mplementation")
 
 				-- Jump to the type of the word under your cursor.
 				--  Useful when you're not sure what type a variable is and you want to see
 				--  the definition of its *type*, not where it was *defined*.
-				map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+				map("<leader>D", telescopeBuiltin.lsp_type_definitions, "Type [D]efinition")
 
 				-- Fuzzy find all the symbols in your current document.
 				--  Symbols are things like variables, functions, types, etc.
-				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+				map("<leader>ds", telescopeBuiltin.lsp_document_symbols, "[D]ocument [S]ymbols")
 
 				-- Fuzzy find all the symbols in your current workspace.
 				--  Similar to document symbols, except searches over your entire project.
-				map("<leader>gs", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+				map("<leader>gs", telescopeBuiltin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
@@ -140,11 +143,32 @@ return {
 		--  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
+		local function node_not_deno_root_dir(filename)
+			local denoRootDir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")(filename)
+			if denoRootDir then
+				return nil
+			end
+			return lspconfig.util.root_pattern("package.json")(filename)
+		end
+
 		local servers = {
-			tsserver = {},
+			["rust_analyzer"] = {},
+			denols = {
+				root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+				init_options = {
+					lint = true,
+					unstable = true,
+				},
+			},
+			tsserver = {
+				single_file_support = false,
+				root_dir = node_not_deno_root_dir,
+			},
 			svelte = {},
 			marksman = {},
 			eslint_d = {
+				root_dir = node_not_deno_root_dir,
 				settings = {
 					useFlatConfig = true,
 					experimental = {
@@ -153,6 +177,7 @@ return {
 				},
 			},
 			["eslint-lsp"] = {
+				root_dir = node_not_deno_root_dir,
 				settings = {
 					useFlatConfig = true,
 					experimental = {
@@ -160,12 +185,18 @@ return {
 					},
 				},
 			},
-			prettierd = {},
-			prettier = {},
-			stylelint = {},
+			prettierd = {
+				root_dir = node_not_deno_root_dir,
+			},
+			prettier = {
+				root_dir = node_not_deno_root_dir,
+			},
+			stylelint = {
+				filetypes = { "css", "scss", "svelte", "postcss", "html" },
+			},
 			stylelint_lsp = {
-				filetypes = { "css", "scss", "svelte", "postcss" },
-				root_dir = require("lspconfig").util.root_pattern("package.json", ".git"),
+				filetypes = { "css", "scss", "svelte", "postcss", "html" },
+				root_dir = lspconfig.util.root_pattern("package.json"),
 				settings = {
 					stylelintplus = {
 						-- see available options in stylelint-lsp documentation
@@ -190,6 +221,7 @@ return {
 					},
 				},
 			},
+			yamlls = {},
 
 			-- python specifics
 			-- see https://docs.astral.sh/ruff/editors/setup/#neovim
@@ -235,7 +267,7 @@ return {
 					-- by the server configuration above. Useful when disabling
 					-- certain features of an LSP (for example, turning off formatting for tsserver)
 					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-					require("lspconfig")[server_name].setup(server)
+					lspconfig[server_name].setup(server)
 				end,
 			},
 		})
@@ -263,4 +295,3 @@ return {
 		})
 	end,
 }
-

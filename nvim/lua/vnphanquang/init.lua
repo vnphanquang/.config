@@ -14,23 +14,23 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Add new line to the end of the file
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-	group = vim.api.nvim_create_augroup("UserOnSave", {}),
-	pattern = "*",
-	callback = function()
-		local insert_final_newline = vim.b.editorconfig.insert_final_newline
-		-- vim.notify("Insert final newline: " .. insert_final_newline)
-		if insert_final_newline ~= 'false' then
-			local n_lines = vim.api.nvim_buf_line_count(0)
-			local last_nonblank = vim.fn.prevnonblank(n_lines)
-			if last_nonblank <= n_lines then
-				pcall(vim.cmd, [[undojoin]])
-				-- vim.cmd([[undojoin]])
-				vim.api.nvim_buf_set_lines(0, last_nonblank, n_lines, true, { "" })
-			end
-		end
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+-- 	group = vim.api.nvim_create_augroup("UserOnSave", {}),
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		local insert_final_newline = vim.b.editorconfig.insert_final_newline
+-- 		-- vim.notify("Insert final newline: " .. insert_final_newline)
+-- 		if insert_final_newline ~= 'false' then
+-- 			local n_lines = vim.api.nvim_buf_line_count(0)
+-- 			local last_nonblank = vim.fn.prevnonblank(n_lines)
+-- 			if last_nonblank <= n_lines then
+-- 				pcall(vim.cmd, [[undojoin]])
+-- 				-- vim.cmd([[undojoin]])
+-- 				vim.api.nvim_buf_set_lines(0, last_nonblank, n_lines, true, { "" })
+-- 			end
+-- 		end
+-- 	end,
+-- })
 
 vim.filetype.add({
 	pattern = {
