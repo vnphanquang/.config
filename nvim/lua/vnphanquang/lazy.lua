@@ -39,7 +39,7 @@ require("lazy").setup({
 		require("vnphanquang.plugins.treesitter"),
 		require("vnphanquang.plugins.telescope"),
 		require("vnphanquang.plugins.todo"),
-		require("vnphanquang.plugins.spider"),
+		require("vnphanquang.plugins.mini"),
 
 		-- essential development plugins
 		require("vnphanquang.plugins.git"),
@@ -50,12 +50,9 @@ require("lazy").setup({
 		{ "github/copilot.vim" }, -- https://github.com/github/copilot.vim
 
 		-- development utilities
-		require("vnphanquang.plugins.autopairs"),
-		require("vnphanquang.plugins.surround"),
 		require("vnphanquang.plugins.indent-blank-line"),
 		require("vnphanquang.plugins.hop"),
 		require("vnphanquang.plugins.illuminate"),
-		require("vnphanquang.plugins.substitue"),
 		require("vnphanquang.plugins.multiple-cursor"),
 		{ "numToStr/Comment.nvim", opts = {} }, -- https://github.com/numToStr/Comment.nvim
 		{ "wakatime/vim-wakatime", lazy = false }, -- https://wakatime.com/neovim
@@ -91,4 +88,3 @@ require("lazy").setup({
 		},
 	},
 })
-

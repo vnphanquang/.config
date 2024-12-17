@@ -38,37 +38,38 @@ return {
 				-- Jump to the definition of the word under your cursor.
 				--  This is where a variable was first declared, or where a function is defined, etc.
 				--  To jump back, press <C-t>.
-				map("gd", telescopeBuiltin.lsp_definitions, "[G]oto [D]efinition")
+				map("gd", telescopeBuiltin.lsp_definitions, "[g]oto [d]efinition")
 
 				-- WARN: This is not Goto Definition, this is Goto Declaration.
 				--  For example, in C this would take you to the header.
-				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-				-- Find references for the word under your cursor.
-				map("gr", telescopeBuiltin.lsp_references, "[G]oto [R]eferences")
+				map("gD", vim.lsp.buf.declaration, "[g]oto [d]eclaration")
 				-- Jump to the implementation of the word under your cursor.
 				--  Useful when your language has ways of declaring types without an actual implementation.
-				map("gI", telescopeBuiltin.lsp_implementations, "[G]oto [I]mplementation")
+				map("<leader>li", telescopeBuiltin.lsp_implementations, "[i]mplementation")
 
 				-- Jump to the type of the word under your cursor.
 				--  Useful when you're not sure what type a variable is and you want to see
 				--  the definition of its *type*, not where it was *defined*.
-				map("<leader>D", telescopeBuiltin.lsp_type_definitions, "Type [D]efinition")
+				-- map("<leader>D", telescopeBuiltin.lsp_type_definitions, "Type [D]efinition")
 
 				-- Fuzzy find all the symbols in your current document.
 				--  Symbols are things like variables, functions, types, etc.
-				map("<leader>ds", telescopeBuiltin.lsp_document_symbols, "[D]ocument [S]ymbols")
+				map("<leader>lsS", telescopeBuiltin.lsp_document_symbols, "[s]earch all [s]ymbols in document")
 
 				-- Fuzzy find all the symbols in your current workspace.
 				--  Similar to document symbols, except searches over your entire project.
-				map("<leader>gs", telescopeBuiltin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+				map("<leader>lsS", telescopeBuiltin.lsp_dynamic_workspace_symbols, "[s]earch all [S]ymbols in workspace")
+
+				-- Find references for the word under your cursor.
+				map("<leader>lsr", telescopeBuiltin.lsp_references, "[s]earch all [r]eferences")
 
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
-				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+				map("<leader>lr", vim.lsp.buf.rename, "[r]eame")
 
 				-- Execute a code action, usually your cursor needs to be on top of an error
 				-- or a suggestion from your LSP for this to activate.
-				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+				map("<leader>la", vim.lsp.buf.code_action, "[a]ction")
 
 				-- The following two autocommands are used to highlight references of the
 				-- word under your cursor when your cursor rests there for a little while.
@@ -161,10 +162,10 @@ return {
 					unstable = true,
 				},
 			},
-			tsserver = {
-				single_file_support = false,
-				root_dir = node_not_deno_root_dir,
-			},
+			-- tsserver = {
+			-- 	single_file_support = false,
+			-- 	root_dir = node_not_deno_root_dir,
+			-- },
 			svelte = {},
 			marksman = {},
 			eslint_d = {
@@ -225,7 +226,7 @@ return {
 
 			-- python specifics
 			-- see https://docs.astral.sh/ruff/editors/setup/#neovim
-			["ruff-lsp"] = {},
+			["ruff"] = {},
 			ruff = {},
 			pyright = {
 				settings = {
