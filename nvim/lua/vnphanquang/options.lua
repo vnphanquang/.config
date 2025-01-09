@@ -8,7 +8,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
 vim.opt.swapfile = false
 vim.opt.wrap = true
-vim.opt.spelllang = 'en_us'
+vim.opt.spelllang = "en"
 vim.opt.spell = true
 
 vim.opt.undolevels = 100
