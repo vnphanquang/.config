@@ -10,6 +10,7 @@ return {
 		"3rd/image.nvim",
 	},
 	config = function()
+		---@diagnostic disable-next-line: missing-fields
 		require("image").setup({
 			backend = "ueberzug",
 		})
@@ -51,4 +52,3 @@ return {
 		vim.keymap.set("n", "\\", ":Neotree reveal<CR>", { desc = "Toggle NeoTree" })
 	end,
 }
-
