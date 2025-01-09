@@ -30,11 +30,8 @@ exec --no-startup-id nm-applet
 # load dunst
 exec --no-startup-id dunst
 
-# start picom
-exec_always --no-startup-id picom -bCG --config ~/.config/picom.conf
-
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec wezterm
 
 # rofi
 # launcher
@@ -52,7 +49,9 @@ bindsym $mod+p exec ~/.config/rofi/powermenu/rofi.powermenu.sh
 include ~/.config/i3/includes/*.conf
 
 # start picom
+# exec_always --no-startup-id picom -bCG --config ~/.config/picom.conf
 # exec_always --no-startup-id picom -bCG  --experimental-backends --config ~/.config/picom.conf
+exec_always --no-startup-id picom --config ~/.config/picom.conf --backend xrender
 
 # restart the ibus engine
 exec_always --no-startup-id ~/dev/.config/startup/ibus.sh
@@ -75,4 +74,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 # decrease screen 
 # Set wallpaper background (require `feh` package)
 exec --no-startup-id feh --bg-fill --randomize $HOME/.config/i3/wallpapers/*
 bindsym $mod+Shift+w exec --no-startup-id feh --bg-fill --randomize $HOME/.config/i3/wallpapers/*
+
+# change opacity of current window wth picom
+bindsym $mod+Shift+minus exec --no-startup-id "picom-trans -c -5"
+bindsym $mod+Shift+equal exec --no-startup-id "picom-trans -c +5"
 
