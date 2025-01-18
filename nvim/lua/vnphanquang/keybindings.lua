@@ -48,8 +48,8 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "delete and yank int
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "parse over and yank into void" })
 
 -- Quickfix list
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = "go to next quickfix item" })
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = "go to previous quickfix item" })
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz", { desc = "go to next quickfix item" })
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz", { desc = "go to previous quickfix item" })
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "go to next location list item" })
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "go to previous location list item" })
 
