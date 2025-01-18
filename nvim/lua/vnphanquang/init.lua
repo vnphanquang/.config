@@ -1,7 +1,7 @@
 require("vnphanquang.options")
 require("vnphanquang.keybindings")
 require("vnphanquang.lazy")
-require("vnphanquang.ibus")
+-- require("vnphanquang.ibus")
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
