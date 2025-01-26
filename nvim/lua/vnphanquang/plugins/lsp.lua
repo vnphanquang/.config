@@ -162,10 +162,10 @@ return {
 					unstable = true,
 				},
 			},
-			-- tsserver = {
-			-- 	single_file_support = false,
-			-- 	root_dir = node_not_deno_root_dir,
-			-- },
+			ts_ls = {
+				root_dir = node_not_deno_root_dir,
+				single_file_support = false,
+			},
 			svelte = {},
 			marksman = {},
 			eslint_d = {
@@ -229,7 +229,6 @@ return {
 
 			-- python specifics
 			-- see https://docs.astral.sh/ruff/editors/setup/#neovim
-			["ruff"] = {},
 			ruff = {},
 			pyright = {
 				settings = {
