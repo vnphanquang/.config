@@ -6,34 +6,82 @@ return {
 		config = function()
 			local spec_treesitter = require("mini.ai").gen_spec.treesitter
 			require("mini.ai").setup({
+				n_lines = 200,
 				custom_textobjects = {
 					f = spec_treesitter({
-						a = "@function.outer",
-						i = "@function.inner",
+						a = {
+							"@function.outer",
+						},
+						i = {
+							"@function.inner",
+						},
 					}),
 					F = spec_treesitter({
-						a = "@call.outer",
-						i = "@call.inner",
+						a = {
+							"@call.outer",
+						},
+						i = {
+							"@call.inner",
+						},
 					}),
 					i = spec_treesitter({
-						a = "@conditional.outer",
-						i = "@conditional.inner",
+						a = {
+							"@conditional.outer",
+						},
+						i = {
+							"@conditional.inner",
+						},
+					}),
+					d = spec_treesitter({
+						a = {
+							"@svelte.directive.outer",
+						},
+						i = {
+							"@svelte.directive.inner",
+						},
 					}),
 					a = spec_treesitter({
-						a = "@parameter.outer",
-						i = "@parameter.inner",
+						a = {
+							"@parameter.outer",
+							"@attribute.outer",
+						},
+						i = {
+							"@parameter.inner",
+							"@attribute.inner",
+						},
 					}),
 					c = spec_treesitter({
-						a = "@class.outer",
-						i = "@class.inner",
+						a = {
+							"@comment.outer",
+						},
+						i = {
+							"@comment.outer",
+						},
 					}),
-					l = spec_treesitter({
-						a = "@loop.outer",
-						i = "@loop.inner",
+					C = spec_treesitter({
+						a = {
+							"@class.outer",
+						},
+						i = {
+							"@class.inner",
+						},
 					}),
-					r = spec_treesitter({
-						a = "@regex.outer",
-						i = "@regex.inner",
+					e = spec_treesitter({
+						a = {
+							"@loop.outer",
+						},
+						i = {
+							"@loop.inner",
+						},
+					}),
+					r = false,
+					j = spec_treesitter({
+						a = {
+							"@svelte.block.outer",
+						},
+						i = {
+							"@svelte.block.inner",
+						},
 					}),
 				},
 			})
