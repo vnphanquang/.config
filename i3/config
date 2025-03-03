@@ -40,6 +40,9 @@ bindsym $mod+d exec ~/.config/rofi/launcher/rofi.launcher.sh
 bindsym $mod+v exec ~/.config/rofi/applets/rofi.volume.sh
 # powermenu
 bindsym $mod+p exec ~/.config/rofi/powermenu/rofi.powermenu.sh
+# file explorer
+bindsym $mod+Shift+f exec thunar ~/Downloads
+bindsym XF86Explorer exec thunar ~/Downloads
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
