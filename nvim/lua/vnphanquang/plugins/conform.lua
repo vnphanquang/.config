@@ -63,6 +63,7 @@ return {
 				javascript = js_fmts,
 				typescript = js_fmts,
 				json = js_fmts,
+				jsonc = js_fmts,
 				svelte = js_fmts,
 				html = html_css,
 				css = html_css,
