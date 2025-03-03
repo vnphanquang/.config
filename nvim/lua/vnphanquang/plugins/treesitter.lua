@@ -52,6 +52,16 @@ return {
 				highlight = {
 					enable = true,
 				},
+
+				incremental_selection = {
+					enable = true,
+					keymaps = {
+						init_selection = "<leader>ti",
+						node_incremental = "<C-w>",
+						scope_incremental = false,
+						node_decremental = "<C-b>",
+					},
+				}
 			})
 		end,
 	},
