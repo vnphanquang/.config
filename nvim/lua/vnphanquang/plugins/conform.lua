@@ -8,6 +8,8 @@ return {
 	-- event = { "BufWritePre" },
 	-- cmd = { "ConformInfo" },
 	config = function()
+		local __unpack__ = table.unpack or unpack -- lua 5.1 compatibility
+
 		local conform = require("conform")
 		local lspconfig = require("lspconfig")
 
@@ -37,7 +39,7 @@ return {
 				return { "deno_fmt", "stylelint" }
 			end
 
-			return { table.unpack(first_prettier_fmt(bufnr)), "stylelint" }
+			return { __unpack__(first_prettier_fmt(bufnr)), "stylelint" }
 		end
 
 		local function js_fmts(bufnr)
@@ -45,7 +47,7 @@ return {
 				return { "deno_fmt" }
 			end
 
-			return { table.unpack(first_prettier_fmt(bufnr)), first(bufnr, "eslint_d", "eslint") }
+			return { __unpack__(first_prettier_fmt(bufnr)), first(bufnr, "eslint_d", "eslint") }
 		end
 
 		local function yaml_fmts(bufnr)

@@ -7,17 +7,17 @@ return {
 	config = function()
 		local function spell()
 			if vim.wo.spell == true then -- Note that 'spell' is a window option, so: wo
-				return 'spell: ' .. vim.bo.spelllang
+				return "spell: " .. vim.bo.spelllang
 			end
-			return ''
+			return ""
 		end
 
 		require("lualine").setup({
 			sections = {
+				lualine_c = { { "filename", path = 4 } },
 				lualine_x = { spell, "require('wrapping').get_current_mode()", "encoding", "fileformat", "filetype" },
 			},
 		})
 		vim.opt.showmode = false
 	end,
 }
-

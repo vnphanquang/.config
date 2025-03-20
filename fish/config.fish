@@ -6,9 +6,10 @@ end
 set -U tide_git_bg_color 1e4659
 set -U tide_node_bg_color 2a5e53
 set -U tide_node_color 32CD32
+set -U fish_cursor_insert block
 
-set -U tide_left_prompt_items os\x1epwd\x1egit\x1enewline\x1echaracter
-set -U tide_right_prompt_items status\x1ecmd_duration\x1econtext\x1ejobs\x1enode\x1epython\x1erustc\x1ekubectl\x1etime
+# set -U tide_left_prompt_items os\x1epwd\x1egit\x1enewline\x1echaracter
+# set -U tide_right_prompt_items status\x1ecmd_duration\x1econtext\x1ejobs\x1enode\x1epython\x1erustc\x1ekubectl\x1etime
 
 # set -U tide_right_prompt_suffix ''
 # set -U tide_prompt_char_bg_color ''
@@ -89,6 +90,9 @@ function source_env
       set -gx PATH "$PNPM_HOME" $PATH;
   end
 end
+
+# launch editor, see ~/dev/.config/nvim/README.md
+set -gx LAUNCH_EDITOR "$HOME/dev/.config/nvim/launch_editor.sh"
 
 # volta
 set -gx VOLTA_HOME "$HOME/.volta"
