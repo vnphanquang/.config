@@ -41,6 +41,18 @@ require("lazy").setup({
 		require("vnphanquang.plugins.todo"),
 		require("vnphanquang.plugins.mini"),
 		require("vnphanquang.plugins.spider"),
+		{
+			"bullets-vim/bullets.vim",
+			config = function()
+				-- ...
+			end,
+		},
+		{
+			"norcalli/nvim-colorizer.lua",
+			config = function()
+				require("colorizer").setup()
+			end,
+		},
 
 		-- essential development plugins
 		require("vnphanquang.plugins.git"),
