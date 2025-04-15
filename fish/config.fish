@@ -56,6 +56,7 @@ function source_env
       if not string match -q -- $PNPM_HOME $PATH
         set -gx PATH "$PNPM_HOME" $PATH
       end
+			# pnpm end
 
 			# deno
 			set -gx DENO_INSTALL "$HOME/.deno"
@@ -99,4 +100,3 @@ set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
 
 source_env
-

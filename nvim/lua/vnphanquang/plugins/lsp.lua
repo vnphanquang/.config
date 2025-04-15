@@ -226,6 +226,8 @@ return {
 				},
 			},
 			yamlls = {},
+			yamlfix = {},
+			yamlfmt = {},
 
 			-- python specifics
 			-- see https://docs.astral.sh/ruff/editors/setup/#neovim
