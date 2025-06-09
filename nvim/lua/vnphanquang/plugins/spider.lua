@@ -4,7 +4,9 @@ return {
 		"chrisgrieser/nvim-various-textobjs",
 		config = function()
 			require("various-textobjs").setup({
-				useDefaultKeymaps = false,
+				keymaps = {
+					useDefaults = false,
+				},
 			})
 			vim.keymap.set({ "o", "x" }, "a<leader>w", '<cmd>lua require("various-textobjs").subword("outer")<CR>', { desc = "VariousTextObjs: Subword (outer)" })
 			vim.keymap.set({ "o", "x" }, "i<leader>w", '<cmd>lua require("various-textobjs").subword("inner")<CR>', { desc = "VariousTextObjs: Subword (inner)" })
