@@ -29,7 +29,9 @@ export FISH_PATH="$HOME/dev/.config/fish"
 rm $HOME/.config/fish/config.fish
 
 ln -sf $FISH_PATH/config.fish $HOME/.config/fish/config.fish
+mkdir -p $HOME/.config/fish/functions
 ln -sf $FISH_PATH/functions/* $HOME/.config/fish/functions
+mkdir -p $HOME/.config/fish/conf.d
 ln -sf $FISH_PATH/conf.d/* $HOME/.config/fish/conf.d
 ```
 
