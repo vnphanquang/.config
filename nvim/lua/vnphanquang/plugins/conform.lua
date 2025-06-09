@@ -55,7 +55,7 @@ return {
 				return { "deno_fmt" }
 			end
 
-			return { "yamlfix", __unpack__(first_prettier_fmt(bufnr)) }
+			return { first(bufnr, "prettierd", "prettier", "yamlfix") }
 		end
 
 		conform.setup({
