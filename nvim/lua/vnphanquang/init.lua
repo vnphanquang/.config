@@ -35,6 +35,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 vim.filetype.add({
 	pattern = {
+		[".*.mjml"] = "html",
 		[".*.md.svelte"] = "markdown",
 		[".denoflare"] = "jsonc"
 	},
