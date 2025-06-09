@@ -14,6 +14,22 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
+		-- {
+		-- 	"pysan3/fcitx5.nvim",
+		-- 	config = function()
+		-- 		require("fcitx5").setup({
+		-- 			imname = {
+		-- 				norm = "keyboard-us",
+		-- 				cmd = "keyboard-us",
+		-- 				vis = "keyboard-us",
+		-- 				sel = "keyboard-us",
+		-- 				opr = "keyboard-us",
+		-- 				term = "keyboard-us",
+		-- 				lang = "keyboard-us",
+		-- 			},
+		-- 		})
+		-- 	end,
+		-- },
 		{
 			"vhyrro/luarocks.nvim",
 			priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.

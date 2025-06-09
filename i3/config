@@ -57,7 +57,7 @@ include ~/.config/i3/includes/*.conf
 exec_always --no-startup-id picom --config ~/.config/picom.conf --backend xrender
 
 # restart the ibus engine
-exec_always --no-startup-id ~/dev/.config/startup/ibus.sh
+exec_always --no-startup-id fcitx5 -dr
 
 # Polybar launch script
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

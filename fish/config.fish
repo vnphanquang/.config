@@ -74,17 +74,6 @@ function source_env
       and test $(tty) = '/dev/tty1'
         startx
       end
-
-			# ibus
-			set -gx GTK_IM_MODULE "xim"
-			set -gx QT_IM_MODULE "xim"
-			set -gx XMODIFIERS "@im=ibus"
-			# Dành cho những phần mềm dựa trên qt4
-			# set -gx QT4_IM_MODULE "ibus"
-			# Dành cho những phần mềm dùng thư viện đồ họa clutter/OpenGL
-			# set -gx CLUTTER_IM_MODULE "ibus"
-			# set -gx GLFW_IM_MODULE "ibus"
-			# ibus-daemon -drx
     case Darwin
       # set -gx PATH "$HOME/.cargo/bin" (go env GOPATH)/bin $PATH;
       set -gx PNPM_HOME "/Users/vnphanquang/Library/pnpm";
