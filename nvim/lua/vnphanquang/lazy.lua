@@ -73,6 +73,7 @@ require("lazy").setup({
 		-- essential development plugins
 		require("vnphanquang.plugins.git"),
 		require("vnphanquang.plugins.lsp"),
+		require("vnphanquang.plugins.dap"),
 		-- require("vnphanquang.plugins.lsp.typescript-tools"),
 		require("vnphanquang.plugins.conform"),
 		require("vnphanquang.plugins.trouble"),

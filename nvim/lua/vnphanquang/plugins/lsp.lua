@@ -177,7 +177,17 @@ return {
 				-- 	-- 	unstable = true,
 				-- 	-- },
 				-- },
-				svelte = {},
+				svelte = {
+					-- https://github.com/sveltejs/language-tools/issues/2008
+					-- on_attach = function(client)
+					-- 	vim.api.nvim_create_autocmd("BufWritePost", {
+					-- 		pattern = { "*.js", "*.ts" },
+					-- 		callback = function(ctx)
+					-- 			client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+					-- 		end,
+					-- 	})
+					-- end,
+				},
 				marksman = {},
 				eslint_d = {
 					root_dir = node_not_deno_root_dir,
@@ -275,10 +285,11 @@ return {
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
+				"js-debug-adapter", -- used in conjunction with nvim-dap, see `dap.lua`
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-
 			require("mason-lspconfig").setup({
+				ensure_installed = ensure_installed,
 				handlers = {
 					function(server_name)
 						local server = servers[server_name] or {}
