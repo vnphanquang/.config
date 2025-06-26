@@ -5,7 +5,7 @@
 | Dependency | Description |
 | --- | --- |
 | [Fisher][fisher] | fish plugin manager |
-| [Tide][tide] | prompt manager |
+| [Starship][starship] | prompt manager |
 | [bat] | `cat` alternative (used for git-diff) |
 
 Install manually each of the following (recommended) or add them directly to `~/.config/fish/fish_plugins` file.
@@ -14,7 +14,6 @@ Install manually each of the following (recommended) or add them directly to `~/
 > Each plugin might require additional dependencies. Check their respective repositories for more information.
 
 - [jorgebucaran/fisher][fisher]
-- [IlanCosman/tide][tide]
 - [jorgebucaran/autopair.fish](https://github.com/jorgebucaran/autopair.fish)
 - [PatrickF1/fzf.fish](https://github.com/PatrickF1/fzf.fish)
 - [danhper/fish-ssh-agent](https://github.com/danhper/fish-ssh-agent)
@@ -46,6 +45,6 @@ chsh -s $(which fish)
 
 [fish]: https://github.com/fish-shell/fish-shell
 [fisher]: https://github.com/jorgebucaran/fisher
-[tide]: https://github.com/IlanCosman/tide
+[starship]: https://starship.rs
 [bat]: https://github.com/sharkdp/bat
 

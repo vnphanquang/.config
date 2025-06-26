@@ -2,19 +2,6 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-# Tide config
-set -U tide_git_bg_color 1e4659
-set -U tide_node_bg_color 2a5e53
-set -U tide_node_color 32CD32
-set -U fish_cursor_insert block
-
-# set -U tide_left_prompt_items os\x1epwd\x1egit\x1enewline\x1echaracter
-# set -U tide_right_prompt_items status\x1ecmd_duration\x1econtext\x1ejobs\x1enode\x1epython\x1erustc\x1ekubectl\x1etime
-
-# set -U tide_right_prompt_suffix ''
-# set -U tide_prompt_char_bg_color ''
-# set -U tide_left_prompt_prefix ''
-
 # Keybinding
 set -U EDITOR nvim
 set fish_key_bindings fish_user_key_bindings
@@ -89,3 +76,8 @@ set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
 
 source_env
+
+# Starship
+set -gx STARSHIP_CONFIG "$HOME/dev/.config/fish/starship.toml"
+starship init fish | source
+
