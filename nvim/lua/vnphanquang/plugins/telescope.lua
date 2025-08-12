@@ -9,6 +9,12 @@ return {
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		-- "jonarrien/telescope-cmdline.nvim",
 		"debugloop/telescope-undo.nvim",
+		{
+			"nvim-telescope/telescope-live-grep-args.nvim",
+			-- This will not install any breaking changes.
+			-- For major updates, this must be adjusted manually.
+			version = "^1.0.0",
+		},
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -40,6 +46,7 @@ return {
 		-- Enable Telescope extensions if they are installed
 		telescope.load_extension("fzf")
 		telescope.load_extension("ui-select")
+		telescope.load_extension("live_grep_args")
 
 		-- enhance command line
 		-- pcall(telescope.load_extension, "cmdline")
@@ -48,7 +55,7 @@ return {
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
 
-		vim.keymap.set("n", "<leader>ss",  builtin.spell_suggest, { desc = "Telescope: [s]earch [s]pelling suggestions" })
+		vim.keymap.set("n", "<leader>ss", builtin.spell_suggest, { desc = "Telescope: [s]earch [s]pelling suggestions" })
 		vim.keymap.set("n", "<leader>sq", builtin.quickfix, { desc = "Telescope: [s]earch [q]uickfix" })
 		vim.keymap.set("n", "<leader>sc", builtin.commands, { desc = "Telescope: [s]earch [c]ommands" })
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Telescope: [s]earch [h]elp" })
@@ -109,11 +116,11 @@ return {
 				}
 			end
 
-			require("telescope.builtin").live_grep(opts)
+			telescope.extensions.live_grep_args.live_grep_args(opts)
 		end, { desc = "Telescope: [s]earch by grep [p]roject-wide" })
 
 		vim.keymap.set("n", "<leader>sP", function()
-			require("telescope.builtin").live_grep({
+			telescope.extensions.live_grep_args.live_grep_args({
 				additional_args = {
 					"--hidden",
 				},
