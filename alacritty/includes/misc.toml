@@ -1,0 +1,9 @@
+[scrolling]
+history = 20000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[window]
+opacity = 0.9
