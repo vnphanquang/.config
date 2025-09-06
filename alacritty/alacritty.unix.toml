@@ -1,0 +1,9 @@
+[general]
+import = [
+	"./includes/color-scheme.toml",
+	"./includes/font.toml",
+	"./includes/misc.toml",
+]
+
+[window]
+decorations = 'None'

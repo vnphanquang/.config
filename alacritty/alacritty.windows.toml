@@ -1,12 +1,9 @@
 [general]
 import = [
-	"color-scheme.toml",
-	"font.toml",
-	"misc.toml",
+	"./includes/color-scheme.toml",
+	"./includes/font.toml",
+	"./includes/misc.toml",
 ]
-
-[window]
-# decorations = 'None'
 
 [terminal.shell]
 # https://github.com/alacritty/alacritty/issues/7615#issuecomment-2013979170
