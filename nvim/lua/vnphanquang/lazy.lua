@@ -92,7 +92,7 @@ require("lazy").setup({
 		-- 	keys = {
 		-- 		-- FIXME: keep track of this bug https://github.com/mistricky/codesnap.nvim/issues/103
 		-- 		{ "<leader>cc", "<Esc><cmd>CodeSnap<cr>", mode = { "x", "v" }, desc = "Codesnap: save selected code snapshot into clipboard" },
-		-- 		{ "<leader>cs", "<Esc><cmd>CodeSnapSave<cr>", mode = { "x", "v" }, desc = "Codesnap: save selected code snapshot in ~/Pictures" },
+		-- 		{ "<leader>cs", "<Esc><cmd>CodeSnapSave<cr>", mode = { "x", "v" }, desc = "Codesnap: save selected code snapshot in ~/pictures" },
 		-- 	},
 		-- 	opts = {
 		-- 		save_path = "~/Pictures",

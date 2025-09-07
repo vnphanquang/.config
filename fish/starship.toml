@@ -118,11 +118,11 @@ truncate_to_repo = true
 truncation_symbol = "…/"
 
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Developer" = "󰲋 "
+"documents" = "󰈙 "
+"downloads" = " "
+"music" = "󰝚 "
+"pictures" = " "
+"dev" = "󰲋 "
 
 [git_branch]
 symbol = ""
