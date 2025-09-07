@@ -1,8 +1,107 @@
 # Arch Linux Specific Configuration
 
-## AutoLogin with Getty
+## Installation
+
+Add these additional apps to install (vi pacman):
+
+```
+git git-cli openssh gnupg rust python
+xorg-server xorg-xinit xterm xorg-xev xdg-utils xdotool xclip thunar
+ttf-firacode-nerd powerline powerline-fonts noto-fonts-cjk less
+tmux alacritty fish fisher starship zoxide eza peek bat fzf direnv
+neovim ueberzug unzip imagemagick ripgrep
+i3-wm picom polybar rofi dunst maim feh playerctl
+firefox discord
+```
+
+> [!IMPORTANT]
+> Also add the correct video driver according to current hardware.
+
+## Post Installation
+
+### Launching i3
+
+1. Generate a temporary `.xinitrc`:
+
+	```bash
+	echo "exec i3" > ~/.xinitrc
+	```
+
+2. Launch i3 with `startx`. Opt to use the default config for now!
+
+### Configure Default Browser
+
+```bash
+xdg-settings set default-web-browser firefox.desktop
+```
+
+Open `firefox` within x & i3, perform login & setup as needed.
+
+### Setting up Centralized Configuration
+
+1. Login to `github`, setting up SSH keys if necessary:
+
+```bash
+gh auth login
+```
+
+2. Clone the repo:
+
+```bash
+git clone git@github.com:vnphanquang/.config.git
+```
+
+### Configure X
+
+```bash
+ln -sf $HOME/dev/.config/x/.Xresources $HOME/.Xresources
+ln -sf $HOME/dev/.config/x/.xinitrc $HOME/.xinitrc
+```
+
+> [!IMPORTANT]
+> To reload `.Xresources`, run `xrdb ~/.Xresources`
+
+> [!NOTE]
+> To test key ID for binding, run:
+>
+> ```bash
+> xev -event keyboard | egrep -o 'keycode.*\)'
+> ```
+
+### Continue App-specific Setups
+
+1. Install [paru](https://github.com/Morganamilo/paru) first to manage AUR packages.
+
+```bash
+paru -Sy xmousepasteblock light bar-gmail volta
+```
+
+2. Move on to each of the dedicated README for each app:
+
+    - [alacritty](../alacritty/README.md)
+    - [fish](../fish/README.md)
+    - [tmux](../tmux/README.md)
+    - [rofi](../rofi/README.md)
+    - [polybar](../i3/README.md)
+    - [dunst](../dunst/README.md)
+    - [i3](../i3/README.md)
+    - [fcitx](../fcitx/README.md)
+
+3. Other apps with additional manual post-installation setup:
+
+		```bash
+		paru -Sy nordvpn-bin docker
+		```
+
+## Miscellaneous Guides
+
+### AutoLogin with Getty
 
 Credit: https://jackcuthbert.dev/blog/automated-login-in-arch-linux
+
+```bash
+sudo mkdir -p /etc/systemd/system/getty@tty1.service.d/
+```
 
 ```conf
 # /etc/systemd/system/getty@tty1.service.d/override.conf
@@ -11,7 +110,7 @@ ExecStart=
 ExecStart=-/usr/bin/agetty --autologin USERNAME_HERE --noclear %I $TERM
 ```
 
-## Linux Natural Scrolling
+### Linux Natural Scrolling
 
 > /usr/share/X11/xorg.conf.d/40-libinput.conf
 
@@ -33,7 +132,7 @@ Section "InputClass"
 EndSection
 ```
 
-## Multiple SSH for Different Github Usernames
+### Multiple SSH for Different Github Usernames
 
 ```ini
 # File ~/.ssh/config
