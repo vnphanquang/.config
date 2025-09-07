@@ -12,7 +12,7 @@ ttf-firacode-nerd powerline powerline-fonts noto-fonts-cjk noto-fonts-emoji less
 tmux alacritty fish fisher starship zoxide eza peek bat fzf direnv
 neovim ueberzug unzip imagemagick ripgrep
 i3-wm picom polybar rofi dunst maim feh playerctl
-firefox discord
+firefox
 ```
 
 > [!IMPORTANT]
@@ -32,11 +32,14 @@ firefox discord
 
 ### Configure Default Browser
 
-```bash
-xdg-settings set default-web-browser firefox.desktop
-```
+1. Set `firefox` as the default browser:
 
-Open `firefox` within x & i3, perform login & setup as needed.
+		```bash
+		xdg-settings set default-web-browser firefox.desktop
+		```
+
+2. Open `firefox` within x & i3, perform login & setup as needed.
+3. Change download folder to `~/downloads` instead of `/Downloads`.
 
 ### Setting up Centralized Configuration
 
@@ -74,7 +77,7 @@ ln -sf $HOME/dev/.config/x/.xinitrc $HOME/.xinitrc
 1. Install [paru](https://github.com/Morganamilo/paru) first to manage AUR packages.
 
 ```bash
-paru -Sy xmousepasteblock light bar-gmail volta
+paru -Sy xmousepasteblock light bar-gmail volta polypane
 ```
 
 2. Move on to each of the dedicated README for each app:
@@ -91,8 +94,10 @@ paru -Sy xmousepasteblock light bar-gmail volta
 3. Other apps with additional manual post-installation setup:
 
 		```bash
-		paru -Sy nordvpn-bin docker
+		paru -Sy nordvpn-bin docker discord google-chrome
 		```
+
+		For discord, [disable SKIP_HOST_UPDATE](https://wiki.archlinux.org/title/Discord#Discord_asks_for_an_update_not_yet_available_in_the_repository)
 
 ## Miscellaneous Guides
 
