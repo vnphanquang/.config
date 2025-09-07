@@ -8,13 +8,13 @@ All about config
 sudo pacman -S xdotool kruler
 ```
 
-| Tool | Description |
-| --- | --- |
-| [eza] | replacement for ls |
-| [peek] | make gif |
-| [zoxide] | smarter `cd` |
+| Tool      | Description                        |
+| --------- | ---------------------------------- |
+| [eza]     | replacement for ls                 |
+| [peek]    | make gif                           |
+| [zoxide]  | smarter `cd`                       |
 | [xdotool] | x11 keyboard/mouse input simulator |
-| [kruler] | pixel ruler |
+| [kruler]  | pixel ruler                        |
 
 [eza]: https://github.com/eza-community/eza
 [peek]: https://github.com/phw/peek
@@ -25,4 +25,3 @@ sudo pacman -S xdotool kruler
 ## Miscellaneous Resources
 
 - [Backup & Restore GPG](https://www.jwillikers.com/backup-and-restore-a-gpg-key)
-
