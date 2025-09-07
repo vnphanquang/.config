@@ -7,11 +7,14 @@ return {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		"MunifTanjim/nui.nvim",
-		not vim.fn.has("win32") and "3rd/image.nvim" or {},
+		{
+			"3rd/image.nvim",
+			enabled = vim.fn.has("win32") == 0,
+		},
 	},
 	config = function()
 		---@diagnostic disable-next-line: missing-fields
-		if not vim.fn.has("win32") then
+		if vim.fn.has("win32") == 0 then
 			require("image").setup({
 				backend = "ueberzug",
 			})

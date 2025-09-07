@@ -116,7 +116,7 @@ return {
 				end,
 			})
 
-			if not vim.fn.has("win32") then
+			if vim.fn.has("win32") == 0 then
 				-- see https://docs.astral.sh/ruff/editors/setup/#neovim
 				vim.api.nvim_create_autocmd("LspAttach", {
 					group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
@@ -271,7 +271,7 @@ return {
 				},
 			}
 
-			if not vim.fn.has("win32") then
+			if vim.fn.has("win32") == 0 then
 				servers["yamlfix"] = {}
 				-- see https://docs.astral.sh/ruff/editors/setup/#neovim
 				servers["ruff"] = {}

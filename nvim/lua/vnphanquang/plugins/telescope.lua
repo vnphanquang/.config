@@ -3,10 +3,17 @@ return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
-		not vim.fn.has("win32") and { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } or {},
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+			enabled = vim.fn.has("win32") == 0,
+		},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 		-- Useful for getting pretty icons, but requires a Nerd Font.
-		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+		{
+			"nvim-tree/nvim-web-devicons",
+			enabled = vim.g.have_nerd_font,
+		},
 		-- "jonarrien/telescope-cmdline.nvim",
 		"debugloop/telescope-undo.nvim",
 		{
@@ -44,11 +51,11 @@ return {
 		})
 
 		-- Enable Telescope extensions if they are installed
-		telescope.load_extension("ui-select")
-		telescope.load_extension("live_grep_args")
-		if not vim.fn.has("win32") then
+		if vim.fn.has("win32") == 0 then
 			telescope.load_extension("fzf")
 		end
+		telescope.load_extension("ui-select")
+		-- telescope.load_extension("live_grep_args")
 
 		-- enhance command line
 		-- pcall(telescope.load_extension, "cmdline")
@@ -118,10 +125,12 @@ return {
 				}
 			end
 
+			-- builtin.live_grep(opts)
 			telescope.extensions.live_grep_args.live_grep_args(opts)
 		end, { desc = "Telescope: [s]earch by grep [p]roject-wide" })
 
 		vim.keymap.set("n", "<leader>sP", function()
+			-- builtin.live_grep({
 			telescope.extensions.live_grep_args.live_grep_args({
 				additional_args = {
 					"--hidden",
