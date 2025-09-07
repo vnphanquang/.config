@@ -6,10 +6,12 @@
 | ----------- | ---------------------------- |
 | [Unikey]    | Vietnamese input method      |
 | [Notepad++] | enhanced generic text editor |
+| [HWiNFO]    | hardware monitor & analyzer  |
 
 ```powershell
 winget install --id=UniKey.UniKey  -e
 winget install --id=Notepad++.Notepad++  -e
+winget install --id REALiX.HWiNFO -e
 ```
 
 ## Git
@@ -56,3 +58,4 @@ git config --global gpg.program "C:\Program Files (x86)\GnuPG\bin\gpg.exe"
 [Unikey]: https://winstall.app/apps/UniKey.UniKey
 [GPG]: https://winget.run/pkg/GnuPG/Gpg4win
 [Notepad++]: https://winstall.app/apps/Notepad++.Notepad++
+[HWiNFO]: https://winget.run/pkg/REALiX/HWiNFO
