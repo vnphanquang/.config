@@ -40,6 +40,7 @@ Add some sensible defaults:
 
 ```powershell
 git config --global pull.rebase true
+git config --global core.editor "nvim"
 ```
 
 Set up signing key:
