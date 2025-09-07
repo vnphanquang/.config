@@ -5,10 +5,11 @@
 | [Fira Code NerdFont][fonts.firacode.nerd] | follow website instructions     | system   |
 | [Powerline Font][fonts.powerline]         | follow website instructions     | terminal |
 | Noto Sans CJK                             | via pacman                      | system   |
+| Noto Emoji                                | via pacman                      | system   |
 | Iosevka Nerd Font                         | `.fonts/iosevka_nerd_fonts.ttf` | polybar  |
 
 ```bash
-sudo pacman -S ttf-firacode-nerd powerline powerline-fonts noto-fonts-cjk
+sudo pacman -S ttf-firacode-nerd powerline powerline-fonts noto-fonts-cjk noto-fonts-emoj
 ```
 
 ```bash

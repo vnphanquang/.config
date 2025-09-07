@@ -7,7 +7,7 @@ Add these additional apps to install (vi pacman):
 ```
 git git-cli openssh gnupg rust python
 xorg-server xorg-xinit xterm xorg-xev xdg-utils xdotool xclip thunar
-ttf-firacode-nerd powerline powerline-fonts noto-fonts-cjk less
+ttf-firacode-nerd powerline powerline-fonts noto-fonts-cjk noto-fonts-emoji less
 tmux alacritty fish fisher starship zoxide eza peek bat fzf direnv
 neovim ueberzug unzip imagemagick ripgrep
 i3-wm picom polybar rofi dunst maim feh playerctl
