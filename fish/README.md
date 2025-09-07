@@ -7,27 +7,25 @@
 | [Fisher][fisher] | fish plugin manager |
 | [Starship][starship] | prompt manager |
 | [bat] | `cat` alternative (used for git-diff) |
+| [direnv] | directory-based environment variables |
 
-Install manually each of the following (recommended) or add them directly to `~/.config/fish/fish_plugins` file.
+```bash
+pacman -S fish fisher starship bat fzf direnv
+```
 
 > [!IMPORTANT]
-> Each plugin might require additional dependencies. Check their respective repositories for more information.
-
-- [jorgebucaran/fisher][fisher]
-- [jorgebucaran/autopair.fish](https://github.com/jorgebucaran/autopair.fish)
-- [PatrickF1/fzf.fish](https://github.com/PatrickF1/fzf.fish)
-- [danhper/fish-ssh-agent](https://github.com/danhper/fish-ssh-agent)
-- [franciscolourenco/done](https://github.com/franciscolourenco/done)
-- [edc/bass](https://github.com/edc/bass)
+> Each plugin in `fish_plugins` might require additional dependencies. Check their respective repositories for more information.
 
 ## Base Config
 
 ```bash
 export FISH_PATH="$HOME/dev/.config/fish"
 
-rm $HOME/.config/fish/config.fish
+rm -r $HOME/.config/fish
+mkdir -p $HOME/.config/fish
 
 ln -sf $FISH_PATH/config.fish $HOME/.config/fish/config.fish
+ln -sf $FISH_PATH/fish_plugins $HOME/.config/fish/fish_plugins
 mkdir -p $HOME/.config/fish/functions
 ln -sf $FISH_PATH/functions/* $HOME/.config/fish/functions
 mkdir -p $HOME/.config/fish/conf.d
@@ -42,9 +40,8 @@ echo $(which fish) | sudo tee -a /etc/shells
 chsh -s $(which fish)
 ```
 
-
 [fish]: https://github.com/fish-shell/fish-shell
 [fisher]: https://github.com/jorgebucaran/fisher
 [starship]: https://starship.rs
 [bat]: https://github.com/sharkdp/bat
-
+[direnv]: https://direnv.net/

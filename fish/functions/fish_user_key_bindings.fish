@@ -1,4 +1,5 @@
 function fish_user_key_bindings
+	set -g fish_cursor_insert block
   fish_default_key_bindings -M insert
 
   # Then execute the vi-bindings so they take precedence when there's a conflict.
