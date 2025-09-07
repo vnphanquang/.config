@@ -7,7 +7,7 @@ Add these additional apps to install (vi pacman):
 ```
 git git-cli openssh gnupg rust python
 xorg-server xorg-xinit xterm xorg-xev xdg-utils xdotool xclip
-thunar ntfs-3g gvfs
+thunar ntfs-3g gvfs inetutils
 ttf-firacode-nerd powerline powerline-fonts noto-fonts-cjk noto-fonts-emoji less
 tmux alacritty fish fisher starship zoxide eza peek bat fzf direnv
 neovim ueberzug unzip imagemagick ripgrep
@@ -77,7 +77,7 @@ ln -sf $HOME/dev/.config/x/.xinitrc $HOME/.xinitrc
 1. Install [paru](https://github.com/Morganamilo/paru) first to manage AUR packages.
 
 ```bash
-paru -Sy xmousepasteblock light bar-gmail volta polypane
+paru -Sy xmousepasteblock light bar-gmail volta polypane datagrip
 ```
 
 2. Move on to each of the dedicated README for each app:
