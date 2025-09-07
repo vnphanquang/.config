@@ -9,9 +9,7 @@ sudo apt install xclip
 ## Base Configuration
 
 ```bash
-export TMUX_PATH="$HOME/dev/.config/tmux"
-ln -sdf "$TMUX_PATH" $HOME/.tmux
-ln -sf "$TMUX_PATH/.tmux.conf" $HOME/.tmux.conf
+ln -sdf $HOME/dev/.config/tmux $HOME/.config/tmux
 ```
 
 For `tmux-yank` to work:
@@ -19,14 +17,13 @@ For `tmux-yank` to work:
 ## Install Plugins (with [tpm])
 
 ```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
 
 ## Save Session to Bash File
 
 ```bash
-chmod +x $HOME/dev/.config/tmux/tmux-save-sessions.sh
+chmod +x $HOME/.config/tmux/tmux-save-session.sh
 ```
 
 Based on [tmux-save-sessions], the `tmux-ss` fish alias is available (see [fish/functions/tmux.ss.fish](../fish/functions/tmux-ss.fish)):
