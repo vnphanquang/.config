@@ -11,9 +11,9 @@
 For UNIX:
 
 ```bash
-mkdir $HOME/alacritty
-ln -sf ~/dev/.config/alacritty/alacritty.unix.toml $HOME/alacritty/alacritty.toml
-ln -sf ~/dev/.config/alacritty/includes $HOME/alacritty/includes
+mkdir $HOME/.config/alacritty
+ln -sf ~/dev/.config/alacritty/alacritty.unix.toml $HOME/.config/alacritty/alacritty.toml
+ln -sf ~/dev/.config/alacritty/includes $HOME/.config/alacritty/includes
 ```
 
 For Windows:
