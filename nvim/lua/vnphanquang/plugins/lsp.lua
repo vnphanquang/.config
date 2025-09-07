@@ -116,21 +116,23 @@ return {
 				end,
 			})
 
-			-- see https://docs.astral.sh/ruff/editors/setup/#neovim
-			vim.api.nvim_create_autocmd("LspAttach", {
-				group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
-				callback = function(args)
-					local client = vim.lsp.get_client_by_id(args.data.client_id)
-					if client == nil then
-						return
-					end
-					if client.name == "ruff" then
-						-- Disable hover in favor of Pyright
-						client.server_capabilities.hoverProvider = false
-					end
-				end,
-				desc = "LSP: Disable hover capability from Ruff",
-			})
+			if not vim.fn.has("win32") then
+				-- see https://docs.astral.sh/ruff/editors/setup/#neovim
+				vim.api.nvim_create_autocmd("LspAttach", {
+					group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
+					callback = function(args)
+						local client = vim.lsp.get_client_by_id(args.data.client_id)
+						if client == nil then
+							return
+						end
+						if client.name == "ruff" then
+							-- Disable hover in favor of Pyright
+							client.server_capabilities.hoverProvider = false
+						end
+					end,
+					desc = "LSP: Disable hover capability from Ruff",
+				})
+			end
 
 			-- LSP servers and clients are able to communicate to each other what features they support.
 			--  By default, Neovim doesn't support everything that is in the LSP specification.
@@ -247,15 +249,12 @@ return {
 					},
 				},
 				yamlls = {},
-				yamlfix = {},
 				yamlfmt = {},
 
 				dockerls = {},
 				docker_compose_language_service = {},
 
 				-- python specifics
-				-- see https://docs.astral.sh/ruff/editors/setup/#neovim
-				ruff = {},
 				pyright = {
 					settings = {
 						pyright = {
@@ -271,6 +270,12 @@ return {
 					},
 				},
 			}
+
+			if not vim.fn.has("win32") then
+				servers["yamlfix"] = {}
+				-- see https://docs.astral.sh/ruff/editors/setup/#neovim
+				servers["ruff"] = {}
+			end
 
 			-- Ensure the servers and tools above are installed
 			--  To check the current status of installed tools and/or manually install

@@ -3,7 +3,7 @@ return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		not vim.fn.has("win32") and { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } or {},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 		-- Useful for getting pretty icons, but requires a Nerd Font.
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
@@ -44,9 +44,11 @@ return {
 		})
 
 		-- Enable Telescope extensions if they are installed
-		telescope.load_extension("fzf")
 		telescope.load_extension("ui-select")
 		telescope.load_extension("live_grep_args")
+		if not vim.fn.has("win32") then
+			telescope.load_extension("fzf")
+		end
 
 		-- enhance command line
 		-- pcall(telescope.load_extension, "cmdline")
