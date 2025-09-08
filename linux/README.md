@@ -12,7 +12,7 @@ ttf-firacode-nerd powerline powerline-fonts noto-fonts-cjk noto-fonts-emoji less
 tmux alacritty fish fisher starship zoxide eza peek bat fzf direnv
 neovim ueberzug unzip imagemagick ripgrep
 i3-wm picom polybar rofi dunst maim feh playerctl
-firefox
+firefox speech-dispatcher mpv
 ```
 
 > [!IMPORTANT]
@@ -115,6 +115,15 @@ sudo mkdir -p /etc/systemd/system/getty@tty1.service.d/
 ExecStart=
 ExecStart=-/usr/bin/agetty --autologin USERNAME_HERE --noclear %I $TERM
 ```
+
+### [Speed Dispatcher](https://wiki.archlinux.org/title/Speech_dispatcher) & Screen Reader
+
+```bash
+paru -S speech-dispatcher espeakup orca
+```
+
+Use [piper](https://github.com/rhasspy/piper) for tts model. Install and configured via [pied](https://github.com/Elleo/pied)!
+
 
 ### Linux Natural Scrolling
 
