@@ -5,13 +5,13 @@
 Add these additional apps to install (vi pacman):
 
 ```
-git git-cli openssh gnupg rust python
+git git-cli openssh gnupg rust python man
 xorg-server xorg-xinit xterm xorg-xev xdg-utils xdotool xclip
 thunar ntfs-3g gvfs inetutils
 ttf-firacode-nerd powerline powerline-fonts noto-fonts-cjk noto-fonts-emoji less
 tmux alacritty fish fisher starship zoxide eza peek bat fzf direnv
 neovim ueberzug unzip imagemagick ripgrep
-i3-wm picom polybar rofi dunst maim feh playerctl
+i3-wm picom polybar rofi dunst maim feh playerctl htop earlyoom
 firefox speech-dispatcher mpv
 ```
 
@@ -100,6 +100,29 @@ paru -Sy xmousepasteblock light bar-gmail volta polypane datagrip
 		For discord, [disable SKIP_HOST_UPDATE](https://wiki.archlinux.org/title/Discord#Discord_asks_for_an_update_not_yet_available_in_the_repository)
 
 ## Miscellaneous Guides
+
+### Dual Boot Windows
+
+Assuming:
+
+- using the `btrfs` file system,
+- using `systemd-boot` as the bootloader,
+- having Windows live on a separate disk (otherwise should already be automated detected).
+
+1. Check `lsblk -f` and mount the Windows EFI partition:
+
+	```bash
+	sudo mkdir -p /mnt/windows-efi
+	sudo mount /dev/sd... /mnt/windows-efi
+	```
+
+2. Copy `Windows` directory to the Linux EFI partition / subvolume:
+
+	```bash
+  sudo cp -r /mnt/windows-efi/EFI/Microsoft /boot/EFI/
+	```
+
+3. Restart, verify that Windows is detected in the boot menu.
 
 ### AutoLogin with Getty
 
