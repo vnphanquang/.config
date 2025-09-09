@@ -77,7 +77,7 @@ ln -sf $HOME/dev/.config/x/.xinitrc $HOME/.xinitrc
 1. Install [paru](https://github.com/Morganamilo/paru) first to manage AUR packages.
 
 ```bash
-paru -Sy xmousepasteblock light bar-gmail volta polypane datagrip
+paru -Sy xmousepasteblock light bar-gmail volta polypane datagrip lefthook
 ```
 
 2. Move on to each of the dedicated README for each app:
@@ -94,7 +94,7 @@ paru -Sy xmousepasteblock light bar-gmail volta polypane datagrip
 3. Other apps with additional manual post-installation setup:
 
 		```bash
-		paru -Sy nordvpn-bin docker discord google-chrome
+		paru -Sy nordvpn-bin docker docker-compose discord google-chrome
 		```
 
 		For discord, [disable SKIP_HOST_UPDATE](https://wiki.archlinux.org/title/Discord#Discord_asks_for_an_update_not_yet_available_in_the_repository)
