@@ -40,7 +40,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move up one line" })
 vim.keymap.set("n", "Y", "y$", { desc = "yank from cursor till the end of line" })
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "yank into the os clipboard register" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "yank line into the os clipboard register" })
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "yank into the os clipboard register" })
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = "parse into the os clipboard register" })
 
 -- Into the void
