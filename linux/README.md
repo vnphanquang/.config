@@ -139,6 +139,25 @@ ExecStart=
 ExecStart=-/usr/bin/agetty --autologin USERNAME_HERE --noclear %I $TERM
 ```
 
+### Sensors & [Fan Control](https://wiki.archlinux.org/title/Fan_speed_control)
+
+```bash
+paru -S lm_sensors coolercontrol
+```
+
+Check out [lm_sensors wiki page](https://wiki.archlinux.org/title/Lm_sensors) to learn more about
+configuring and detecting sensors, and [coolercontrol docs](https://docs.coolercontrol.org/) for
+setting up fan profiles.
+
+#### [AsRock B650M-HDV/M.2](https://www.asrock.com/mb/AMD/B650M-HDVM.2/)
+
+For `sensors` work correctly with this board, add `/etc/modules-load.d/nct6775.conf`:
+
+```conf
+# Load nct6775 driver
+nct6775
+```
+
 ### [Speed Dispatcher](https://wiki.archlinux.org/title/Speech_dispatcher) & Screen Reader
 
 ```bash
