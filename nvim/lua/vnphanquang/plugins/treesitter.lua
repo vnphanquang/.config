@@ -24,6 +24,7 @@ return {
 					"jsdoc",
 					"typescript",
 					"json",
+					"jsonc",
 					"lua",
 					"luadoc",
 					"vim",
