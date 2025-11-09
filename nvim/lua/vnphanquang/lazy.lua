@@ -51,7 +51,10 @@ require("lazy").setup({
 
 		-- Workflow enhancement
 		require("vnphanquang.plugins.neo-tree"),
-		require("vnphanquang.plugins.markdown-preview"),
+		{
+			"OXY2DEV/markview.nvim",
+			lazy = false,
+		},
 		require("vnphanquang.plugins.treesitter"),
 		require("vnphanquang.plugins.telescope"),
 		require("vnphanquang.plugins.todo"),
