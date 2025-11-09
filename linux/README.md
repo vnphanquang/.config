@@ -208,3 +208,36 @@ Host github.com-vnphanquang
   url = git@github.com-username:domain
 ```
 
+### OBS
+
+#### Dependencies
+
+```bash
+paru obs-studio v4l2loopback-dkms linux-headers
+```
+
+#### Virtual Camera
+
+```bash
+sudo modprobe v4l2loopback
+```
+
+```bash
+ln -sf $HOME/dev/.config/etc/modprobe.d/v4l2loopback.conf /etc/modprobe.d/v4l2loopback.conf
+ln -sf $HOME/dev/.config/etc/modules-load.d/v4l2loopback.conf /etc/modules-load.d/v4l2loopback.conf
+```
+
+#### Virtual Microphone
+
+```bash
+# create virutal sink
+pactl load-module module-null-sink sink_name="VirtualSpeaker" sink_properties=device.description=VirtualSpeaker
+pactl load-module module-null-sink media.class=Audio/Source/Virtual sink_name="VirtualMic" channel_map=front-left,front-right
+
+# link
+pw-link VirtualSpeaker:monitor_FL VirtualMic:input_FL
+pw-link VirtualSpeaker:monitor_FR VirtualMic:input_FR
+
+# loopback, optional
+pactl load-module module-loopback sink_name="LoopbackSync" source="VirtualSpeaker.monitor"
+```
