@@ -99,6 +99,7 @@ return {
 		"echasnovski/mini.operators",
 		version = "*",
 		config = function()
+			vim.keymap.del("n", "grt")
 			require("mini.operators").setup({
 				-- Evaluate text and replace with output
 				evaluate = {
