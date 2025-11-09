@@ -5,14 +5,16 @@
 Add these additional apps to install (vi pacman):
 
 ```
-git git-cli openssh gnupg rust python man
+linux-headers
+git github-cli tk openssh gnupg rust python man
 xorg-server xorg-xinit xterm xorg-xev xdg-utils xdotool xclip
 thunar thunar-archive-plugin xarchiver thunar-media-tags-plugin tumbler ntfs-3g gvfs inetutils
 ttf-firacode-nerd powerline powerline-fonts noto-fonts-cjk noto-fonts-emoji less
-tmux alacritty fish fisher starship zoxide eza peek bat fzf direnv
+tmux alacritty fish fisher starship zoxide eza peek bat fzf fd direnv
 neovim ueberzug unzip imagemagick ripgrep
 i3-wm picom polybar rofi dunst maim feh playerctl htop earlyoom
 firefox speech-dispatcher mpv
+okular
 ```
 
 > [!IMPORTANT]
@@ -24,22 +26,22 @@ firefox speech-dispatcher mpv
 
 1. Generate a temporary `.xinitrc`:
 
-	```bash
-	echo "exec i3" > ~/.xinitrc
-	```
+   ```bash
+   echo "exec i3" > ~/.xinitrc
+   ```
 
 2. Launch i3 with `startx`. Opt to use the default config for now!
 
 ### Configure Default Browser
 
-1. Set `firefox` as the default browser:
+1.  Set `firefox` as the default browser:
 
-		```bash
-		xdg-settings set default-web-browser firefox.desktop
-		```
+        ```bash
+        xdg-settings set default-web-browser firefox.desktop
+        ```
 
-2. Open `firefox` within x & i3, perform login & setup as needed.
-3. Change download folder to `~/downloads` instead of `/Downloads`.
+2.  Open `firefox` within x & i3, perform login & setup as needed.
+3.  Change download folder to `~/downloads` instead of `/Downloads`.
 
 ### Setting up Centralized Configuration
 
@@ -80,8 +82,7 @@ ln -sf $HOME/dev/.config/x/.xinitrc $HOME/.xinitrc
 paru -Sy xmousepasteblock light bar-gmail volta polypane datagrip lefthook
 ```
 
-2. Move on to each of the dedicated README for each app:
-
+2.  Move on to each of the dedicated README for each app:
     - [alacritty](../alacritty/README.md)
     - [fish](../fish/README.md)
     - [tmux](../tmux/README.md)
@@ -91,13 +92,13 @@ paru -Sy xmousepasteblock light bar-gmail volta polypane datagrip lefthook
     - [i3](../i3/README.md)
     - [fcitx](../fcitx/README.md)
 
-3. Other apps with additional manual post-installation setup:
+3.  Other apps with additional manual post-installation setup:
 
-		```bash
-		paru -Sy nordvpn-bin docker docker-compose discord google-chrome
-		```
+        ```bash
+        paru -Sy nordvpn-bin docker docker-compose discord google-chrome
+        ```
 
-		For discord, [disable SKIP_HOST_UPDATE](https://wiki.archlinux.org/title/Discord#Discord_asks_for_an_update_not_yet_available_in_the_repository)
+        For discord, [disable SKIP_HOST_UPDATE](https://wiki.archlinux.org/title/Discord#Discord_asks_for_an_update_not_yet_available_in_the_repository)
 
 ## Miscellaneous Guides
 
@@ -111,16 +112,16 @@ Assuming:
 
 1. Check `lsblk -f` and mount the Windows EFI partition:
 
-	```bash
-	sudo mkdir -p /mnt/windows-efi
-	sudo mount /dev/sd... /mnt/windows-efi
-	```
+   ```bash
+   sudo mkdir -p /mnt/windows-efi
+   sudo mount /dev/sd... /mnt/windows-efi
+   ```
 
 2. Copy `Windows` directory to the Linux EFI partition / subvolume:
 
-	```bash
-  sudo cp -r /mnt/windows-efi/EFI/Microsoft /boot/EFI/
-	```
+   ```bash
+   sudo cp -r /mnt/windows-efi/EFI/Microsoft /boot/EFI/
+   ```
 
 3. Restart, verify that Windows is detected in the boot menu.
 
@@ -165,7 +166,6 @@ paru -S speech-dispatcher espeakup orca
 ```
 
 Use [piper](https://github.com/rhasspy/piper) for tts model. Install and configured via [pied](https://github.com/Elleo/pied)!
-
 
 ### Linux Natural Scrolling
 
