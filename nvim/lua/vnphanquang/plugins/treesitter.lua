@@ -36,7 +36,8 @@ return {
 					"dockerfile",
 					"python",
 					"yaml",
-					"toml"
+					"toml",
+					"sql",
 				},
 
 				-- Install parsers synchronously (only applied to `ensure_installed`)

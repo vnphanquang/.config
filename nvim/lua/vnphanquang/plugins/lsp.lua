@@ -269,6 +269,10 @@ return {
 						},
 					},
 				},
+
+				-- sql
+				sqlls = {},
+				["sql-formatter"] = {},
 			}
 
 			if vim.fn.has("win32") == 0 then

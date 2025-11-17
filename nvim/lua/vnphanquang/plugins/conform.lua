@@ -86,6 +86,9 @@ return {
 				yaml = yaml_fmts,
 				rust = { "rustfmt" },
 			},
+			sql = {
+				"sql_formatter",
+			},
 			default_format_opts = {
 				lsp_format = "fallback",
 			},
