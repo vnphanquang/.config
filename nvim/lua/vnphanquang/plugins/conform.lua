@@ -31,7 +31,7 @@ return {
 		end
 
 		local function first_prettier_fmt(bufnr)
-			return { first(bufnr, "prettierd", "prettier") }
+			return { first(bufnr, "prettier") }
 		end
 
 		local function html_css(bufnr)
@@ -55,7 +55,7 @@ return {
 				return { "deno_fmt" }
 			end
 
-			return { first(bufnr, "prettierd", "prettier", "yamlfix") }
+			return { first(bufnr, "prettier", "yamlfix") }
 		end
 
 		conform.setup({

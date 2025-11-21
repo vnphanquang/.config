@@ -209,9 +209,9 @@ return {
 						},
 					},
 				},
-				prettierd = {
-					root_dir = node_not_deno_root_dir,
-				},
+				-- prettierd = {
+				-- 	root_dir = node_not_deno_root_dir,
+				-- },
 				prettier = {
 					root_dir = node_not_deno_root_dir,
 				},
