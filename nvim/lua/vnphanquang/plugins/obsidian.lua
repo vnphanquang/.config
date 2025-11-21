@@ -2,6 +2,7 @@ return {
 	"obsidian-nvim/obsidian.nvim",
 	dependencies = {
 		"nvim-telescope/telescope.nvim",
+		"OXY2DEV/markview.nvim",
 	},
 	version = "*", -- recommended, use latest release instead of latest commit
 

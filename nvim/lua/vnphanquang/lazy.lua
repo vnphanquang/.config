@@ -54,6 +54,21 @@ require("lazy").setup({
 		{
 			"OXY2DEV/markview.nvim",
 			lazy = false,
+			config = function()
+				local markview = require("markview")
+				markview.setup({
+					preview = {
+						enable_hybrid_mode = false,
+						enable = false,
+						callbacks = {
+							on_attach = function()
+								vim.cmd("Markview splitOpen")
+								vim.cmd("Markview clear")
+							end,
+						},
+					},
+				})
+			end,
 		},
 		require("vnphanquang.plugins.treesitter"),
 		require("vnphanquang.plugins.telescope"),
