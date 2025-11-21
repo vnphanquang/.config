@@ -107,7 +107,7 @@ require("lazy").setup({
 		-- 		show_workspace = true,
 		-- 	},
 		-- },
-
+		require("vnphanquang.plugins.obsidian"),
 		-- fun stuff
 		{ "eandrju/cellular-automaton.nvim" }, -- https://github.com/Eandrju/cellular-automaton.nvim
 		{ -- https://github.com/s1n7ax/nvim-window-picker
