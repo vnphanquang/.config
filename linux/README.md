@@ -15,6 +15,7 @@ neovim ueberzug unzip imagemagick ripgrep
 i3-wm picom polybar rofi dunst maim feh playerctl htop earlyoom
 firefox speech-dispatcher mpv
 okular
+rsync rclone
 ```
 
 > [!IMPORTANT]
@@ -100,9 +101,7 @@ paru -Sy xmousepasteblock light bar-gmail volta polypane datagrip lefthook
 
         For discord, [disable SKIP_HOST_UPDATE](https://wiki.archlinux.org/title/Discord#Discord_asks_for_an_update_not_yet_available_in_the_repository)
 
-## Miscellaneous Guides
-
-### Dual Boot Windows
+## Dual Boot Windows
 
 Assuming:
 
@@ -125,7 +124,7 @@ Assuming:
 
 3. Restart, verify that Windows is detected in the boot menu.
 
-### AutoLogin with Getty
+## AutoLogin with Getty
 
 Credit: https://jackcuthbert.dev/blog/automated-login-in-arch-linux
 
@@ -140,7 +139,7 @@ ExecStart=
 ExecStart=-/usr/bin/agetty --autologin USERNAME_HERE --noclear %I $TERM
 ```
 
-### Sensors & [Fan Control](https://wiki.archlinux.org/title/Fan_speed_control)
+## Sensors & [Fan Control](https://wiki.archlinux.org/title/Fan_speed_control)
 
 ```bash
 paru -S lm_sensors coolercontrol
@@ -150,7 +149,7 @@ Check out [lm_sensors wiki page](https://wiki.archlinux.org/title/Lm_sensors) to
 configuring and detecting sensors, and [coolercontrol docs](https://docs.coolercontrol.org/) for
 setting up fan profiles.
 
-#### [AsRock B650M-HDV/M.2](https://www.asrock.com/mb/AMD/B650M-HDVM.2/)
+### [AsRock B650M-HDV/M.2](https://www.asrock.com/mb/AMD/B650M-HDVM.2/)
 
 For `sensors` work correctly with this board, add `/etc/modules-load.d/nct6775.conf`:
 
@@ -159,7 +158,7 @@ For `sensors` work correctly with this board, add `/etc/modules-load.d/nct6775.c
 nct6775
 ```
 
-### [Speed Dispatcher](https://wiki.archlinux.org/title/Speech_dispatcher) & Screen Reader
+## [Speed Dispatcher](https://wiki.archlinux.org/title/Speech_dispatcher) & Screen Reader
 
 ```bash
 paru -S speech-dispatcher espeakup orca
@@ -167,7 +166,7 @@ paru -S speech-dispatcher espeakup orca
 
 Use [piper](https://github.com/rhasspy/piper) for tts model. Install and configured via [pied](https://github.com/Elleo/pied)!
 
-### Linux Natural Scrolling
+## Linux Natural Scrolling
 
 > /usr/share/X11/xorg.conf.d/40-libinput.conf
 
@@ -189,7 +188,7 @@ Section "InputClass"
 EndSection
 ```
 
-### Multiple SSH for Different Github Usernames
+## Multiple SSH for Different Github Usernames
 
 ```ini
 # File ~/.ssh/config
@@ -208,7 +207,7 @@ Host github.com-vnphanquang
   url = git@github.com-username:domain
 ```
 
-### OBS
+## OBS
 
 #### Dependencies
 
@@ -240,4 +239,22 @@ pw-link VirtualSpeaker:monitor_FR VirtualMic:input_FR
 
 # loopback, optional
 pactl load-module module-loopback sink_name="LoopbackSync" source="VirtualSpeaker.monitor"
+```
+
+## [Rclone](https://rclone.org/)
+
+`~/.config/rclone/rclone.conf`:
+
+```
+[gdrive]
+# see: https://rclone.org/drive/
+description = Syncing linux machines <-> Google Drive
+type = drive
+scope = drive.file
+root_folder_id = <...>
+export_formats = docx,xlsx,pptx,svg,md,json
+import_formats = md,docx,json
+allow_import_name_change = true
+token = <...>
+team_drive =
 ```
