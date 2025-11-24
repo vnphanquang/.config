@@ -60,12 +60,12 @@ require("lazy").setup({
 					preview = {
 						enable_hybrid_mode = false,
 						enable = false,
-						callbacks = {
-							on_attach = function()
-								vim.cmd("Markview splitOpen")
-								vim.cmd("Markview clear")
-							end,
-						},
+						-- callbacks = {
+						-- 	on_attach = function()
+						-- 		vim.cmd("Markview splitOpen")
+						-- 		vim.cmd("Markview clear")
+						-- 	end,
+						-- },
 					},
 				})
 			end,
