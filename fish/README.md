@@ -8,9 +8,11 @@
 | [Starship][starship] | prompt manager |
 | [bat] | `cat` alternative (used for git-diff) |
 | [direnv] | directory-based environment variables |
+| [eza]     | replacement for ls                 |
 
 ```bash
-pacman -S fish fisher starship bat fzf direnv
+pacman -S fish starship bat fzf direnv
+sudo apt install -y fish starship bat fzf direnv
 ```
 
 > [!IMPORTANT]
@@ -45,3 +47,5 @@ chsh -s $(which fish)
 [starship]: https://starship.rs
 [bat]: https://github.com/sharkdp/bat
 [direnv]: https://direnv.net/
+[eza]: https://github.com/eza-community/eza
+

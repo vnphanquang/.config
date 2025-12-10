@@ -11,7 +11,7 @@
 For UNIX:
 
 ```bash
-mkdir $HOME/.config/alacritty
+mkdir -p $HOME/.config/alacritty
 ln -sf ~/dev/.config/alacritty/alacritty.unix.toml $HOME/.config/alacritty/alacritty.toml
 ln -sf ~/dev/.config/alacritty/includes $HOME/.config/alacritty/includes
 ```

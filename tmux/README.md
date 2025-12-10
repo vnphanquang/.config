@@ -3,6 +3,7 @@
 ## Dependencies
 
 ```bash
+sudo pacman -S xclip
 sudo apt install xclip
 ```
 
