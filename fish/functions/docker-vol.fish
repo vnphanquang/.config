@@ -60,11 +60,9 @@ function docker-vol --description "Utilities to work with docker volume" --argum
 			return 1
 		end
 
-		# check if the specified docker volume exists
-		if not docker volume inspect $_flag_volume > /dev/null 2>&1
-			echo "Docker volume '$_flag_volume' does not exist"
-			return 1
-		end
+		# don't check for volume existence, as user may want to restore to a new volume
+		# some services don't allow volume override when they are running; if so try to stop the service first,
+		# or create a volume before starting the service
 
 		docker run --rm --volume $_flag_volume:/voldata --volume (pwd):/backup busybox tar xvf /backup/$_flag_input -C /voldata --strip 1
 	else
