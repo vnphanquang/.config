@@ -8,6 +8,7 @@ Add these additional apps to install (vi pacman):
 linux-headers
 git github-cli tk openssh gnupg rust python man
 xorg-server xorg-xinit xterm xorg-xev xdg-utils xdotool xclip
+pipewire wiremix
 thunar thunar-archive-plugin xarchiver thunar-media-tags-plugin tumbler ntfs-3g gvfs inetutils
 ttf-firacode-nerd powerline powerline-fonts noto-fonts-cjk noto-fonts-emoji less
 tmux alacritty fish fisher starship zoxide eza peek bat fzf fd direnv
