@@ -1,6 +1,7 @@
 require("vnphanquang.options")
 require("vnphanquang.keybindings")
 require("vnphanquang.lazy")
+require("vnphanquang.diagnostics")
 -- require("vnphanquang.ibus")
 
 -- Highlight when yanking (copying) text
@@ -42,13 +43,12 @@ vim.filetype.add({
 })
 
 vim.keymap.set('n', '<Leader><C-b>',
-  function()
-    local curbufnr = vim.api.nvim_get_current_buf()
-    local buflist = vim.api.nvim_list_bufs()
-    for _, bufnr in ipairs(buflist) do
-      if vim.bo[bufnr].buflisted and bufnr ~= curbufnr and (vim.fn.getbufvar(bufnr, 'bufpersist') ~= 1) then
-        vim.cmd('bd ' .. tostring(bufnr))
-      end
-    end
-  end, { silent = true, desc = 'Close unused buffers' })
-
+	function()
+		local curbufnr = vim.api.nvim_get_current_buf()
+		local buflist = vim.api.nvim_list_bufs()
+		for _, bufnr in ipairs(buflist) do
+			if vim.bo[bufnr].buflisted and bufnr ~= curbufnr and (vim.fn.getbufvar(bufnr, 'bufpersist') ~= 1) then
+				vim.cmd('bd ' .. tostring(bufnr))
+			end
+		end
+	end, { silent = true, desc = 'Close unused buffers' })
