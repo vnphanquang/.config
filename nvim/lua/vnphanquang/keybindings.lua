@@ -8,12 +8,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "go to previous [d]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "go to next [d]iagnostic message" })
-vim.keymap.set("n", "<leader>te", vim.diagnostic.open_float, { desc = "show diagnostic [e]rror messages" })
-vim.keymap.set("n", "<leader>tq", vim.diagnostic.setloclist, { desc = "open diagnostic [q]uickfix list" })
-
 -- Map jj to Esc
 vim.keymap.set("i", "jj", "<Esc>", { desc = "jj as Esc alias" })
 
