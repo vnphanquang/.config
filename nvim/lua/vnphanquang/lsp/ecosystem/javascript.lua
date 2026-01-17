@@ -12,6 +12,7 @@ return eco.define_lsp_tools({
 		}
 	},
 	"eslint-lsp",
+	"eslint_d",
 	"js-debug-adapter", -- used in conjunction with nvim-dap, see `dap.lua`
 	{
 		mason_id = 'stylelint-lsp',
