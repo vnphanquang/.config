@@ -38,7 +38,8 @@ vim.filetype.add({
 	pattern = {
 		[".*.mjml"] = "html",
 		[".*.md.svelte"] = "markdown",
-		[".denoflare"] = "jsonc"
+		[".denoflare"] = "jsonc",
+		[".env.*"] = "sh"
 	},
 })
 
