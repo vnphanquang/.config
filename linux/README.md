@@ -16,6 +16,7 @@ neovim ueberzug unzip imagemagick ripgrep
 i3-wm picom polybar rofi dunst maim feh playerctl htop earlyoom
 firefox speech-dispatcher mpv
 okular
+android-tools
 rsync rclone
 ```
 
