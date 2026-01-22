@@ -2,6 +2,9 @@
 return {
 	{
 		"echasnovski/mini.ai",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+		},
 		version = "*",
 		config = function()
 			local spec_treesitter = require("mini.ai").gen_spec.treesitter
