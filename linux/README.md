@@ -11,7 +11,7 @@ xorg-server xorg-xinit xterm xorg-xev xdg-utils xdotool xclip
 pipewire wiremix
 thunar thunar-archive-plugin xarchiver thunar-media-tags-plugin tumbler ntfs-3g gvfs inetutils
 ttf-firacode-nerd powerline powerline-fonts noto-fonts-cjk noto-fonts-emoji less
-tmux alacritty fish fisher starship zoxide eza peek bat fzf fd direnv
+tmux alacritty fish fisher starship zoxide eza peek bat fzf fd direnv dysk
 neovim ueberzug unzip imagemagick ripgrep
 i3-wm picom polybar rofi dunst maim feh playerctl htop earlyoom
 firefox speech-dispatcher mpv
@@ -260,3 +260,9 @@ allow_import_name_change = true
 token = <...>
 team_drive =
 ```
+
+## Terminal-based Browsers
+
+- https://wiki.archlinux.org/title/W3m
+- https://github.com/browsh-org/browsh
+- https://github.com/fathyb/carbonyl
