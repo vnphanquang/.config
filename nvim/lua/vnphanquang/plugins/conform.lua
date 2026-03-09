@@ -69,6 +69,7 @@ return {
 				svelte = js_fmts,
 				html = html_css,
 				css = html_css,
+				scss = html_css,
 				markdown = function(bufnr)
 					if is_deno_project(bufnr) then
 						return { "deno_fmt" }
