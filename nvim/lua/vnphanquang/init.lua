@@ -39,17 +39,59 @@ vim.filetype.add({
 		[".*.mjml"] = "html",
 		[".*.md.svelte"] = "markdown",
 		[".denoflare"] = "jsonc",
-		[".env.*"] = "sh"
+		[".env.*"] = "sh",
 	},
 })
 
-vim.keymap.set('n', '<Leader><C-b>',
-	function()
-		local curbufnr = vim.api.nvim_get_current_buf()
-		local buflist = vim.api.nvim_list_bufs()
-		for _, bufnr in ipairs(buflist) do
-			if vim.bo[bufnr].buflisted and bufnr ~= curbufnr and (vim.fn.getbufvar(bufnr, 'bufpersist') ~= 1) then
-				vim.cmd('bd ' .. tostring(bufnr))
-			end
+vim.keymap.set("n", "<Leader><C-b>", function()
+	local curbufnr = vim.api.nvim_get_current_buf()
+	local buflist = vim.api.nvim_list_bufs()
+	for _, bufnr in ipairs(buflist) do
+		if vim.bo[bufnr].buflisted and bufnr ~= curbufnr and (vim.fn.getbufvar(bufnr, "bufpersist") ~= 1) then
+			vim.cmd("bd " .. tostring(bufnr))
 		end
-	end, { silent = true, desc = 'Close unused buffers' })
+	end
+end, { silent = true, desc = "Close unused buffers" })
+
+--
+
+vim.keymap.set(
+	"n",
+	"<leader>ybn",
+	'<cmd>let @+=expand("%:t")<CR>',
+	{ desc = "yank filename of current buffer, relative to cwd" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>yba",
+	'<cmd>let @+=expand("%:p")<CR>',
+	{ desc = "yank absolute filepath of current buffer" }
+)
+function CopyPathRelativeToGitRoot()
+	-- Get the current buffer's absolute path
+	local file_path = vim.fn.expand("%:p")
+
+	-- Find the git repository root directory
+	local git_root = vim.fn.fnamemodify(vim.fn.finddir(".git", ".;"), ":h")
+
+	if git_root == '.' then
+		vim.notify("Not inside a git repository!", vim.log.levels.ERROR)
+		return
+	end
+
+	-- Calculate the relative path
+	-- string.len(git_root) + 2 accounts for the length and the trailing slash
+	local relative_path = string.sub(file_path, string.len(git_root) + 2)
+
+	-- Copy the relative path to the clipboard register (+)
+	vim.fn.setreg("+", relative_path)
+end
+vim.api.nvim_create_user_command("CopyBufferPathGit", CopyPathRelativeToGitRoot, {})
+vim.keymap.set(
+	"n",
+	"<leader>ybg",
+	"<cmd>:CopyBufferPathGit<CR>",
+	{ desc = "yank filepath of current buffer, relative to git root (if any)" }
+)
+
+-- TODO: add https://github.com/kiyoon/telescope-insert-path.nvim?
