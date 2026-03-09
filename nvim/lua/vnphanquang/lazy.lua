@@ -51,6 +51,10 @@ require("lazy").setup({
 		-- runs ":TransparentEnable", result will be cached
 		{ "xiyaowong/transparent.nvim" },
 		require("vnphanquang.plugins.lualine"),
+		{
+			"mcauley-penney/visual-whitespace.nvim",
+			event = "ModeChanged *:[vV\22]", -- optionally, lazy load on entering visual mode
+		},
 
 		-- Workflow enhancement
 		require("vnphanquang.plugins.neo-tree"),
