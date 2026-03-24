@@ -62,10 +62,9 @@ return {
 						gitsigns.blame_line({ full = true })
 					end, { desc = "GitSigns: blame line" })
 
-					map("n", "<leader>hu", gitsigns.undo_stage_hunk, { desc = "GitSigns: undo hunk staging" })
 					map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "GitSigns: preview hunk" })
 					map("n", "<leader>hd", gitsigns.diffthis, { desc = "Gitsigns: diff this buffer" })
-					map("n", "<leader>hx", gitsigns.toggle_deleted, { desc = "Gitsigns: toggle deleted" })
+					map("n", "<leader>hx", gitsigns.preview_hunk_inline, { desc = "Gitsigns: toggle deleted" })
 
 					-- Text object
 					map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
@@ -81,9 +80,6 @@ return {
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
 			-- to show diff splits and open commits in browser
-			"tpope/vim-fugitive",
-			-- to open commits in browser with fugitive
-			"tpope/vim-rhubarb",
 		},
 		config = function()
 			-- Shortcuts for git
@@ -129,14 +125,92 @@ return {
 				"<cmd>AdvancedGitSearch checkout_reflog<CR>",
 				{ desc = "Telescope: [s]earch and checkout from [g]it [r]eflog" }
 			)
+		end,
+	},
+	{
+		"sindrets/diffview.nvim",
+		lazy = false,
+		config = function()
+			local diffview = require("diffview")
+
+			diffview.setup({
+				view = {
+					-- Default view for all diffviews
+					default = {
+						layout = "diff2_horizontal",
+						winbar_info = true,
+					},
+				},
+				-- You can use the 'hooks' to manipulate the window after it opens
+				hooks = {
+					view_opened = function(view)
+						-- Code to make the window float if not using native float options
+					end,
+				},
+			})
+
+			vim.keymap.set("n", "<leader>gd", function()
+				diffview.open({ type = "float" })
+			end, { desc = "Open DiffView" })
 
 			vim.keymap.set(
 				"n",
-				"<leader>sgh",
-				"<cmd>GBrowse<CR>",
-				{ desc = "Open Github URL of current buffer" }
+				"<leader>gh",
+				"<cmd>DiffviewFileHistory<CR>",
+				{ desc = "Open DiffviewFileHistory for current file" }
+			)
+			vim.keymap.set(
+				"v",
+				"<leader>gh",
+				"<cmd>'<,'>DiffviewFileHistory<CR>",
+				{ desc = "Open DiffviewFileHistory for current visual selection" }
+			)
+		end,
+	},
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
+			"pabloariasal/webify.nvim",
+		},
+		config = function()
+			local neogit = require("neogit")
+
+			neogit.setup({
+				cmd = "Neogit",
+				integrations = {
+					telescope = true,
+					diffview = true,
+				},
+			})
+
+			-- Git Status
+			vim.keymap.set("n", "<leader>gg", function()
+				neogit.open({ kind = "floating" })
+			end, { desc = "Open Neogit UI" })
+			vim.keymap.set("n", "<leader>g|", function()
+				neogit.open({ kind = "vsplit" })
+			end, { desc = "Open Neogit UI, split right" })
+			vim.keymap.set("n", "<leader>g-", function()
+				neogit.open({ kind = "split_below_all" })
+			end, { desc = "Open Neogit UI, split below" })
+
+			-- Open in Github / copy URL (call pabloariasal/webify.nvim)
+			vim.keymap.set("n", "<leader>go", "<cmd>OpenFileInRepo<cr>", { desc = "Open in web browser" })
+			vim.keymap.set(
+				"n",
+				"<leader>gO",
+				"<cmd>OpenLineInRepo<cr>",
+				{ desc = "Open in web browser, including current line" }
+			)
+			vim.keymap.set("n", "<leader>gy", "<cmd>YankFileUrl +<cr>", { desc = "Yank Url to system clipboard" })
+			vim.keymap.set(
+				"n",
+				"<leader>gY",
+				"<cmd>YankLineUrl +<cr>",
+				{ desc = "Yank Url to system clipboard, including current line" }
 			)
 		end,
 	},
 }
-

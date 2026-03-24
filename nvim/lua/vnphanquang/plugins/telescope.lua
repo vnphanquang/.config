@@ -22,10 +22,27 @@ return {
 			-- For major updates, this must be adjusted manually.
 			version = "^1.0.0",
 		},
+		"sindrets/diffview.nvim",
 	},
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+		local action_state = require("telescope.actions.state")
+
+		local function open_diffview(cmd)
+			-- Find the git repository root directory
+			local git_root = vim.fn.fnamemodify(vim.fn.finddir(".git", ".;"), ":h")
+
+			-- Open in diffview
+			local entry = action_state.get_selected_entry()
+			-- close Telescope window properly prior to switching windows
+			vim.api.nvim_win_close(0, true)
+			vim.cmd("stopinsert")
+			vim.schedule(function()
+				vim.cmd((cmd .. ' -C' .. git_root):format(entry.value))
+			end)
+		end
+
 		telescope.setup({
 			defaults = {
 				file_ignore_patterns = {
@@ -40,6 +57,120 @@ return {
 					i = {
 						["<C-h>"] = "which_key",
 						["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+					},
+				},
+			},
+			pickers = {
+				grep_string = {
+					mappings = {
+						i = {
+							["<C-D>"] = function()
+								-- git history for selected file
+								open_diffview("DiffviewFileHistory %s")
+							end,
+						},
+						n = {
+							["d"] = function()
+								-- git history for selected file
+								open_diffview("DiffviewFileHistory %s")
+							end,
+						},
+					},
+				},
+				live_grep = {
+					mappings = {
+						i = {
+							["<C-D>"] = function()
+								-- git history for selected file
+								open_diffview("DiffviewFileHistory %s")
+							end,
+						},
+						n = {
+							["d"] = function()
+								-- git history for selected file
+								open_diffview("DiffviewFileHistory %s")
+							end,
+						},
+					},
+				},
+				git_files = {
+					mappings = {
+						i = {
+							["<C-D>"] = function()
+								-- git history for selected file
+								open_diffview("DiffviewFileHistory %s")
+							end,
+						},
+						n = {
+							["d"] = function()
+								-- git history for selected file
+								open_diffview("DiffviewFileHistory %s")
+							end,
+						},
+					},
+				},
+				git_status = {
+					mappings = {
+						i = {
+							["<C-D>"] = function()
+								-- diff the selected file with current head
+								open_diffview("DiffviewFileHistory %s")
+							end,
+						},
+						n = {
+							["d"] = function()
+								-- diff the selected file with current head
+								open_diffview("DiffviewFileHistory %s")
+							end,
+						},
+					},
+				},
+				git_commits = {
+					mappings = {
+						i = {
+							["<C-D>"] = function()
+								-- diff the selected commit of current buffer
+								open_diffview("DiffviewOpen %s^!")
+							end,
+						},
+						n = {
+							["d"] = function()
+								-- diff the selected commit of current buffer
+								open_diffview("DiffviewOpen %s^!")
+							end,
+						},
+					},
+				},
+				git_bcommits = {
+					mappings = {
+						i = {
+							["<C-D>"] = function()
+								-- diff the selected branch with the current branch
+								open_diffview("DiffviewOpen %s^!")
+							end,
+						},
+						n = {
+							["d"] = function()
+								-- diff the selected commit of current buffer
+								open_diffview("DiffviewOpen %s^!")
+							end,
+						},
+					},
+				},
+				git_branches = {
+					mappings = {
+						i = {
+							["<C-D>"] = function()
+								-- diff the selected branch with the current branch
+								open_diffview("DiffviewOpen %s..")
+							end,
+						},
+						n = {
+							["d"] = function()
+								-- diff the selected branch with the current branch
+								open_diffview("DiffviewOpen %s..")
+							end,
+						},
 					},
 				},
 			},
