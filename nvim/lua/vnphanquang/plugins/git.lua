@@ -129,6 +129,13 @@ return {
 				"<cmd>AdvancedGitSearch checkout_reflog<CR>",
 				{ desc = "Telescope: [s]earch and checkout from [g]it [r]eflog" }
 			)
+
+			vim.keymap.set(
+				"n",
+				"<leader>sgh",
+				"<cmd>GBrowse<CR>",
+				{ desc = "Open Github URL of current buffer" }
+			)
 		end,
 	},
 }
