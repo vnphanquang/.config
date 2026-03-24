@@ -173,6 +173,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope.nvim",
 			"pabloariasal/webify.nvim",
+			"rbong/vim-flog",
 		},
 		config = function()
 			local neogit = require("neogit")
@@ -183,6 +184,7 @@ return {
 					telescope = true,
 					diffview = true,
 				},
+				graph_style = "unicode",
 			})
 
 			-- Git Status
