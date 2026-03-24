@@ -85,6 +85,8 @@ function CopyPathRelativeToGitRoot()
 
 	-- Copy the relative path to the clipboard register (+)
 	vim.fn.setreg("+", relative_path)
+
+	vim.notify("Copied to clipboard: " .. relative_path, vim.log.levels.INFO)
 end
 vim.api.nvim_create_user_command("CopyBufferPathGit", CopyPathRelativeToGitRoot, {})
 vim.keymap.set(
