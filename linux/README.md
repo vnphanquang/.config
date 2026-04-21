@@ -18,6 +18,7 @@ firefox speech-dispatcher mpv
 okular
 android-tools
 rsync rclone
+autorandr
 ```
 
 > [!IMPORTANT]
