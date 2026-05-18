@@ -13,7 +13,7 @@ return {
 		end,
 	},
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		config = function()
 			require("mason").setup({
 				ui = {
@@ -27,9 +27,9 @@ return {
 		end,
 	},
 	{
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		dependencies = {
-			"williamboman/mason.nvim",
+			"mason-org/mason.nvim",
 			"neovim/nvim-lspconfig",
 		},
 		config = function()
@@ -39,7 +39,7 @@ return {
 	{
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		dependencies = {
-			"williamboman/mason.nvim",
+			"mason-org/mason.nvim",
 		},
 		config = function()
 			require("mason-tool-installer").setup({
