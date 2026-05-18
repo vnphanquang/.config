@@ -22,9 +22,9 @@ end
 
 
 # fly.io
-set -gx FLYCTL_INSTALL "$HOME/.fly"
-set -gx PATH "$FLYCTL_INSTALL/bin" $PATH
-alias fly=flyctl
+# set -gx FLYCTL_INSTALL "$HOME/.fly"
+# set -gx PATH "$FLYCTL_INSTALL/bin" $PATH
+# alias fly=flyctl
 
 # enhance git diff with bat
 alias batdiff='git diff --name-only --relative --diff-filter=d | xargs bat --diff'
@@ -33,38 +33,31 @@ alias batdiff='git diff --name-only --relative --diff-filter=d | xargs bat --dif
 function source_env
   switch (uname)
     case Linux
-      # for gpg signing
-      set -gx GPG_TTY $(tty)
+		# for gpg signing
+		set -gx GPG_TTY $(tty)
 
-      set -gx PATH "$HOME/.cargo/bin" $PATH;
+		# cargo binaries
+		fish_add_path -g "$HOME/.cargo/bin"
 
-      # pnpm
-      set -gx PNPM_HOME "$HOME/.local/share/pnpm";
-      if not string match -q -- $PNPM_HOME $PATH
-        set -gx PATH "$PNPM_HOME" $PATH
-      end
-			# pnpm end
+		# pnpm
+		fish_add_path -g "$HOME/.local/share/pnpm";
 
-			# deno
-			set -gx DENO_INSTALL "$HOME/.deno"
-			if not string match -q -- $DENO_INSTALL $PATH
-				set -gx PATH "$DENO_INSTALL/bin" $PATH
-			end
+		# deno
+		fish_add_path -g "$HOME/.deno/bin";
 
-			# nvidia driver settings
-			# set -gx LIBVA_DRIVER_NAME nvidia
-			# set -gx VDPAU_DRIVER nvidia
+		# nvidia driver settings
+		# set -gx LIBVA_DRIVER_NAME nvidia
+		# set -gx VDPAU_DRIVER nvidia
 
-      # start i3 automatically after login (tested in Arch Linux)
-      if type -q i3
-      and test -z $DISPLAY
-      and test $(tty) = '/dev/tty1'
-        startx
-      end
+		# start i3 automatically after login (tested in Arch Linux)
+		if type -q i3
+			and test -z $DISPLAY
+			and test $(tty) = '/dev/tty1'
+			startx
+		end
     case Darwin
-      # set -gx PATH "$HOME/.cargo/bin" (go env GOPATH)/bin $PATH;
-      set -gx PNPM_HOME "/Users/vnphanquang/Library/pnpm";
-      set -gx PATH "$PNPM_HOME" $PATH;
+	  # pnpm
+      fish_add_path -g "/Users/vnphanquang/Library/pnpm"
   end
 end
 
@@ -73,7 +66,7 @@ set -gx LAUNCH_EDITOR "$HOME/dev/.config/nvim/launch_editor.sh"
 
 # volta
 set -gx VOLTA_HOME "$HOME/.volta"
-set -gx PATH "$VOLTA_HOME/bin" $PATH
+fish_add_path "$VOLTA_HOME/bin"
 
 source_env
 
@@ -81,3 +74,8 @@ source_env
 set -gx STARSHIP_CONFIG "$HOME/dev/.config/fish/starship.toml"
 starship init fish | source
 
+# Copilot CLI
+# set -gx PATH "$HOME/.local/bin" $PATH
+
+# opencode
+# fish_add_path -g /home/quang/.opencode/bin
