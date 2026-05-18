@@ -103,9 +103,9 @@ require("lazy").setup({
 		-- require("vnphanquang.plugins.lsp.typescript-tools"),
 		require("vnphanquang.plugins.conform"),
 		require("vnphanquang.plugins.trouble"),
-		{ "github/copilot.vim" }, -- https://github.com/github/copilot.vim
 
 		-- development utilities
+		require("vnphanquang.plugins.ai"),
 		require("vnphanquang.plugins.indent-blank-line"),
 		require("vnphanquang.plugins.hop"),
 		require("vnphanquang.plugins.illuminate"),
