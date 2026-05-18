@@ -85,7 +85,7 @@ return {
 					"ruff_organize_imports",
 				},
 				yaml = yaml_fmts,
-				rust = { "rustfmt" },
+				-- rust = {},
 			},
 			sql = {
 				"sql_formatter",
