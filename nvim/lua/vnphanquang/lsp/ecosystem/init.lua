@@ -10,4 +10,5 @@ return eco.define_lsp_ecosystem({
 	require("vnphanquang.lsp.ecosystem.shell"),
 	require("vnphanquang.lsp.ecosystem.sql"),
 	require("vnphanquang.lsp.ecosystem.yaml"),
+	require("vnphanquang.lsp.ecosystem.zig"),
 })
