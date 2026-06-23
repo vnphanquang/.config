@@ -100,6 +100,13 @@ return {
 		end,
 	},
 	{
+		"nvim-mini/mini.bracketed",
+		version = "*",
+		config = function()
+			require("mini.bracketed").setup({})
+		end,
+	},
+	{
 		"nvim-mini/mini.comment",
 		version = "*",
 		config = function()
@@ -128,6 +135,13 @@ return {
 		config = function()
 			require("nvim-ts-autotag").setup()
 			require("mini.pairs").setup({})
+		end,
+	},
+	{
+		"nvim-mini/mini.splitjoin",
+		version = "*",
+		config = function()
+			require("mini.splitjoin").setup({})
 		end,
 	},
 	{
