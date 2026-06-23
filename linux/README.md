@@ -19,6 +19,7 @@ okular
 android-tools
 rsync rclone
 autorandr
+ncdu
 ```
 
 > [!IMPORTANT]
