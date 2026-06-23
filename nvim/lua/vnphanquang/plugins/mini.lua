@@ -1,7 +1,7 @@
--- https://github.com/echasnovski/mini.nvim
+-- https://github.com/nvim-mini/mini.nvim
 return {
 	{
-		"echasnovski/mini.ai",
+		"nvim-mini/mini.ai",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 		},
@@ -91,15 +91,23 @@ return {
 		end,
 	},
 	{
-		"echasnovski/mini.surround",
+		"nvim-mini/mini.align",
 		version = "*",
 		config = function()
-			vim.keymap.set("n", "s", "<nop>", { noremap = true, silent = true })
-			require("mini.surround").setup({})
+			require("mini.align").setup({
+				symbol = "│",
+			})
 		end,
 	},
 	{
-		"echasnovski/mini.operators",
+		"nvim-mini/mini.comment",
+		version = "*",
+		config = function()
+			require("mini.comment").setup({})
+		end,
+	},
+	{
+		"nvim-mini/mini.operators",
 		version = "*",
 		config = function()
 			vim.keymap.del("n", "grt")
@@ -112,14 +120,22 @@ return {
 		end,
 	},
 	{
-		"echasnovski/mini.pairs",
+		"nvim-mini/mini.pairs",
 		version = "*",
 		dependencies = {
 			"windwp/nvim-ts-autotag", -- https://github.com/windwp/nvim-ts-autotag
 		},
 		config = function()
-			require("mini.pairs").setup({})
 			require("nvim-ts-autotag").setup()
+			require("mini.pairs").setup({})
+		end,
+	},
+	{
+		"nvim-mini/mini.surround",
+		version = "*",
+		config = function()
+			vim.keymap.set("n", "s", "<nop>", { noremap = true, silent = true })
+			require("mini.surround").setup({})
 		end,
 	},
 }

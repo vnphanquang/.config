@@ -97,7 +97,6 @@ require("lazy").setup({
 
 		-- essential development plugins
 		require("vnphanquang.plugins.git"),
-		-- require("vnphanquang.plugins.lsp-legacy"),
 		require("vnphanquang.lsp"),
 		require("vnphanquang.plugins.dap"),
 		-- require("vnphanquang.plugins.lsp.typescript-tools"),
@@ -110,7 +109,6 @@ require("lazy").setup({
 		require("vnphanquang.plugins.hop"),
 		require("vnphanquang.plugins.illuminate"),
 		require("vnphanquang.plugins.multiple-cursor"),
-		{ "numToStr/Comment.nvim", opts = {} }, -- https://github.com/numToStr/Comment.nvim
 		{ "wakatime/vim-wakatime", lazy = false }, -- https://wakatime.com/neovim
 		-- { -- https://github.com/mistricky/codesnap.nvim
 		-- 	"mistricky/codesnap.nvim",
