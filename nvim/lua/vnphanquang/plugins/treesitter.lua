@@ -17,6 +17,7 @@ local languages = {
 	"python",
 	"rust",
 	"scss",
+	"sql",
 	"svelte",
 	"toml",
 	"typescript",
