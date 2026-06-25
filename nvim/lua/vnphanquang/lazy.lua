@@ -104,6 +104,7 @@ require("lazy").setup({
 		require("vnphanquang.plugins.trouble"),
 
 		-- development utilities
+		require("vnphanquang.plugins.db"),
 		require("vnphanquang.plugins.ai"),
 		require("vnphanquang.plugins.indent-blank-line"),
 		require("vnphanquang.plugins.hop"),

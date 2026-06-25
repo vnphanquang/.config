@@ -24,6 +24,11 @@ return {
 				["<S-Tab>"] = { "snippet_backward", "fallback" },
 				--
 			},
+			sources = {
+				providers = {
+					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+				},
+			},
 		},
 		opts_extend = { "sources.default" },
 	},
