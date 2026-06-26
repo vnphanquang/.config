@@ -58,6 +58,33 @@ return {
 			return { first(bufnr, "prettier", "yamlfix") }
 		end
 
+		local function sql_fmts(bufnr)
+			if is_deno_project(bufnr) then
+				return { "deno_fmt" }
+			end
+
+			return { first(bufnr, "sql_formatter") }
+		end
+
+		-- Helper function to look for explicit marker in the first 3 lines
+		local function detect_sql_dialect(bufnr)
+			-- Get only the first 3 lines
+			local lines = vim.api.nvim_buf_get_lines(bufnr, 0, 3, false)
+
+			for _, line in ipairs(lines) do
+				-- Matches patterns like: -- DIALECT="mysql" or -- dialect=postgres
+				-- [["']?] handles optional single or double quotes
+				local match = line:lower():match("dialect%s*=%s*[\"']?([%w_-]+)")
+				-- log
+				if match then
+					return match:lower() -- Ensure it's lowercase for the formatter CLI
+				end
+			end
+
+			-- Fallback if no marker is found
+			return "sql"
+		end
+
 		conform.setup({
 			format_on_save = nil,
 			formatters_by_ft = {
@@ -86,9 +113,23 @@ return {
 				},
 				yaml = yaml_fmts,
 				-- rust = {},
+				sql = sql_fmts,
+				mysql = sql_fmts,
+				postgres = sql_fmts,
+				postgresql = sql_fmts,
+				mariadb = sql_fmts,
+				sqlite = sql_fmts,
 			},
-			sql = {
-				"sql_formatter",
+			formatters = {
+				sql_formatter = {
+					prepend_args = function(_, ctx)
+						local dialect = vim.b[ctx.buf].sql_type_override or detect_sql_dialect(ctx.buf)
+						if dialect == "postgres" then
+							dialect = "postgresql"
+						end
+						return { "--language", dialect }
+					end,
+				},
 			},
 			default_format_opts = {
 				lsp_format = "fallback",
@@ -97,17 +138,28 @@ return {
 
 		local formatBufferOrSelection = function()
 			local formatters = conform.list_formatters()
+			local bufnr = vim.api.nvim_get_current_buf()
+
+			-- Pre-determine what dialect we are about to use
+			local dialect = vim.b[bufnr].sql_type_override or detect_sql_dialect(bufnr)
+
 			conform.format({
 				async = true,
 				lsp_fallback = "fallback",
 				formatters,
 			}, function(_, did_edit)
-				if did_edit then
-					local formatter_names = {}
-					for _, formatter in ipairs(formatters) do
+				local formatter_names = {}
+				for _, formatter in ipairs(formatters) do
+					if formatter.name == "sql_formatter" and dialect then
+						formatter_names[#formatter_names + 1] = formatter.name .. " (dialect:" .. dialect .. ")"
+					else
 						formatter_names[#formatter_names + 1] = formatter.name
 					end
+				end
+				if did_edit then
 					vim.notify("[Conform] Formatted using " .. table.concat(formatter_names, ", "))
+				elseif #formatters > 0 then
+					vim.notify("[Conform] No changes from " .. table.concat(formatter_names, ", "))
 				end
 			end)
 		end

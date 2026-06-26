@@ -33,6 +33,13 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "mysql", "postgres", "mariadb", "sqlite" },
+	callback = function()
+		vim.bo.commentstring = "-- %s"
+	end,
+})
+
 return {
 	{ -- https://github.com/nvim-treesitter/nvim-treesitter
 		"nvim-treesitter/nvim-treesitter",
