@@ -1,4 +1,5 @@
 -- https://github.com/stevearc/conform.nvim
+local utils = require("vnphanquang.utils")
 
 return {
 	"stevearc/conform.nvim",
@@ -137,30 +138,61 @@ return {
 		})
 
 		local formatBufferOrSelection = function()
-			local formatters = conform.list_formatters()
+			-- get current filetype
+			local ft = vim.bo.filetype
+
 			local bufnr = vim.api.nvim_get_current_buf()
+			-- Pre-determine SQL dialect if any
+			local dialect = nil
+			if
+				ft == "sql"
+				or ft == "mysql"
+				or ft == "postgres"
+				or ft == "postgresql"
+				or ft == "mariadb"
+				or ft == "sqlite"
+			then
+				dialect = vim.b[bufnr].sql_type_override or detect_sql_dialect(bufnr)
+			end
 
-			-- Pre-determine what dialect we are about to use
-			local dialect = vim.b[bufnr].sql_type_override or detect_sql_dialect(bufnr)
+			-- join all formatter names
+			local formatters = conform.list_formatters()
+			local formatter_names = {}
+			for _, formatter in ipairs(formatters) do
+				if formatter.name == "sql_formatter" and dialect then
+					formatter_names[#formatter_names + 1] = formatter.name .. " (dialect:" .. dialect .. ")"
+				else
+					formatter_names[#formatter_names + 1] = formatter.name
+				end
+			end
+			local formatters_str = table.concat(formatter_names, ", ")
 
-			conform.format({
-				async = true,
-				lsp_fallback = "fallback",
-				formatters,
-			}, function(_, did_edit)
-				local formatter_names = {}
-				for _, formatter in ipairs(formatters) do
-					if formatter.name == "sql_formatter" and dialect then
-						formatter_names[#formatter_names + 1] = formatter.name .. " (dialect:" .. dialect .. ")"
-					else
-						formatter_names[#formatter_names + 1] = formatter.name
+			utils.with_spinner_noti(function(noti)
+				noti.start({
+					title = "Conform",
+					message = "Formatting using " .. formatters_str .. "...",
+					level = vim.log.levels.INFO,
+				})
+
+				conform.format({
+					async = true,
+					lsp_fallback = "fallback",
+					formatters,
+				}, function(_, did_edit)
+					if did_edit then
+						noti.finish({
+							title = "Conform",
+							message = "Formatted using " .. formatters_str,
+							level = vim.log.levels.INFO,
+						})
+					elseif #formatters > 0 then
+						noti.finish({
+							title = "Conform",
+							message = "No changes made by " .. formatters_str,
+							level = vim.log.levels.INFO,
+						})
 					end
-				end
-				if did_edit then
-					vim.notify("[Conform] Formatted using " .. table.concat(formatter_names, ", "))
-				elseif #formatters > 0 then
-					vim.notify("[Conform] No changes from " .. table.concat(formatter_names, ", "))
-				end
+				end)
 			end)
 		end
 
