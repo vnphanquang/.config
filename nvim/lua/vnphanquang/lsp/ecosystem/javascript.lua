@@ -67,4 +67,5 @@ return eco.define_lsp_tools({
 			end,
 		},
 	},
+	"emmet-language-server",
 })
