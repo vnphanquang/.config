@@ -1,0 +1,8 @@
+language = en
+font-family = "FiraCode Nerd Font"
+font-family-bold = "FiraCode Nerd Font"
+font-family-italic = "FiraCode Nerd Font"
+background-opacity = 0.9
+theme = "Gruvbox Material Dark"
+window-decoration = none
+confirm-close-surface = false

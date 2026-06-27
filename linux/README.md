@@ -11,7 +11,7 @@ xorg-server xorg-xinit xterm xorg-xev xdg-utils xdotool xclip
 pipewire wiremix
 thunar thunar-archive-plugin xarchiver thunar-media-tags-plugin tumbler ntfs-3g gvfs inetutils
 ttf-firacode-nerd powerline powerline-fonts noto-fonts-cjk noto-fonts-emoji less
-tmux alacritty fish fisher starship zoxide eza peek bat fzf fd direnv dysk
+ghostty alacritty tmux fish fisher starship zoxide eza peek bat fzf fd direnv dysk
 neovim tree-sitter-cli ueberzug unzip imagemagick ripgrep
 i3-wm picom polybar rofi dunst maim feh playerctl htop earlyoom
 firefox speech-dispatcher mpv
@@ -88,7 +88,7 @@ paru -Sy xmousepasteblock light bar-gmail volta polypane datagrip lefthook
 ```
 
 2.  Move on to each of the dedicated README for each app:
-    - [alacritty](../alacritty/README.md)
+    - [ghostty](../ghostty/README.md) & [alacritty](../alacritty/README.md)
     - [fish](../fish/README.md)
     - [tmux](../tmux/README.md)
     - [rofi](../rofi/README.md)
