@@ -46,7 +46,6 @@ local function with_spinner_noti(callback)
 				ref = vim.notify(options.message or "Processing...", options.level or vim.log.levels.INFO, {
 					title = options.title,
 					icon = frames[frame_idx],
-					timeout = false,
 				})
 				if timer then
 					timer:start(
@@ -60,7 +59,6 @@ local function with_spinner_noti(callback)
 								title = options.title,
 								icon = frames[frame_idx],
 								replace = ref,
-								timeout = false,
 							})
 						end)
 					)
