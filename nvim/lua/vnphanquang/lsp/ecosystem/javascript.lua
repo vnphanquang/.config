@@ -42,22 +42,7 @@ return eco.define_lsp_tools({
 			end,
 		},
 	},
-	{
-		mason_id = "svelte",
-		config = {
-			on_attach = function(client)
-				-- https://github.com/sveltejs/language-tools/issues/2008
-				vim.api.nvim_create_autocmd("BufWritePost", {
-					pattern = { "*.js", "*.ts" },
-					callback = function(ctx)
-						-- Here use ctx.match instead of ctx.file
-						---@diagnostic disable-next-line: param-type-mismatch
-						client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-					end,
-				})
-			end,
-		},
-	},
+	"svelte",
 	{
 		mason_id = "tailwindcss",
 		config = {
