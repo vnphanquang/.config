@@ -86,3 +86,26 @@ end, { desc = "[s]pelling [d]elete from spellfile" })
 vim.keymap.set({ "n", "v" }, "<leader>mss", function()
 	vim.cmd("normal! 1z=")
 end, { desc = "[s]pelling apply [s]uggestion" })
+
+vim.keymap.set("v", "gi", function()
+	-- Save register state
+	local old_reg = vim.fn.getreg("v")
+	local old_regtype = vim.fn.getregtype("v")
+
+	-- Copy selection to register 'v'
+	vim.cmd('noautocmd normal! "vy')
+	local selected_text = vim.fn.getreg("v")
+
+	-- Pipe text to Node.js stdin instead of argv
+	local encoded = vim.fn.system(
+		"node -e 'process.stdin.on(\"data\", data => process.stdout.write(encodeURIComponent(data.toString())))'",
+		selected_text
+	)
+
+	-- Paste encoded text back over selection
+	vim.fn.setreg("v", encoded)
+	vim.cmd('normal! gv"vp')
+
+	-- Restore original register state
+	vim.fn.setreg("v", old_reg, old_regtype)
+end, { desc = "URL encode selected text" })
